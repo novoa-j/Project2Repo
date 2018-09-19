@@ -9,8 +9,6 @@ j
 :src/main/java/com/revature/salutem/util/HibernateUtil.java,0\a\0ab351c149f15807741d259a8f6a81e85cd6ee84
 l
 <src/main/java/com/revature/salutem/models/BodyLocations.java,1\b\1b470434df53611ce22cd1b9a9c9ba01db969399
-o
-?src/main/java/com/revature/salutem/models/BodySubLocations.java,7\d\7dc9b472a56bf369e090e5cfa375bf4653a6eb8f
 f
 6src/main/java/com/revature/salutem/models/Account.java,a\e\aeef54f78240a3c2ee85baefe6f74200e74692ea
 f
@@ -21,3 +19,5 @@ d
 4src/main/java/com/revature/salutem/models/Issue.java,3\5\353c3f324babf843c3822deda6d430d214e923a5
 h
 8src/main/java/com/revature/salutem/models/Diagnosis.java,e\3\e3982bcdbcbfc6e49a80910feca57f1dcb6fb3db
+h
+8src/main/java/com/revature/salutem/models/IssueInfo.java,0\1\010736d505accadde3dd762d4588cfd2d5d4ae7b

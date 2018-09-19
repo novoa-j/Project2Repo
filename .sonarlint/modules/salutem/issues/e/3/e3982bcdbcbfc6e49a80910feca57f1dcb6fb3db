@@ -1,3 +1,7 @@
 
-`squid:S1068"'Remove this unused "iss" private field.(Œûú¤úÿÿÿÿ8 ¸ÊŞ,HÓRMAJORZ
+isquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8÷ÖÀ†ß,HRINFOZ
+CODE_SMELL
+’squid:S39731"WUse curly braces or indentation to denote the code conditionally executed by this "if".(İÇ†¤üÿÿÿÿ8÷ÖÀ†ß,HRCRITICALZ
+CODE_SMELL
+’squid:S39736"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¯ëÊğùÿÿÿÿ8²üÌˆß,H<RCRITICALZ
 CODE_SMELL

@@ -1,12 +1,23 @@
 package com.revature.salutem.models;
 
 import java.util.Date;
+import javax.persistence.*;
 
+@Entity
+@Table
 public class Symptom {
+	
 	//inclue a date property
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="symptomSequence")
+	@SequenceGenerator(name="symptomSequence",allocationSize=1,sequenceName="SQ_SYMPT_PK")
+	@Column(name="SYMPTOM_ID")
 	private int id; 
+	@Column(name="NAME")
 	private String symptomName;
+	@Column(name="DATE")
 	private Date dateIssued;
+	
 	public int getId() {
 		return id;
 	}

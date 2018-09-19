@@ -1,13 +1,11 @@
 
-dsquid:S1068	"+Remove this unused "redFlag" private field.(†ìá¢üÿÿÿÿ8àŒ¼ÊŞ,HåRMAJORZ
+isquid:S1135T"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8¬ÚÀ†ß,HRINFOZ
 CODE_SMELL
-_squid:S1068"&Remove this unused "id" private field.(ôç¼Óşÿÿÿÿ8³…ÊŞ,H»RMAJORZ
+ˆsquid:S3776e"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ÜÑã8¬ÚÀ†ß,HRCRITICALZ
 CODE_SMELL
-\squid:S1068"(Remove this unused "name" private field.(Ë¥¼8Æ‘†ÊŞ,H¾RMAJORZ
+squid:S3973€"WUse curly braces or indentation to denote the code conditionally executed by this "if".(•»è8¬ÚÀ†ß,HRCRITICALZ
 CODE_SMELL
-dsquid:S1068"+Remove this unused "ranking" private field.(…éùùÿÿÿÿ8¥ÙˆÊŞ,HÇRMAJORZ
+’squid:S3973t"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©âèåùÿÿÿÿ8¬ÚÀ†ß,HRCRITICALZ
 CODE_SMELL
-esquid:S1068",Remove this unused "accuracy" private field.(Úñ“Àÿÿÿÿÿ8Ãı‹ÊŞ,HÑRMAJORZ
-CODE_SMELL
-`squid:S1068",Remove this unused "profName" private field.(éß¿š8ÃÏ‡ÊŞ,HÂRMAJORZ
+’squid:S3973y"WUse curly braces or indentation to denote the code conditionally executed by this "if".(…ºËÓúÿÿÿÿ8¬ÚÀ†ß,HRCRITICALZ
 CODE_SMELL

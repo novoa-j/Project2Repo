@@ -1,10 +1,11 @@
 
-_squid:S1068	"'Remove this unused "key" private field.(şÅ¨ùÿÿÿÿ8¨ü¢ÈŞ,H%RMAJORZ
+isquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8÷ÖÀ†ß,HRINFOZ
 CODE_SMELL
-csquid:S1068
-"0Remove this unused "pastSymptoms" private field.(íÄÒ8€ƒÉŞ,HDRMAJORZ
+squid:S3973V"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¥¶ 8÷ÖÀ†ß,HRCRITICALZ
 CODE_SMELL
-_squid:S1068",Remove this unused "username" private field.(‘ó¹²8¨ü¢ÈŞ,H$RMAJORZ
+ˆsquid:S3776I"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÜÑã8÷ÖÀ†ß,HRCRITICALZ
 CODE_SMELL
-`squid:S1068"-Remove this unused "accountId" private field.(ç¬şÌ8Ş«¨ÈŞ,H/RMAJORZ
+squid:S3973["WUse curly braces or indentation to denote the code conditionally executed by this "if".(£ïñ¨8ÃÜ¸‡ß,H2RCRITICALZ
+CODE_SMELL
+squid:S3973`"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‘ÈÁ•8÷ÖÀ†ß,HRCRITICALZ
 CODE_SMELL

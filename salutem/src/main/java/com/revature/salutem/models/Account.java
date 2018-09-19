@@ -2,11 +2,27 @@ package com.revature.salutem.models;
 
 import java.util.List;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Account {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="accountSequence")
+	@SequenceGenerator(name="accountSequence",allocationSize=1,sequenceName="SQ_ACC_PK")
+	@Column(name="ACCOUNT_ID")
 	private int accountId;
+	@Column(name="USER")
 	private String username;
+	@Column(name="ACC_KEY")
 	private String key;
+	@ManyToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@JoinTable(
+			name="ACC_SYMPTOMS",
+			joinColumns= {@JoinColumn(name="ACCOUNT_ID")},
+			inverseJoinColumns={@JoinColumn(name="")}
+			)
 	private List<Symptom> pastSymptoms;
 	public Account() {
 		super();

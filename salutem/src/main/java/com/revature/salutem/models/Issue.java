@@ -1,12 +1,24 @@
 package com.revature.salutem.models;
+import javax.persistence.*;
 
+@Entity
+@Table
 public class Issue {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="issueSequence")
+	@SequenceGenerator(name="issueSequence",allocationSize=1,sequenceName="SQ_ISSUE_PK")
+	@Column(name="ISSUE_ID")
 	private int id;
+	@Column()
 	private String name;
+	@Column(name="PROFESSIONAL")
 	private String profName;
+	@Column(name="ACCURACY")
 	private float accuracy;
+	@Column
 	private int ranking;
+	@Column
 	private String redFlag; //optional parameter
 	
 	public int getId() {

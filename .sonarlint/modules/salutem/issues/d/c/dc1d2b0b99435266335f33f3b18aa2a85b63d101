@@ -1,7 +1,7 @@
 
-\squid:S1068"(Remove this unused "name" private field.(Ë¥¼8ƒş“ÊŞ,HÙRMAJORZ
+’squid:S3973F"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©âèåùÿÿÿÿ8²èÀ†ß,H*RCRITICALZ
 CODE_SMELL
-csquid:S1068"0Remove this unused "specialistId" private field.(©…¡m8ƒş“ÊŞ,HÚRMAJORZ
+isquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8²èÀ†ß,H,RINFOZ
 CODE_SMELL
-_squid:S1068"&Remove this unused "id" private field.(ôç¼Óşÿÿÿÿ8ƒş“ÊŞ,HØRMAJORZ
+ysquid:S1126H"AReplace this if-then-else statement by a single return statement.(á‚Ÿüÿÿÿÿ8²èÀ†ß,H+RMINORZ
 CODE_SMELL
