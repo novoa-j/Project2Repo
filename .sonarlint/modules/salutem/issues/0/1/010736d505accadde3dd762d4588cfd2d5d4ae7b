@@ -1,23 +1,0 @@
-
-Œsquid:S3973›"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©âèåùÿÿÿÿH"RCRITICALZ
-CODE_SMELL
-Œsquid:S3973¥"WUse curly braces or indentation to denote the code conditionally executed by this "if".(…ºËÓúÿÿÿÿH$RCRITICALZ
-CODE_SMELL
-wsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÄÐ×ïH&RMAJORZ
-CODE_SMELL
-‡squid:S3973–"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÙËÄêH!RCRITICALZ
-CODE_SMELL
-bsquid:S1135,"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH'RINFOZ
-CODE_SMELL
-squid:S3776"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(ÜÑãH(RCRITICALZ
-CODE_SMELL
-Œsquid:S3973ª"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Ã½ƒŽùÿÿÿÿH%RCRITICALZ
-CODE_SMELL
-msquid:S00107"AConstructor has 8 parameters, which is greater than 7 authorized.(ÇùºH)RMAJORZ
-CODE_SMELL
-Œsquid:S3973Š"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ŒþýìúÿÿÿÿHRCRITICALZ
-CODE_SMELL
-Œsquid:S3973 "WUse curly braces or indentation to denote the code conditionally executed by this "if".(Ï°‹îÿÿÿÿÿH#RCRITICALZ
-CODE_SMELL
-‡squid:S3973"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¾Þ”ÓH RCRITICALZ
-CODE_SMELL

@@ -1,11 +1,9 @@
 
-isquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8÷ÖÀ†ß,HRINFOZ
+‰squid:S3776H"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÜÑã8ÿ×ôòŞ,H°RCRITICALZ
 CODE_SMELL
-squid:S3973V"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¥¶ 8÷ÖÀ†ß,HRCRITICALZ
+squid:S3973_"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‘ÈÁ•8ÿ×ôòŞ,H³RCRITICALZ
 CODE_SMELL
-ˆsquid:S3776I"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÜÑã8÷ÖÀ†ß,HRCRITICALZ
+squid:S3973U"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¥¶ 8ÿ×ôòŞ,H²RCRITICALZ
 CODE_SMELL
-squid:S3973["WUse curly braces or indentation to denote the code conditionally executed by this "if".(£ïñ¨8ÃÜ¸‡ß,H2RCRITICALZ
-CODE_SMELL
-squid:S3973`"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‘ÈÁ•8÷ÖÀ†ß,HRCRITICALZ
+squid:S3973Z"WUse curly braces or indentation to denote the code conditionally executed by this "if".(£ïñ¨8ÿ×ôòŞ,H¯RCRITICALZ
 CODE_SMELL

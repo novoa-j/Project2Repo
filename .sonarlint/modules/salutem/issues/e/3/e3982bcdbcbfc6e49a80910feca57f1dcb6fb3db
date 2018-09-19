@@ -1,7 +1,7 @@
 
-isquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8÷ÖÀ†ß,HRINFOZ
+“squid:S39736"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¯ëÊðùÿÿÿÿ8²üÌˆß,HÀRCRITICALZ
 CODE_SMELL
-’squid:S39731"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÝÇ†¤üÿÿÿÿ8÷ÖÀ†ß,HRCRITICALZ
+“squid:S39731"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÝÇ†¤üÿÿÿÿ8÷ÖÀ†ß,HÁRCRITICALZ
 CODE_SMELL
-’squid:S39736"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¯ëÊðùÿÿÿÿ8²üÌˆß,H<RCRITICALZ
+jsquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8÷ÖÀ†ß,HÂRINFOZ
 CODE_SMELL

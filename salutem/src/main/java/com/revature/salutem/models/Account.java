@@ -26,7 +26,6 @@ public class Account {
 	private List<Symptom> pastSymptoms;
 	public Account() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Account(int accountId, String username, String key, List<Symptom> pastSymptoms) {
 		super();
