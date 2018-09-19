@@ -21,7 +21,7 @@ public class Account {
 	@JoinTable(
 			name="ACC_SYMPTOMS",
 			joinColumns= {@JoinColumn(name="ACCOUNT_ID")},
-			inverseJoinColumns={@JoinColumn(name="")}
+			inverseJoinColumns={@JoinColumn(name="SYMPTOM_ID")}
 			)
 	private List<Symptom> pastSymptoms;
 	public Account() {

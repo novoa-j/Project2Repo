@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
-@Entity
-@Table
+
 public class Diagnosis {
 	
-	@Column(name="ISSUE")
+//	@Column(name="ISSUE")
 	private Issue iss;
-	@ManyToOne
-	@JoinColumn(name="")
+//	@ManyToOne
+//	@JoinColumn(name="SPECIALIZATION_ID")
 	List<Specialization> specialization = new ArrayList<>();
 	
 	public Diagnosis() {
