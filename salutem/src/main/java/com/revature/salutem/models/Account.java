@@ -1,0 +1,91 @@
+package com.revature.salutem.models;
+
+import java.util.List;
+
+public class Account {
+	
+	private int accountId;
+	private String username;
+	private String key;
+	private List<Symptom> pastSymptoms;
+	public Account() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Account(int accountId, String username, String key, List<Symptom> pastSymptoms) {
+		super();
+		this.accountId = accountId;
+		this.username = username;
+		this.key = key;
+		this.pastSymptoms = pastSymptoms;
+	}
+	public int getAccountId() {
+		return accountId;
+	}
+	public void setAccountId(int accountId) {
+		this.accountId = accountId;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getKey() {
+		return key;
+	}
+	public void setKey(String key) {
+		this.key = key;
+	}
+	public List<Symptom> getPastSymptoms() {
+		return pastSymptoms;
+	}
+	public void setPastSymptoms(List<Symptom> pastSymptoms) {
+		this.pastSymptoms = pastSymptoms;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + accountId;
+		result = prime * result + ((key == null) ? 0 : key.hashCode());
+		result = prime * result + ((pastSymptoms == null) ? 0 : pastSymptoms.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Account other = (Account) obj;
+		if (accountId != other.accountId)
+			return false;
+		if (key == null) {
+			if (other.key != null)
+				return false;
+		} else if (!key.equals(other.key))
+			return false;
+		if (pastSymptoms == null) {
+			if (other.pastSymptoms != null)
+				return false;
+		} else if (!pastSymptoms.equals(other.pastSymptoms))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Account [accountId=" + accountId + ", username=" + username + ", key=" + key + ", pastSymptoms="
+				+ pastSymptoms + "]";
+	}
+	
+	
+}
