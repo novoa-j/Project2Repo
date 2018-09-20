@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HealthResultService } from '../services/health-result.service';
+import { TokenForm } from '../token';
 
 @Component({
   selector: 'app-authorization',
@@ -7,17 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorizationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private healthResultService: HealthResultService) { }
 
   ngOnInit() {
   }
 
-    // uri = "https://authservice.priaid.ch/login";
-    // secret_key = "cindy221";
-    // computedHash = CryptoJS.HmacMD5(uri, secret_key);
-    // computedHashString = computedHash.toString(CryptoJS.enc.Base64);
-    
-    // console.log(computedHashString); // J9J5D9T+WJ5vfyrb0TIYtg==
-    // console.log(computedHash);
+  token: TokenForm;
+
+  // getTheToken(){
+  //   //this.healthResultService.getToken().subscribe((alltokens) => {this.token = alltokens});
+  //   this.healthResultService.getToken().subscribe((alltokens) => {this.token = alltokens});
+  // }  
 
 }
