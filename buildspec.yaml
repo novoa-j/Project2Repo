@@ -1,9 +1,10 @@
+
 version: 0.2
 
 env:
     variables:
-        S3_BUCKET: "<S3_BUCKET_HERE>"
-        APP_NAME: "<APP_NAME_HERE>"
+        S3_BUCKET: "codepipeline-us-west-2-136094458852"
+        APP_NAME: "angular-salutem"
         BUILD_ENV : "prod"
 
 phases:
