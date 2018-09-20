@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BodySymptom } from '../symptom';
+import { HealthResultService } from '../services/health-result.service';
 
 @Component({
   selector: 'app-body-symptoms',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodySymptomsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private healthResultService: HealthResultService) { }
 
   ngOnInit() {
+  }
+
+  bodySymptoms: BodySymptom[] = [];
+  id: number;
+  gender: number;
+
+  getBodySymptoms(){
+    this.healthResultService.loadBodySymptoms(this.id, this.gender).subscribe((allBodySymptoms) => {this.bodySymptoms = allBodySymptoms});
   }
 
 }

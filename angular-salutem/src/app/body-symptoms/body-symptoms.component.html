@@ -1,3 +1,23 @@
-<p>
-  body-symptoms works!
-</p>
+<br><br><br>
+<div class="container">
+    <div class="jumbotron">
+
+      <form>
+          id<input type="text" id="num1" [(ngModel)] = "value1" >
+          gender<input type="text" id="num2" [(ngModel)] = "value2" >
+      </form>
+      
+
+      <!-- <button id="myButton" class="btn btn-success" (click)='getBodySymptoms()'>Get symptoms!</button> -->
+    </div>
+    <div>
+      <div *ngFor='let symptom of bodySymptoms' (click)="onSelect(symptom)">
+      <h4>{{symptom.ID}})</h4> 
+      <p>{{symptom.Name}}</p>
+      <p>{{symptom.HasRedFlag}}</p>
+      <p>{{symptom.HealthSymptomLocationIDs}}</p>
+      <p>{{symptom.ProfName}}</p>
+      <p>{{symptom.Synonyms}}</p>
+      </div>
+    </div>
+  </div>
