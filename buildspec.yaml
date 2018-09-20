@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 version: 0.2
 
 env:
     variables:
         S3_BUCKET: "codepipeline-us-west-2-136094458852"
-        APP_NAME: "SalutemFrontnend"
         BUILD_ENV : "prod"
 
 phases:

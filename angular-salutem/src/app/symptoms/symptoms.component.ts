@@ -14,10 +14,27 @@ export class SymptomsComponent implements OnInit {
   ngOnInit() {
   }
 
+  isClicked: boolean = false;
+  hideOrNah: string = 'unhide';
+
   symptoms: Symptom[] = [];
 
   getSymptoms(){
+    this.changeClicked();
     this.healthResultService.loadSymptoms().subscribe((allSymptoms) => {this.symptoms = allSymptoms});
+  }
+
+  changeClicked(){
+    this.isClicked = !this.isClicked;
+    this.toggleHide();
+  }
+
+  toggleHide(){
+    if(this.hideOrNah === 'unhide'){
+      this.hideOrNah = 'hide';
+    } else {
+      this.hideOrNah = 'unhide';
+    }
   }
 
 }
