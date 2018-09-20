@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table
 public class Symptom {
 	
-	//inclue a date property
+	//include a date property
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="symptomSequence")
 	@SequenceGenerator(name="symptomSequence",allocationSize=1,sequenceName="SQ_SYMPT_PK")
