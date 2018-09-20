@@ -14,10 +14,27 @@ export class BodyLocationsComponent implements OnInit {
   ngOnInit() {
   }
 
+  isClicked: boolean = false;
+  hideOrNah: string = 'unhide';
+
   bodyLocations: BodyLocation[] = [];
 
   getBodyLocations(){
+    this.changeClicked();
     this.healthResultService.loadBodyLocations().subscribe((allBodyLocations) => {this.bodyLocations = allBodyLocations});
+  }
+
+  changeClicked(){
+    this.isClicked = !this.isClicked;
+    this.toggleHide();
+  }
+
+  toggleHide(){
+    if(this.hideOrNah === 'unhide'){
+      this.hideOrNah = 'hide';
+    } else {
+      this.hideOrNah = 'unhide';
+    }
   }
 
 }

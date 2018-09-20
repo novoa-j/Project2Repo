@@ -18,8 +18,8 @@ export class BodySymptomsComponent implements OnInit {
   id: number;
   gender: number;
 
-  getBodySymptoms(){
-    this.healthResultService.loadBodySymptoms(this.id, this.gender).subscribe((allBodySymptoms) => {this.bodySymptoms = allBodySymptoms});
-  }
+  // getBodySymptoms(){
+  //   this.healthResultService.loadBodySymptoms(this.value1, this.value2).subscribe((allBodySymptoms) => {this.bodySymptoms = allBodySymptoms});
+  // }
 
 }

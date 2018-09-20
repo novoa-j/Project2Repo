@@ -1,3 +1,10 @@
-<p>
-  body-location works!
-</p>
+<br><br><br>
+<div class="container">
+    <div class="jumbotron">
+
+            id: <input type="number"  [(ngModel)]='bodyId' name='bodyId'>
+        
+      <button id="myButton" class="btn btn-success" (click)='getBodyLocation(bodyId)'>Get body location!</button>
+        <h4>{{bodyLocation.ID}})</h4>
+        <p>{{bodyLocation.Name}}</p>
+</div>

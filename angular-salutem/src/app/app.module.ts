@@ -18,6 +18,7 @@ import { LocationComponent } from './location/location.component';
 import { BodySymptomsComponent } from './body-symptoms/body-symptoms.component';
 import { HealthResultService } from './services/health-result.service';
 import { AuthorizationComponent } from './authorization/authorization.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AuthorizationComponent } from './authorization/authorization.component'
     RedflagComponent,
     LocationComponent,
     BodySymptomsComponent,
-    AuthorizationComponent
+    AuthorizationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -4,9 +4,11 @@
       <button id="myButton" class="btn btn-success" (click)='getSymptoms()'>Get symptoms!</button>
     </div>
     <div>
+        <div *ngIf='isClicked'>
       <div *ngFor='let symptom of symptoms'>
       <h4>{{symptom.ID}})</h4> 
       <p>{{symptom.Name}}</p>
       </div>
     </div>
+  </div>
   </div>

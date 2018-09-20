@@ -14,10 +14,27 @@ export class IssuesComponent implements OnInit {
   ngOnInit() {
   }
 
+  isClicked: boolean = false;
+  hideOrNah: string = 'unhide';
+
   issues: Issue[] = [];
 
   getIssues(){
+    this.changeClicked();
     this.healthResultService.loadIssues().subscribe((allIssues) => {this.issues = allIssues});
+  }
+
+  changeClicked(){
+    this.isClicked = !this.isClicked;
+    this.toggleHide();
+  }
+
+  toggleHide(){
+    if(this.hideOrNah === 'unhide'){
+      this.hideOrNah = 'hide';
+    } else {
+      this.hideOrNah = 'unhide';
+    }
   }
 
 }
