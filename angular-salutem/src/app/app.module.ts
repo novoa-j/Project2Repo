@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LocationsComponent } from './locations/locations.component';
@@ -14,6 +15,8 @@ import { BodyLocationComponent } from './body-location/body-location.component';
 import { RedflagComponent } from './redflag/redflag.component';
 import { LocationComponent } from './location/location.component';
 import { BodySymptomsComponent } from './body-symptoms/body-symptoms.component';
+import { HealthResultService } from './services/health-result.service';
+import { AuthorizationComponent } from './authorization/authorization.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +32,14 @@ import { BodySymptomsComponent } from './body-symptoms/body-symptoms.component';
     BodyLocationComponent,
     RedflagComponent,
     LocationComponent,
-    BodySymptomsComponent
+    BodySymptomsComponent,
+    AuthorizationComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HealthResultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
