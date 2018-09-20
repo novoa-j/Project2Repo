@@ -2,18 +2,18 @@ package com.revature.salutem.models;
 
 import javax.persistence.*;
 
-@Entity
-@Table
+//@Entity
+//@Table
 public class Specialization {
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="specializationSequence")
-	@SequenceGenerator(name="specializationSequence",allocationSize=1,sequenceName="SQ_SPEC_PK")
-	@Column(name="SPECIALIZION_ID")
+//	
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="specializationSequence")
+//	@SequenceGenerator(name="specializationSequence",allocationSize=1,sequenceName="SQ_SPEC_PK")
+//	@Column(name="SPECIALIZION_ID")
 	private int id;
-	@Column
+//	@Column
 	private String name;
-	@Column(name="SPECIALIST_ID")
+//	@Column(name="SPECIALIST_ID")
 	private int specialistId;
 	
 	public Specialization() {

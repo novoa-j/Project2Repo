@@ -16,11 +16,13 @@
 		<property name="hibernate.show_sql">true</property>
 		
 		<mapping class="com.revature.salutem.models.Account"/>
+		<mapping class="com.revature.salutem.models.Symptom"/>
+		<!--  
 		<mapping class="com.revature.salutem.models.BodyLocations"/>
 		<mapping class="com.revature.salutem.models.Diagnosis"/>
 		<mapping class="com.revature.salutem.models.Issue"/>
 		<mapping class="com.revature.salutem.models.IssueInfo"/>
 		<mapping class="com.revature.salutem.models.Specialization"/>
-		<mapping class="com.revature.salutem.models.Symptom"/>
+		-->
 		</session-factory>
 	</hibernate-configuration>

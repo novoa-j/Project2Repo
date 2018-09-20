@@ -13,7 +13,7 @@ public class Account {
 	@SequenceGenerator(name="accountSequence",allocationSize=1,sequenceName="SQ_ACC_PK")
 	@Column(name="ACCOUNT_ID")
 	private int accountId;
-	@Column(name="USER")
+	@Column(name="USERNAME")
 	private String username;
 	@Column(name="ACC_KEY")
 	private String key;

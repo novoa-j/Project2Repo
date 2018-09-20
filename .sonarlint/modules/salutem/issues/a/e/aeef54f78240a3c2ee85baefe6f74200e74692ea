@@ -1,9 +1,9 @@
 
-‰squid:S3776H"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÜÑã8ÿ×ôòŞ,H°RCRITICALZ
+‰squid:S3776H"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÜÑã8ÿ×ôòŞ,HêRCRITICALZ
 CODE_SMELL
-squid:S3973_"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‘ÈÁ•8ÿ×ôòŞ,H³RCRITICALZ
+squid:S3973Z"WUse curly braces or indentation to denote the code conditionally executed by this "if".(£ïñ¨8ÿ×ôòŞ,HëRCRITICALZ
 CODE_SMELL
-squid:S3973U"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¥¶ 8ÿ×ôòŞ,H²RCRITICALZ
+squid:S3973U"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¥¶ 8ÿ×ôòŞ,HìRCRITICALZ
 CODE_SMELL
-squid:S3973Z"WUse curly braces or indentation to denote the code conditionally executed by this "if".(£ïñ¨8ÿ×ôòŞ,H¯RCRITICALZ
+squid:S3973_"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‘ÈÁ•8ÿ×ôòŞ,HíRCRITICALZ
 CODE_SMELL

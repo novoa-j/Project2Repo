@@ -15,7 +15,7 @@ public class Symptom {
 	private int id; 
 	@Column(name="NAME")
 	private String symptomName;
-	@Column(name="DATE")
+	@Column(name="SYMP_DATE")
 	private Date dateIssued;
 	
 	public int getId() {

@@ -15,3 +15,9 @@ $src/main/resources/hibernate.cfg.xml,3\1\3176feae82bf4ff4f68f72c9d6d3b850a3110
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 f
 6src/main/java/com/revature/salutem/models/Account.java,a\e\aeef54f78240a3c2ee85baefe6f74200e74692ea
+c
+3src/main/java/com/revature/salutem/util/Driver.java,4\a\4ac458f1b1273f1a9e2edbf068ad24381915be49
+g
+7src/main/java/com/revature/salutem/daos/AccountDao.java,c\c\cc49238414c178a3d9e5b06d56a9554ae1371274
+g
+7src/main/java/com/revature/salutem/daos/SymptomDao.java,c\e\ce1e2a6d81f2a7751ec7562096a82901e26f85f2
