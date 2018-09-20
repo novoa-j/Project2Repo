@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BodyLocation } from '../body-location';
+import { HealthResultService } from '../services/health-result.service';
 
 @Component({
   selector: 'app-body-locations',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyLocationsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private healthResultService: HealthResultService) { }
 
   ngOnInit() {
+  }
+
+  bodyLocations: BodyLocation[] = [];
+
+  getBodyLocations(){
+    this.healthResultService.loadBodyLocations().subscribe((allBodyLocations) => {this.bodyLocations = allBodyLocations});
   }
 
 }

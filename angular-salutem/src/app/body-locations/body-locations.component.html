@@ -1,3 +1,12 @@
-<p>
-  body-locations works!
-</p>
+<br><br><br>
+<div class="container">
+    <div class="jumbotron">
+      <button id="myButton" class="btn btn-success" (click)='getBodyLocations()'>Get body locations!</button>
+    </div>
+    <div>
+      <div *ngFor='let bodyLocation of bodyLocations'>
+      <h4>{{bodyLocation.ID}})</h4> 
+      <p>{{bodyLocation.Name}}</p>
+      </div>
+    </div>
+  </div>
