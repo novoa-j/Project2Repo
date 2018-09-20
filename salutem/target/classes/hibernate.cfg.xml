@@ -18,6 +18,7 @@
 		<mapping class="com.revature.salutem.models.Account"/>
 		<mapping class="com.revature.salutem.models.Symptom"/>
 		<!--  
+		
 		<mapping class="com.revature.salutem.models.BodyLocations"/>
 		<mapping class="com.revature.salutem.models.Diagnosis"/>
 		<mapping class="com.revature.salutem.models.Issue"/>
