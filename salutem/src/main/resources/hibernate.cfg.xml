@@ -12,7 +12,7 @@
 		<property name="hibernate.connection.username">novoa_j</property>
 		<property name="hibernate.connection.password">C!ndy221</property>
 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-		<property name="hibernate.hbm2ddl.auto">create</property> 
+		<property name="hibernate.hbm2ddl.auto">validate</property> 
 		<property name="hibernate.show_sql">true</property>
 		
 		<mapping class="com.revature.salutem.models.Account"/>
