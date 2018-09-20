@@ -18,8 +18,10 @@ export class BodyLocationComponent implements OnInit {
 
   @Input() bodyId: number;
 
-  getBodyLocation(){
-    this.healthResultService.loadBodyLocation(`${bodyId}`).subscribe((allBodyLocations) => {this.bodyLocation = allBodyLocations});
+  //@Input() bodyId = `${this.bodyId}`;
+
+  getBodyLocation(bodyId){
+    this.healthResultService.loadBodyLocation(bodyId).subscribe((allBodyLocations) => {this.bodyLocation = allBodyLocations});
   }
 
 }
