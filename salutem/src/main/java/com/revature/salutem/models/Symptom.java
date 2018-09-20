@@ -47,6 +47,12 @@ public class Symptom {
 		this.symptomName = symptomName;
 		this.dateIssued = dateIssued;
 	}
+	public Symptom(String symptomName, Date dateIssued) {
+		super();
+		this.id = 0;
+		this.symptomName = symptomName;
+		this.dateIssued = dateIssued;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

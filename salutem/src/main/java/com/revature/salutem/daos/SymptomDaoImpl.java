@@ -42,7 +42,7 @@ public class SymptomDaoImpl implements SymptomDao{
 	}
 
 	@Override
-	public int createSymptons(Symptom s) {
+	public int createSymptoms(Symptom s) {
 		Session sess = HibernateUtil.getSession();
 		Transaction tx = sess.beginTransaction();
 		int key = (int) sess.save(s);
