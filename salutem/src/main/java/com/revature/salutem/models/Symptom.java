@@ -40,7 +40,6 @@ public class Symptom {
 
 	public Symptom() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Symptom(int id, String symptomName, Date dateIssued) {
 		super();
