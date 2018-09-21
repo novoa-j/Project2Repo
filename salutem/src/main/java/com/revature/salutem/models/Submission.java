@@ -40,7 +40,6 @@ public class Submission {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-<<<<<<< HEAD
 	public int getAccountId() {
 		return accountId;
 	}
@@ -68,40 +67,5 @@ public class Submission {
 	
 
 	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((submitDate == null) ? 0 : submitDate.hashCode());
-		result = prime * result + symptomId;
-		result = prime * result + userId;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Submission other = (Submission) obj;
-		if (submitDate == null) {
-			if (other.submitDate != null)
-				return false;
-		} else if (!submitDate.equals(other.submitDate))
-			return false;
-		if (symptomId != other.symptomId)
-			return false;
-		if (userId != other.userId)
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Submission [userId=" + userId + ", symptomId=" + symptomId + ", submitDate=" + submitDate + "]";
-	}
 	
 }
