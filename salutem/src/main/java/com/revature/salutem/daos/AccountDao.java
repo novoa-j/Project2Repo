@@ -3,6 +3,7 @@ package com.revature.salutem.daos;
 import java.util.List;
 
 import com.revature.salutem.models.Account;
+import com.revature.salutem.models.Symptom;
 
 public interface AccountDao {
 
@@ -11,6 +12,6 @@ public interface AccountDao {
 	public List<Account> getAllAccounts();
 	public Account	getAccountById(int id);
 	public int updateAccountById(int id, String username, String key);
-	
+	public int updateAccountById(int id, Symptom sym);	
 	
 }

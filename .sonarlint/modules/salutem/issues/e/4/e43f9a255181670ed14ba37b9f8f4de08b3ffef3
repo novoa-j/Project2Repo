@@ -1,0 +1,15 @@
+
+ksquid:S1155g">Use isEmpty() to check whether the collection is empty or not.(‘Ï¶ŸHßRMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLine8"<This block of commented-out lines of code should be removed.(’‘±µ8Ô”‹¿ﬂ,H€RMAJORZ
+CODE_SMELL
+]squid:UselessImportCheck"Remove this duplicated import.(¨‹Öè¸ˇˇˇˇH¶RMINORZ
+CODE_SMELL
+Xsquid:S1481%"&Remove this unused "c" local variable.(ÇÓ»Ó˚ˇˇˇˇH§RMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLine:"<This block of commented-out lines of code should be removed.(‰∑¥˝8Ô”‹¿ﬂ,H‹RMAJORZ
+CODE_SMELL
+csquid:S1135$"2Complete the task associated to this TODO comment.(¡ôï®˚ˇˇˇˇH£RINFOZ
+CODE_SMELL
+gsquid:S1854%"5Remove this useless assignment to local variable "c".(ÇÓ»Ó˚ˇˇˇˇH•RMAJORZ
+CODE_SMELL

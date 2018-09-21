@@ -14,10 +14,11 @@
 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 		<property name="hibernate.hbm2ddl.auto">validate</property> 
 		<property name="hibernate.show_sql">true</property>
-		
+		<property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
 		<mapping class="com.revature.salutem.models.Account"/>
 		<mapping class="com.revature.salutem.models.Symptom"/>
-		<!--  
+		<!--<mapping class="com.revature.salutem.models.Submission"/>
+				  
 		
 		<mapping class="com.revature.salutem.models.BodyLocations"/>
 		<mapping class="com.revature.salutem.models.Diagnosis"/>

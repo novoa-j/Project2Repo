@@ -17,3 +17,15 @@ f
 6src/main/java/com/revature/salutem/models/Account.java,a\e\aeef54f78240a3c2ee85baefe6f74200e74692ea
 c
 3src/main/java/com/revature/salutem/util/Driver.java,4\a\4ac458f1b1273f1a9e2edbf068ad24381915be49
+h
+8src/main/java/com/revature/salutem/models/IssueInfo.java,0\1\010736d505accadde3dd762d4588cfd2d5d4ae7b
+d
+4src/main/java/com/revature/salutem/models/Issue.java,3\5\353c3f324babf843c3822deda6d430d214e923a5
+g
+7src/main/java/com/revature/salutem/daos/SymptomDao.java,c\e\ce1e2a6d81f2a7751ec7562096a82901e26f85f2
+g
+7src/main/java/com/revature/salutem/daos/AccountDao.java,c\c\cc49238414c178a3d9e5b06d56a9554ae1371274
+k
+;src/main/java/com/revature/salutem/daos/AccountDaoImpl.java,1\5\1599e13dc27a17d8a4b7cfca5f9d0bdf60a0f2c5
+k
+;src/main/java/com/revature/salutem/daos/SymptomDaoImpl.java,e\4\e43f9a255181670ed14ba37b9f8f4de08b3ffef3

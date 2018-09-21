@@ -11,6 +11,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
+import com.revature.salutem.models.Account;
 import com.revature.salutem.models.Symptom;
 import com.revature.salutem.models.Symptom;
 import com.revature.salutem.util.HibernateUtil;
@@ -42,13 +43,29 @@ public class SymptomDaoImpl implements SymptomDao{
 	}
 
 	@Override
-	public int createSymptons(Symptom s) {
+	public int createSymptom(Symptom s) {
 		Session sess = HibernateUtil.getSession();
 		Transaction tx = sess.beginTransaction();
 		int key = (int) sess.save(s);
 		tx.commit();
 		sess.close();
 		return key;
+	}
+	@Override 
+	public int createSymptom(String name, Date dateIssued) {
+//		Account a= new Account();
+		Symptom symp= new Symptom();
+//		a.setAccountId(accountId);
+//		a.setKey(key);
+//		a.setUsername(username);
+		symp.setSymptomName(name);
+//		symp.setDateIssued(dateIssued);
+		Session s= HibernateUtil.getSession();
+		Transaction tx= s.beginTransaction();
+		int aPK=(int) s.save(symp);
+		tx.commit();
+		s.close();
+		return aPK;
 	}
 
 	@Override

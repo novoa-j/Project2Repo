@@ -1,7 +1,7 @@
 
-zsquid:S1126H"AReplace this if-then-else statement by a single return statement.(α‚όÿÿÿÿ8²θΐ†ί,HΓRMINORZ
+“squid:S3973F"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©βθεωÿÿÿÿ8²θΐ†ί,H‚RCRITICALZ
 CODE_SMELL
-jsquid:S1135"2Complete the task associated to this TODO comment.(ƒ® ϊÿÿÿÿ8²θΐ†ί,HΔRINFOZ
+jsquid:S1135"2Complete the task associated to this TODO comment.(ƒ® ϊÿÿÿÿ8²θΐ†ί,HRINFOZ
 CODE_SMELL
-“squid:S3973F"WUse curly braces or indentation to denote the code conditionally executed by this "if".(©βθεωÿÿÿÿ8²θΐ†ί,HΕRCRITICALZ
+zsquid:S1126H"AReplace this if-then-else statement by a single return statement.(α‚όÿÿÿÿ8²θΐ†ί,H€RMINORZ
 CODE_SMELL

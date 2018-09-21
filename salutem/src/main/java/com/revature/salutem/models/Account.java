@@ -7,7 +7,6 @@ import javax.persistence.*;
 @Entity
 @Table
 public class Account {
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="accountSequence")
 	@SequenceGenerator(name="accountSequence",allocationSize=1,sequenceName="SQ_ACC_PK")
@@ -57,6 +56,9 @@ public class Account {
 	}
 	public void setPastSymptoms(List<Symptom> pastSymptoms) {
 		this.pastSymptoms = pastSymptoms;
+	}
+	public void addSymptom(Symptom s) {
+		this.pastSymptoms.add(s);
 	}
 	@Override
 	public int hashCode() {

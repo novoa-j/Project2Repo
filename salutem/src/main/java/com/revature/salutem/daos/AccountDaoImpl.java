@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.revature.salutem.models.Account;
+import com.revature.salutem.models.Symptom;
 import com.revature.salutem.util.HibernateUtil;
 
 public class AccountDaoImpl implements AccountDao {
@@ -57,6 +58,18 @@ public class AccountDaoImpl implements AccountDao {
 		Account a=(Account) s.load(Account.class, id);
 		s.close();
 		return a;
+	}
+	
+	@Override
+	public int updateAccountById(int id, Symptom sym) {
+		Session s = HibernateUtil.getSession();
+		Transaction tx = s.beginTransaction();
+		Account a=(Account) s.load(Account.class, id);
+		a.addSymptom(sym);
+		int result = ((Account) s.merge(a)).getAccountId();
+		tx.commit();
+		s.close();
+		return result;
 	}
 
 	@Override
