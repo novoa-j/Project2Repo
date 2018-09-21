@@ -1,18 +1,28 @@
-// export class Diagnosis {
-//     "Issue": {
-//       "ID": 495,
-//       "Name": "Bloated belly",
-//       "Accuracy": 90,
-//       "Icd": "R14",
-//       "IcdName": "Flatulence and related conditions",
-//       "ProfName": "Meteorism",
-//       "Ranking": 1
-//     },
-//     "Specialisation": [
-//       {
-//         "ID": 15,
-//         "Name": "General practice",
-//         "SpecialistID": 3
-//       }
-//     ]
-//   }
+export class IssueInter {
+    ID: number;
+    Name: string;
+    Accuracy: number;
+    Icd: string;
+    IcdName: string;
+    ProfName: string;
+    Ranking: number;
+}
+
+let arrayOfObj = [IssueInter, SpecialisationEntry];
+
+export class Diagnosis {
+    [
+        Issue: IssueInter,
+        Specialisation: SpecialisationEntry[]
+    ]
+}
+
+export class SpecialisationEntry {
+    ID: number;
+    Name: string;
+    SpecialistID: number;
+}
+
+
+
+

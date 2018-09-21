@@ -14,12 +14,20 @@ export class BodySymptomsComponent implements OnInit {
   ngOnInit() {
   }
 
+  isClicked: boolean = false;
+
   bodySymptoms: BodySymptom[] = [];
+
   id: number;
   gender: number;
 
-  // getBodySymptoms(){
-  //   this.healthResultService.loadBodySymptoms(this.value1, this.value2).subscribe((allBodySymptoms) => {this.bodySymptoms = allBodySymptoms});
-  // }
+  getBodySymptoms(){
+    this.changeClicked();
+    this.healthResultService.loadBodySymptoms(this.id, this.gender).subscribe((allBodySymptoms) => {this.bodySymptoms = allBodySymptoms});
+  }
+
+  changeClicked(){
+    this.isClicked = !this.isClicked;
+  }
 
 }

@@ -30,7 +30,7 @@ export class HealthResultService {
 
   constructor(private http: HttpClient) { }
 
-  token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vdm9hLmpvbkBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6IjExMTQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIxMDgiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiMTAwIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiQmFzaWMiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZW4tZ2IiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDE4LTA5LTE0IiwiaXNzIjoiaHR0cHM6Ly9hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTM3NDc5NjI5LCJuYmYiOjE1Mzc0NzI0Mjl9.E-JYvbzS8r8vgKhesTEoP-He3PmImwvp0RYXcL0Tlm0';
+  token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vdm9hLmpvbkBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6IjExMTQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIxMDgiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiMTAwIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiQmFzaWMiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZW4tZ2IiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDE4LTA5LTE0IiwiaXNzIjoiaHR0cHM6Ly9hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTM3NTAxMzIxLCJuYmYiOjE1Mzc0OTQxMjF9.aFqEPJ9fBYLmx6E8vkUzldz24_j_Yel3mGpIrkjZjWE';
   // authorization = 'Fo3a8_GMAIL_COM_AUT:/O0go1aHzJX3ZBqqHEsu3g==';
   // getToken(): Promise<TokenForm> {
   //   let tkn = this.http.post<TokenForm>(this.baseUrl, httpOptions).toPromise();
@@ -44,8 +44,6 @@ export class HealthResultService {
     //let token = this.config.getToken(); // implement whenever we finally get the token!!
     let extraArgs = '&format=json&language=en-gb';
     let finalUrl = baseUrl + this.token + extraArgs;
-
-    //let finalUrl = 'https://healthservice.priaid.ch/symptoms?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vdm9hLmpvbkBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6IjExMTQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIxMDgiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiMTAwIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiQmFzaWMiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZW4tZ2IiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDE4LTA5LTE0IiwiaXNzIjoiaHR0cHM6Ly9hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTM3NDIxODQ5LCJuYmYiOjE1Mzc0MTQ2NDl9.2chxpubM8dDgqTp3VB3IXPsskr4ciScIpMUCBBENZdw&format=json&language=en-gb';
     console.log(finalUrl);
     return this.http.get<Symptom[]>(finalUrl);
   }
@@ -69,11 +67,11 @@ export class HealthResultService {
   }
 
   // https://healthservice.priaid.ch/body/locations/10?token=
-  loadBodyLocation(id: number): Observable<BodyLocation> { // changed back to observable
+  loadBodyLocation(id: number): Observable<BodyLocation[]> { // changed back to observable
     let baseUrl = 'https://healthservice.priaid.ch/body/locations/';
     let extraArgs = '&format=json&language=en-gb';
     let finalUrl = baseUrl + id + '?token=' + this.token + extraArgs;
-    return this.http.get<BodyLocation>(finalUrl);
+    return this.http.get<BodyLocation[]>(finalUrl);
   }
 
   // https://healthservice.priaid.ch/issues?token=
@@ -102,7 +100,7 @@ export class HealthResultService {
 
   // https://healthservice.priaid.ch/diagnosis/specialisations?symptoms=[107]&gender=male&year_of_birth=1983&token=
   loadSpecialisations(id: number, gender: string, age: number): Observable<Specialisation[]> {
-    let baseUrl = 'https://healthservice.priaid.ch/symptoms/proposed?symptoms=';
+    let baseUrl = 'https://healthservice.priaid.ch/diagnosis/specialisations?symptoms=';
     let extraArgs = '&format=json&language=en-gb';
     let finalUrl = baseUrl + '[' + id + ']&gender=' + gender + '&year_of_birth=' + age + '&token=' + this.token + extraArgs;
     return this.http.get<Specialisation[]>(finalUrl); 

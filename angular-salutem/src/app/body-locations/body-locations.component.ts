@@ -15,7 +15,6 @@ export class BodyLocationsComponent implements OnInit {
   }
 
   isClicked: boolean = false;
-  hideOrNah: string = 'unhide';
 
   bodyLocations: BodyLocation[] = [];
 
@@ -26,15 +25,6 @@ export class BodyLocationsComponent implements OnInit {
 
   changeClicked(){
     this.isClicked = !this.isClicked;
-    this.toggleHide();
   }
-
-  toggleHide(){
-    if(this.hideOrNah === 'unhide'){
-      this.hideOrNah = 'hide';
-    } else {
-      this.hideOrNah = 'unhide';
-    }
-  }
-
+  
 }

@@ -1,13 +1,13 @@
 <br><br><br>
 <div class="container">
-    <div class="jumbotron">
+  <div class="jumbotron">
       <button id="myButton" class="btn btn-success" (click)='getBodyLocations()'>Get body locations!</button>
-    </div>
-    <div>
+  </div>
+  <div>
         <div *ngIf='isClicked'>
       <div *ngFor='let bodyLocation of bodyLocations'>
-      <h4>{{bodyLocation.ID}})</h4> 
-      <p>{{bodyLocation.Name}}</p>
+      <p>Id: {{bodyLocation.ID}}</p> 
+      <p>Name: {{bodyLocation.Name}}</p>
       </div>
     </div>
   </div>

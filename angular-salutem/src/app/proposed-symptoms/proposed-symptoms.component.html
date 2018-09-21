@@ -1,3 +1,17 @@
-<p>
-  proposed-symptoms works!
-</p>
+<br><br><br>
+<div class="container">
+    <div class="jumbotron" id="specialisation">
+
+        id: <input type="number" [(ngModel)]="id" name="id">
+        gender: <input type="text" [(ngModel)]="gender" name="gender">
+        age: <input type="number" [(ngModel)]="age" name="age">
+        
+      <button id="myButton" class="btn btn-success" (click)="getProposedSymptoms()">Get proposed symptoms!</button>
+      <div *ngIf="isClicked">
+        <div *ngFor='let proposedSymptom of proposedSymptoms'>
+        <br>
+        <p>Id: {{proposedSymptom.ID}}<p>
+        <p>Name: {{proposedSymptom.Name}}</p>
+      </div>
+      </div>
+</div>
