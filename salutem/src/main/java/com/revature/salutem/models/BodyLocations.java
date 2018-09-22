@@ -1,17 +1,12 @@
 package com.revature.salutem.models;
 
-import javax.persistence.*;
+import org.springframework.stereotype.Component;
 
-//@Entity
-//@Table
+@Component
 public class BodyLocations {
 	//body location and sublocations both have a name and id, no need for another class
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="bodyLocationSequence")
-//	@SequenceGenerator(name="bodyLocationSequence",allocationSize=1,sequenceName="SQ_LOC_PK")
-//	@Column(name="LOCATION_ID")
+
 	private int id;
-//	@Column
 	private String name;
 	
 	public BodyLocations() {

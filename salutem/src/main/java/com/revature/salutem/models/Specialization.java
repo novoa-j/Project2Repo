@@ -1,24 +1,16 @@
 package com.revature.salutem.models;
 
-import javax.persistence.*;
+import org.springframework.stereotype.Component;
 
-//@Entity
-//@Table
+@Component
 public class Specialization {
-//	
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="specializationSequence")
-//	@SequenceGenerator(name="specializationSequence",allocationSize=1,sequenceName="SQ_SPEC_PK")
-//	@Column(name="SPECIALIZION_ID")
+
 	private int id;
-//	@Column
 	private String name;
-//	@Column(name="SPECIALIST_ID")
 	private int specialistId;
 	
 	public Specialization() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Specialization(int id, String name, int specialistId) {
 		super();

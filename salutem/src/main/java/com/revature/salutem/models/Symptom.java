@@ -2,21 +2,14 @@ package com.revature.salutem.models;
 
 import java.sql.Date;
 
-import javax.persistence.*;
+import org.springframework.stereotype.Component;
 
-@Entity
-@Table
+@Component
 public class Symptom {
 	
 	//include a date property
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="symptomSequence")
-	@SequenceGenerator(name="symptomSequence",allocationSize=1,sequenceName="SQ_SYMPT_PK")
-	@Column(name="SYMPTOM_ID")
 	private int id; 
-	@Column(name="NAME")
 	private String symptomName;
-	@Column(name="SYMP_DATE")
 	private Date dateIssued;
 	
 	public int getId() {

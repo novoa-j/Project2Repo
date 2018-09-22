@@ -2,20 +2,17 @@ package com.revature.salutem.models;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.*;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class Diagnosis {
 	
-//	@Column(name="ISSUE")
 	private Issue iss;
-//	@ManyToOne
-//	@JoinColumn(name="SPECIALIZATION_ID")
 	List<Specialization> specialization = new ArrayList<>();
 	
 	public Diagnosis() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Diagnosis(Issue iss, List<Specialization> specialization) {
 		super();
@@ -67,7 +64,4 @@ public class Diagnosis {
 	public String toString() {
 		return "Diagnosis [iss=" + iss + ", specialization=" + specialization + "]";
 	}
-	
-	
-	
 }

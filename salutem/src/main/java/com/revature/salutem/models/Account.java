@@ -3,7 +3,6 @@ package com.revature.salutem.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,11 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+@Component
 @Entity
 @Table
 public class Account {
@@ -29,29 +30,25 @@ public class Account {
 	private String username;
 	@Column(name="ACC_KEY")
 	private String key;
-	@ManyToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
-	@JoinTable(
-			name="ACC_SYMPTOMS",
-			joinColumns= {@JoinColumn(name="ACCOUNT_ID")},
-			inverseJoinColumns={@JoinColumn(name="SYMPTOM_ID")}
-			)
-	private List<Symptom> pastSymptoms;
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinColumn(name="SUBMISSION_ID")
+	private List<Submission> pastSubmission;
 	public Account() {
 		super();
 	}
-	public Account(int accountId, String username, String key, List<Symptom> pastSymptoms) {
+	public Account(int accountId, String username, String key, List<Submission> pastSubmission) {
 		super();
 		this.accountId = accountId;
 		this.username = username;
 		this.key = key;
-		this.pastSymptoms = pastSymptoms;
+		this.pastSubmission = pastSubmission;
 	}
 	public Account(String username, String key) {
 		super();
 		this.accountId = 0;
 		this.username = username;
 		this.key = key;
-		this.pastSymptoms = new ArrayList<>();
+		this.pastSubmission = new ArrayList<>();
 	}
 	public int getAccountId() {
 		return accountId;
@@ -71,11 +68,11 @@ public class Account {
 	public void setKey(String key) {
 		this.key = key;
 	}
-	public List<Symptom> getPastSymptoms() {
-		return pastSymptoms;
+	public List<Submission> getPastSymptoms() {
+		return pastSubmission;
 	}
-	public void setPastSymptoms(List<Symptom> pastSymptoms) {
-		this.pastSymptoms = pastSymptoms;
+	public void setPastSymptoms(List<Submission> pastSymptoms) {
+		this.pastSubmission = pastSymptoms;
 	}
 	@Override
 	public int hashCode() {
@@ -83,7 +80,7 @@ public class Account {
 		int result = 1;
 		result = prime * result + accountId;
 		result = prime * result + ((key == null) ? 0 : key.hashCode());
-		result = prime * result + ((pastSymptoms == null) ? 0 : pastSymptoms.hashCode());
+		result = prime * result + ((pastSubmission == null) ? 0 : pastSubmission.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -103,10 +100,10 @@ public class Account {
 				return false;
 		} else if (!key.equals(other.key))
 			return false;
-		if (pastSymptoms == null) {
-			if (other.pastSymptoms != null)
+		if (pastSubmission == null) {
+			if (other.pastSubmission != null)
 				return false;
-		} else if (!pastSymptoms.equals(other.pastSymptoms))
+		} else if (!pastSubmission.equals(other.pastSubmission))
 			return false;
 		if (username == null) {
 			if (other.username != null)
@@ -118,7 +115,7 @@ public class Account {
 	@Override
 	public String toString() {
 		return "Account [accountId=" + accountId + ", username=" + username + ", key=" + key + ", pastSymptoms="
-				+ pastSymptoms + "]";
+				+ pastSubmission + "]";
 	}
 	
 	

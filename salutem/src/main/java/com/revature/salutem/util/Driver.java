@@ -2,14 +2,14 @@ package com.revature.salutem.util;
 
 import org.hibernate.Session;
 
-import com.revature.salutem.daos.AccountDao;
-import com.revature.salutem.daos.AccountDaoImpl;
+import com.revature.salutem.services.AccountDao;
+import com.revature.salutem.services.AccountDaoImpl;
 
 public class Driver {
 
 	public static void main(String[] args) {
-		Session s = HibernateUtil.getSession();
-		s.close();
+//		Session s = HibernateUtil.getSession();
+//		s.close();
 		
 		AccountDao ad= new AccountDaoImpl();
 //		ad.createAccount("testname", "pass123");
