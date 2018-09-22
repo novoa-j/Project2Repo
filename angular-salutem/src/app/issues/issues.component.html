@@ -6,8 +6,9 @@
       <button id="myButton" class="btn btn-success" (click)='getIssues()'> Get issues! </button>
     </div>
     <div>
-        <div *ngIf='isClicked'>
+      <div *ngIf='isClicked'>
       <div *ngFor='let issue of issues'>
+      <br>
       <p>Id: {{issue.ID}}</p> 
       <p>Name: {{issue.Name}}</p>
       </div>

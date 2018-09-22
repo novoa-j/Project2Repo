@@ -1,23 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'; // do not use selenium import!
-
-// const httpOptions = {
-//   headers: new HttpHeaders({
-//     'Host' : 'authservice.priaid.ch',
-//     'format': 'json',
-//     'Authorization': 'Bearer Fo3a8_GMAIL_COM_AUT:/O0go1aHzJX3ZBqqHEsu3g==',
-//     'Cache-Control': 'no-cache',
-//     'Postman-Token': 'a18b7b7b-835b-4bc3-8e8f-dca2729659ee',
-//     'Content-Type' : 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
-//   })
-// };
-
+import { HttpClient, HttpHeaders} from '@angular/common/http'; // do not use selenium import!
 import { Symptom, BodySymptom } from '../symptom';
 import { Observable } from 'rxjs';
 import { BodyLocation } from '../body-location';
 import { Issue, Issue2 } from '../issue';
 import { Specialisation } from '../specialisation';
 import { TokenForm } from '../token';
+import { Diagnosis } from '../diagnosis';
 
 @Injectable({
   providedIn: 'root'
@@ -26,18 +15,21 @@ import { TokenForm } from '../token';
 export class HealthResultService {
 
   // baseUrl = 'https://authservice.priaid.ch/login';
-  // token;
 
   constructor(private http: HttpClient) { }
 
-  token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vdm9hLmpvbkBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6IjExMTQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIxMDgiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiMTAwIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiQmFzaWMiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZW4tZ2IiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDE4LTA5LTE0IiwiaXNzIjoiaHR0cHM6Ly9hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTM3NTAxMzIxLCJuYmYiOjE1Mzc0OTQxMjF9.aFqEPJ9fBYLmx6E8vkUzldz24_j_Yel3mGpIrkjZjWE';
-  // authorization = 'Fo3a8_GMAIL_COM_AUT:/O0go1aHzJX3ZBqqHEsu3g==';
-  // getToken(): Promise<TokenForm> {
-  //   let tkn = this.http.post<TokenForm>(this.baseUrl, httpOptions).toPromise();
-  //   console.log(tkn);
-  //   return tkn;
-  // }
- 
+  getToken1(): Observable<TokenForm> {
+    return this.http.post<TokenForm>('https://authservice.priaid.ch/login', null, {
+      headers: new HttpHeaders({
+        'Authorization' : 'Bearer Fo3a8_GMAIL_COM_AUT:/O0go1aHzJX3ZBqqHEsu3g==',
+        'Content-Type' : 'application/json' // multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+      })
+    }); // no error handling rn
+  }
+  
+  // only use (re-send from Postman) if auth post request fail for some reason...
+  token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vdm9hLmpvbkBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6IjExMTQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIxMDgiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiMTAwIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiQmFzaWMiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZW4tZ2IiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDE4LTA5LTE0IiwiaXNzIjoiaHR0cHM6Ly9hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTM3NjU2MDYyLCJuYmYiOjE1Mzc2NDg4NjJ9.2O5-56bqIwMPoLkWLP0IeY1UDySeVxYR7IvrRrnLpVY';
+
   // this is going to return an observable array of symptoms
   loadSymptoms(): Observable<Symptom[]> {
     let baseUrl = 'https://healthservice.priaid.ch/symptoms?token=';
@@ -87,7 +79,7 @@ export class HealthResultService {
     let baseUrl = 'https://healthservice.priaid.ch/issues/';
     let extraArgs = '&format=json&language=en-gb';
     let finalUrl = baseUrl + id + '/info?token=' + this.token + extraArgs;
-    return this.http.get<Issue2>(finalUrl); // changed back to observable
+    return this.http.get<Issue2>(finalUrl);
   }
 
   // https://healthservice.priaid.ch/symptoms/proposed?symptoms=[106]&gender=male&year_of_birth=1982&token=
@@ -105,15 +97,14 @@ export class HealthResultService {
     let finalUrl = baseUrl + '[' + id + ']&gender=' + gender + '&year_of_birth=' + age + '&token=' + this.token + extraArgs;
     return this.http.get<Specialisation[]>(finalUrl); 
   }
-/*
+
   // https://healthservice.priaid.ch/diagnosis?symptoms=[10]&gender=male&year_of_birth=1982&token=
   loadDiagnosis(id: number, gender: string, age: number): Observable<Diagnosis[]> { // NOT DONE!!!!!
-    let baseUrl = 'https://healthservice.priaid.ch/symptoms/proposed?symptoms=';
+    let baseUrl = 'https://healthservice.priaid.ch/diagnosis?symptoms=';
     let extraArgs = '&format=json&language=en-gb';
     let finalUrl = baseUrl + '[' + id + ']&gender=' + gender + '&year_of_birth=' + age + '&token=' + this.token + extraArgs;
     return this.http.get<Diagnosis[]>(finalUrl); 
   }
-  */
-
+  
   //loadRedFlag() // need to find an id that generates redflag to test...
 }

@@ -22,10 +22,16 @@ export class IssueComponent implements OnInit {
 
   getIssue(){
     this.changeClicked();
-    console.log(this.healthResultService.loadIssue(this.issueId));
+    this.healthResultService.loadIssue(this.issueId).subscribe(
+      (data) => {
+        (this.issues = data)
+        console.log(this.issues);
+      }
+    );
   }
 
   changeClicked(){
     this.isClicked = !this.isClicked;
   }
 }
+

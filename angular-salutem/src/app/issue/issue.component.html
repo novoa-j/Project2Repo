@@ -6,15 +6,14 @@
         
     <button id="myButton" class="btn btn-success" (click)="getIssue()">Get issue!</button>
     <div *ngIf="isClicked">
-      <!-- <div *ngFor='let issue of issues'> -->
-      <p>{{issue.Description}})<p>
-      <p>{{issue.DescriptionShort}}</p>
-      <p>{{issue.MedicalCondition}}</p>
-      <p>{{issue.Name}}</p>
-      <p>{{issue.PossibleSymptoms}}</p>
-      <p>{{issue.ProfName}}</p>
-      <p>{{issue.Synonyms}}</p>
-      <p>{{issue.TreatmentDescription}}</p>
-    <!-- </div> -->
+      <p>Description: {{ issues.Description }}<p>
+      <p>Description Short: {{ issues.DescriptionShort }}</p>
+      <p>Medical Condition: {{ issues.MedicalCondition }}</p>
+      <p>Name: {{ issues.Name }}</p>
+      <p>Possible Symptoms: {{ issues.PossibleSymptoms }}</p>
+      <p>Professional Name: {{ issues.ProfName }}</p>
+      <p>Symptoms: {{ issues.Synonyms }}</p>
+      <p>Treatment Description: {{ issues.TreatmentDescription }}</p>
   </div>
+</div>
 </div>
