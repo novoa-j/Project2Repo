@@ -12,6 +12,6 @@ public interface AccountDao {
 	public List<Account> getAllAccounts();
 	public Account	getAccountById(int id);
 	public int updateAccountById(int id, String username, String key);
-	public int updateAccountById(int id, Symptom sym);	
+	public int addSymptomToAccountById(int id, Symptom sym);	
 	
 }

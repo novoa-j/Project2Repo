@@ -1,9 +1,28 @@
 
-„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á–¶áúÿÿÿÿ8˜Í‚¬ß,H©RMAJORZ
+asquid:S1481!"(Remove this unused "cal" local variable.(¿ÍÜÞüÿÿÿÿ8íÀþÐß,HÖRMINORZ
 CODE_SMELL
-squid:CommentedOutCodeLine!"<This block of commented-out lines of code should be removed.(ö¨Œ²8§ÎÁß,H¡RMAJORZ
+squid:CommentedOutCodeLine)"<This block of commented-out lines of code should be removed.(½ªŽ¡8ÛæÐß,HýRMAJORZ
 CODE_SMELL
-[squid:S1481"'Remove this unused "ad" local variable.(’¾Þ³8äû¨Áß,HéRMINORZ
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ö×¬¦øÿÿÿÿ8žÿ¦ãß,H¶RMAJORZ
 CODE_SMELL
-jsquid:S1854"6Remove this useless assignment to local variable "ad".(’¾Þ³8äû¨Áß,HêRMAJORZ
+„squid:CommentedOutCodeLine$"<This block of commented-out lines of code should be removed.(î—…üÿÿÿÿ8íÀþÐß,HÔRMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á–¶áúÿÿÿÿ8•¼èÐß,HžRMAJORZ
+CODE_SMELL
+q
+squid:S106"9Replace this use of System.out or System.err by a logger.(úŽœüýÿÿÿÿ8Û¨ãß,H¾RMAJORZ
+CODE_SMELL
+psquid:S1854!"7Remove this useless assignment to local variable "cal".(¿ÍÜÞüÿÿÿÿ8íÀþÐß,H×RMAJORZ
+CODE_SMELL
+[squid:S1481"'Remove this unused "ad" local variable.(’¾Þ³8íÀþÐß,HÕRMINORZ
+CODE_SMELL
+\squid:S1481")Remove this unused "smpD" local variable.(üÎ›8–ß¢Ðß,HˆRMINORZ
+CODE_SMELL
+ksquid:S1854"8Remove this useless assignment to local variable "smpD".(üÎ›8–ß¢Ðß,H‰RMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(´¾È‰øÿÿÿÿ8ÇÆ¨ãß,HÃRMAJORZ
+CODE_SMELL
+jsquid:S1854"6Remove this useless assignment to local variable "ad".(’¾Þ³8íÀþÐß,HØRMAJORZ
+CODE_SMELL
+„squid:CommentedOutCodeLine""<This block of commented-out lines of code should be removed.(„×¶Áÿÿÿÿÿ8éÙìÐß,H«RMAJORZ
 CODE_SMELL

@@ -17,14 +17,18 @@ public class Symptom {
 	private int id; 
 	@Column(name="NAME")
 	private String symptomName;
-	
-//	@Column(name="SYMP_DATE")
-	@Transient
-	private Calendar dateIssued=Calendar.getInstance();
-	
 	@Column
-	private String stringDate =dateIssued.getTime().toString();
-	
+	private String stringDate;
+	public Symptom() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Symptom(int id, String symptomName, String stringDate) {
+		super();
+		this.id = id;
+		this.symptomName = symptomName;
+		this.stringDate = stringDate;
+	}
 	public int getId() {
 		return id;
 	}
@@ -37,35 +41,6 @@ public class Symptom {
 	public void setSymptomName(String symptomName) {
 		this.symptomName = symptomName;
 	}
-	public Calendar getDateIssued() {
-		return dateIssued;
-	}
-	public void setDateIssued(Calendar dateIssued) {
-		this.dateIssued = dateIssued;
-	}
-
-	public Symptom() {
-		super();
-	}
-	public Symptom(int id, String symptomName, Calendar dateIssued) {
-		super();
-		this.id = id;
-		this.symptomName = symptomName;
-		this.dateIssued = dateIssued;
-	}
-	public Symptom(String symptomName, Calendar dateIssued) {
-		super();
-		this.id = 0;
-		this.symptomName = symptomName;
-		this.dateIssued = dateIssued;
-	}
-	
-	public Symptom(String symptomName, String dateString) {
-		super();
-		this.id = 0;
-		this.symptomName = symptomName;
-		this.stringDate = dateString;
-	}
 	public String getStringDate() {
 		return stringDate;
 	}
@@ -76,8 +51,8 @@ public class Symptom {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((dateIssued == null) ? 0 : dateIssued.hashCode());
 		result = prime * result + id;
+		result = prime * result + ((stringDate == null) ? 0 : stringDate.hashCode());
 		result = prime * result + ((symptomName == null) ? 0 : symptomName.hashCode());
 		return result;
 	}
@@ -90,12 +65,12 @@ public class Symptom {
 		if (getClass() != obj.getClass())
 			return false;
 		Symptom other = (Symptom) obj;
-		if (dateIssued == null) {
-			if (other.dateIssued != null)
-				return false;
-		} else if (!dateIssued.equals(other.dateIssued))
-			return false;
 		if (id != other.id)
+			return false;
+		if (stringDate == null) {
+			if (other.stringDate != null)
+				return false;
+		} else if (!stringDate.equals(other.stringDate))
 			return false;
 		if (symptomName == null) {
 			if (other.symptomName != null)
@@ -106,7 +81,7 @@ public class Symptom {
 	}
 	@Override
 	public String toString() {
-		return "Symptom [id=" + id + ", symptomName=" + symptomName + ", dateIssued=" + dateIssued + "]";
+		return "Symptom [id=" + id + ", symptomName=" + symptomName + ", stringDate=" + stringDate + "]";
 	}
 	
 }

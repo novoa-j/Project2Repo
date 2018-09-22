@@ -61,7 +61,7 @@ public class AccountDaoImpl implements AccountDao {
 	}
 	
 	@Override
-	public int updateAccountById(int id, Symptom sym) {
+	public int addSymptomToAccountById(int id, Symptom sym) {
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
 		Account a=(Account) s.load(Account.class, id);

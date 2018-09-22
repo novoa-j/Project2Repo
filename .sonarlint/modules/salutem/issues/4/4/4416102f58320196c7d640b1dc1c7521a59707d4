@@ -1,5 +1,7 @@
 
-“squid:S3973T"WUse curly braces or indentation to denote the code conditionally executed by this "if".(·¿±ÿÿÿÿÿ8±¡¢ÉŞ,H¯RCRITICALZ
+“squid:S3973g"WUse curly braces or indentation to denote the code conditionally executed by this "if".(·¿±ÿÿÿÿÿ8ıÇÍĞß,H¡RCRITICALZ
 CODE_SMELL
-“squid:S3973M"WUse curly braces or indentation to denote the code conditionally executed by this "if".(»ê«úÿÿÿÿ8±¡¢ÉŞ,H®RCRITICALZ
+“squid:S3973`"WUse curly braces or indentation to denote the code conditionally executed by this "if".(»ê«úÿÿÿÿ8ıÇÍĞß,H RCRITICALZ
+CODE_SMELL
+ksquid:UselessImportCheck"*Remove this unused import 'java.sql.Date'.(ÙÀ½Ê8æŠäß,H«RMINORZ
 CODE_SMELL

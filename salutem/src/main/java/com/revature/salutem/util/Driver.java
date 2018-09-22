@@ -1,7 +1,8 @@
 package com.revature.salutem.util;
 
+import java.sql.Date;
 import java.util.Calendar;
-import java.util.Date;
+//import java.util.Date;
 
 import org.hibernate.Session;
 
@@ -27,17 +28,20 @@ public class Driver {
 //		ad.updateAccountById(2, "", "newpass");
 		SymptomDao smpD= new SymptomDaoImpl();
 //		@SuppressWarnings("deprecation")
-//		Date now = new Date(2018,12,25);
-		Calendar cal = Calendar.getInstance();
+//		Date now=Date.valueOf("2018-1-25");
+//		System.out.println(now);
+		
+//		Calendar cal = Calendar.getInstance();
 //		System.out.println( cal.getTime().toString());
 //		
-//		Symptom sym = new Symptom("the plague", cal.getTime().toString());
-//		ad.updateAccountById(3, sym);
-//		
-//		smpD.deleteSymptom(1);s
+		Symptom sym = new Symptom();
+		sym.setSymptomName("the Plague");
+		sym.setStringDate(Date.valueOf("2018-12-25").toString());
+//		smpD.createSymptom(sym);
+		ad.addSymptomToAccountById(3, sym);
+//		smpD.deleteSymptom(1);
 		
-//		Date dat = new Date();
-		
+ 		
 		
 	}
 }

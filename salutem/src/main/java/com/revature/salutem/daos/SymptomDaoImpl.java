@@ -22,7 +22,7 @@ public class SymptomDaoImpl implements SymptomDao{
 	@Override
 	public List<Symptom> SymptomsByUser(int id) {
 		Session s = HibernateUtil.getSession();
-		String hql = "from Symptom where id = :userId";///////////Check against joiner table?
+		String hql = "from Symptom where id = :userId";////Check against joiner table?
 		Query q = s.createQuery(hql);
 		q.setInteger("userId", id);
 		List<Symptom> symptoms = q.list();
@@ -31,9 +31,9 @@ public class SymptomDaoImpl implements SymptomDao{
 	}
 
 	@Override
-	public List<Symptom> RecentSymptomByUser(int id, Date when) {
+	public List<Symptom> RecentSymptomByUser(int id, String when) {
 		Session s = HibernateUtil.getSession();
-		String hql = "";//TODO Figure out  how to check each value
+		String hql = "from Symptom"; //implement date checking with the string
 		Criteria c = s.createCriteria(Symptom.class);
 		Query q = s.createQuery(hql);
 		//where date < symptomDay
@@ -41,6 +41,7 @@ public class SymptomDaoImpl implements SymptomDao{
 		s.close();
 		return symptoms;
 	}
+
 
 	@Override
 	public int createSymptom(Symptom s) {
@@ -51,22 +52,7 @@ public class SymptomDaoImpl implements SymptomDao{
 		sess.close();
 		return key;
 	}
-	@Override 
-	public int createSymptom(String name, Date dateIssued) {
-//		Account a= new Account();
-		Symptom symp= new Symptom();
-//		a.setAccountId(accountId);
-//		a.setKey(key);
-//		a.setUsername(username);
-		symp.setSymptomName(name);
-//		symp.setDateIssued(dateIssued);
-		Session s= HibernateUtil.getSession();
-		Transaction tx= s.beginTransaction();
-		int aPK=(int) s.save(symp);
-		tx.commit();
-		s.close();
-		return aPK;
-	}
+
 
 	@Override
 	public int updateSymptom(Symptom s) {
