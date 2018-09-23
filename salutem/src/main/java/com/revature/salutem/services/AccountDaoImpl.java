@@ -45,4 +45,10 @@ public class AccountDaoImpl implements AccountDao {
 	public Account updateAccount(Account acc) {
 		return accRepo.save(acc);
 	}
+	
+	@Override
+	public Boolean verifyLogin(Account acc) {
+		System.out.println(accRepo.findAccountByUsernameAndKey(acc.getUsername(), acc.getKey()));
+		return true;
+	}
 }

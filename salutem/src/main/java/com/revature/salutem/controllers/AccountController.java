@@ -47,6 +47,11 @@ public class AccountController {
 		return accServ.createAccount(acc);
 	}
 	
+	@PostMapping(value="/login",consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public Boolean verifyLogin(@RequestBody Account acc) {
+		return accServ.verifyLogin(acc);
+	}
+	
 	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public Account updateAccount(@RequestBody Account acc) {
 		return accServ.updateAccount(acc);
