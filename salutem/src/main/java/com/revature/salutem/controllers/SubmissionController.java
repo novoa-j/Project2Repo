@@ -11,5 +11,5 @@ import com.revature.salutem.services.SubmissionDaoImpl;
 public class SubmissionController {
 
 	@Autowired
-	SubmissionDaoImpl dubServ;
+	SubmissionDaoImpl subServ;
 }

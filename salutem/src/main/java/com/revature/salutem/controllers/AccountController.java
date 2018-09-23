@@ -28,9 +28,9 @@ public class AccountController {
 		return accServ.getAllAccounts();
 	}
 	
-	@GetMapping("/{accountId}")
-	@ResponseBody
-	public Account getBearByPathId(@PathVariable("accountId") int id)  {
+	@GetMapping(value="/{id}",produces=MediaType.APPLICATION_JSON_VALUE)
+	public Account getBearByPathId(@PathVariable("id") int id)  {
+//		System.out.println("########################################################" + id);
 		Account a = accServ.getAccountById(id);
 		if(a == null) {
 			throw new AccountIdNotFoundException();
