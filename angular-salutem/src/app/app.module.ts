@@ -15,7 +15,6 @@ import { BodyLocationComponent } from './body-location/body-location.component';
 import { RedflagComponent } from './redflag/redflag.component';
 import { BodySymptomsComponent } from './body-symptoms/body-symptoms.component';
 import { HealthResultService } from './services/health-result.service';
-import { AuthorizationComponent } from './authorization/authorization.component';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
@@ -31,7 +30,6 @@ import { LoginComponent } from './login/login.component';
     BodyLocationComponent,
     RedflagComponent,
     BodySymptomsComponent,
-    AuthorizationComponent,
     LoginComponent
   ],
   imports: [
