@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,4 +48,13 @@ public class AccountController {
 		return accServ.updateAccount(acc);
 	}
 	
+	@DeleteMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public void deleteAccount(@RequestBody Account acc) {
+		accServ.deleteAccount(acc);
+	}
+	
+	@DeleteMapping(value="/{id}",consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public void deleteAccount(@PathVariable("id") int id) {
+		accServ.deleteAccountById(id);
+	}	
 }
