@@ -2,14 +2,14 @@ package com.revature.salutem.controllers;
 
 import java.util.List;
 
-import javax.security.auth.login.AccountNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.exceptions.AccountIdNotFoundException;
@@ -29,8 +29,7 @@ public class AccountController {
 	}
 	
 	@GetMapping(value="/{id}",produces=MediaType.APPLICATION_JSON_VALUE)
-	public Account getBearByPathId(@PathVariable("id") int id)  {
-//		System.out.println("########################################################" + id);
+	public Account getAccountById(@PathVariable("id") int id)  {
 		Account a = accServ.getAccountById(id);
 		if(a == null) {
 			throw new AccountIdNotFoundException();
@@ -38,8 +37,14 @@ public class AccountController {
 		return a;
 	}
 	
+	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public Account createAccount(@RequestBody Account acc) {
+		return accServ.createAccount(acc);
+	}
 	
-	
-	
+	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public Account updateAccount(@RequestBody Account acc) {
+		return accServ.updateAccount(acc);
+	}
 	
 }
