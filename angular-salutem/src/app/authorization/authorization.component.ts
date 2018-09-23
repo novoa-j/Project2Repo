@@ -15,28 +15,28 @@ export class AuthorizationComponent implements OnInit {
   ngOnInit() {
   }
 
-  isClicked: boolean = false;
+  // isClicked: boolean = false;
 
-  token: TokenForm;
+  // token: TokenForm;
 
-  tokenString: string = "";
+  // tokenString: string = "";
 
-  // save the token into something
-  theToken = this.getTheToken1();
+  // // save the token into something
+  // theToken = this.getTheToken1();
 
-  getTheToken1(): any{
-    this.changeClicked();
-    this.healthResultService.getTokenJSON().subscribe(
-      (data) => {
-        (this.token = data)
-        this.tokenString = "" + this.token.Token;
-        console.log(this.tokenString);
-      }
-    );
-  }
+  // getTheToken1(): any{
+  //   this.changeClicked();
+  //   this.healthResultService.getTokenJSON().subscribe(
+  //     (data) => {
+  //       (this.token = data)
+  //       this.tokenString = "" + this.token.Token;
+  //       console.log(this.tokenString);
+  //     }
+  //   );
+  // }
 
-  changeClicked(){
-    this.isClicked = !this.isClicked;
-  }
+  // changeClicked(){
+  //   this.isClicked = !this.isClicked;
+  // }
 
 }

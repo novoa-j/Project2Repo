@@ -2,10 +2,23 @@
 <div class="container">
     <div class="jumbotron" id="bodySymptom">
 
-        id: <input type="number" [(ngModel)]="id" name="id">
-        gender: <input type="number" [(ngModel)]="gender" name="gender">
+      <form>
+        id: <input type="number" [(ngModel)]="id" name="id"><br><br>
+      </form>
+
+        <label>Gender/Age:</label>
+        <br>
+        <select [(ngModel)] ="gender">
+          <option *ngFor = "let gender of genders" [value] = "gender">
+            {{gender}}
+          </option>
+        </select>
+        <br><br>
 
       <button id="myButton" class="btn btn-success" (click)="getBodySymptoms()">Get body symptoms!</button>
+
+      
+
       <div *ngIf="isClicked">
         <div *ngFor='let bodySymptom of bodySymptoms'>
         <br>
