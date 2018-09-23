@@ -8,9 +8,6 @@
 
       <button id="myButton" class="btn btn-success" (click)="getDiagnoses()">Get diagnoses!</button>
       <div *ngIf="isClicked">
-          <p>Spec Id: {{diagnoses.Specialisation.ID}}<p>
-          <p>Spec Name: {{diagnoses.Specialisation.Name}}</p>
-          <p>SpecialistID: {{diagnoses.SpecialistID}}<p>
         <div *ngFor='let diagnose of diagnoses'>
           <br>
           <p>Issue Id: {{diagnose.Issue.ID}}<p>
@@ -20,7 +17,12 @@
           <p>Issue IcdName: {{diagnose.Issue.IcdName}}<p>
           <p>Issue Professional Name: {{diagnose.Issue.ProfName}}</p>
           <p>Issue Ranking: {{diagnose.Issue.Ranking}}</p>
+          <div *ngFor='let i of diagnose.Specialisation'>
+            <p>Spec Id: {{i.ID}}<p>
+            <p>Spec Name: {{i.Name}}</p>
+            <p>SpecialistID: {{i.SpecialistID}}<p>
         </div>
+      </div>
 
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HealthResultService } from '../services/health-result.service';
 import { TokenForm } from '../token';
-import { Observable } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 
 @Component({
   selector: 'app-authorization',
@@ -19,18 +19,20 @@ export class AuthorizationComponent implements OnInit {
 
   token: TokenForm;
 
-  // save the token into something
-  theToken = this.getTheToken();
+  tokenString: string = "";
 
-  getTheToken(): any{
+  // save the token into something
+  theToken = this.getTheToken1();
+
+  getTheToken1(): any{
     this.changeClicked();
-    this.healthResultService.getToken1().subscribe(
+    this.healthResultService.getTokenJSON().subscribe(
       (data) => {
         (this.token = data)
-        //console.log(this.token);
+        this.tokenString = "" + this.token.Token;
+        console.log(this.tokenString);
       }
     );
-    //console.log(this.theToken);
   }
 
   changeClicked(){
