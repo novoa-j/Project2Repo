@@ -12,7 +12,7 @@ public interface SubmissionDao {
 	public List<Submission> getSubmissionsByUser(int id);
 	public List<Submission> getSubmissionByUserAndDate(int id, Date when);
 	public Submission getSubmission(int id);
-	public Submission createSubmissions(Submission s);
+	public Submission createSubmission(Submission s);
 	public Submission updateSubmission(Submission s);
 	public void deleteSubmission(Submission s);
 	public void deleteSubmissionById(int id);

@@ -32,9 +32,7 @@ public class AccountController {
 	}
 	
 	@GetMapping(value="/{id}",produces=MediaType.APPLICATION_JSON_VALUE)
-
 	public Account getAccountById(@PathVariable("id") int id)  {
-
 		Account a = accServ.getAccountById(id);
 		if(a == null) {
 			throw new AccountIdNotFoundException();
