@@ -21,7 +21,6 @@ public class Submission {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="submissionSequence")
 	@SequenceGenerator(name="submissionSequence",allocationSize=1,sequenceName="SQ_SUB_PK")
-
 	@Column(name="SUBMISSION_ID")
 	private int id;
 	

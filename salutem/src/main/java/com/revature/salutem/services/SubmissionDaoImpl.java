@@ -37,7 +37,7 @@ public class SubmissionDaoImpl implements SubmissionDao{
 	}
 
 	@Override
-	public Submission createSubmissions(Submission s) {
+	public Submission createSubmission(Submission s) {
 		return subRepo.save(s);
 	}
 

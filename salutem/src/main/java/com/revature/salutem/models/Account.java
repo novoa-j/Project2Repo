@@ -31,7 +31,7 @@ public class Account {
 	@Column(name="ACC_KEY")
 	private String key;
 	@OneToMany(fetch=FetchType.EAGER)
-	@JoinColumn(name="SUBMISSION_ID")
+	@JoinColumn(name="ACC_ID")
 	private List<Submission> pastSubmission;
 	public Account() {
 		super();

@@ -12,4 +12,5 @@ public interface AccountDao {
 	public List<Account> getAllAccounts();
 	public Account	getAccountById(int id);
 	public Account updateAccount(Account ac);
+	public Boolean verifyLogin(Account ac);
 }
