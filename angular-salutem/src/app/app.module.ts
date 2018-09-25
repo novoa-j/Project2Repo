@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { LocationsComponent } from './locations/locations.component';
 import { SymptomsComponent } from './symptoms/symptoms.component';
 import { IssuesComponent } from './issues/issues.component';
 import { SpecialisationsComponent } from './specialisations/specialisations.component';
@@ -14,16 +13,19 @@ import { BodyLocationsComponent } from './body-locations/body-locations.componen
 import { DiagnosisComponent } from './diagnosis/diagnosis.component';
 import { BodyLocationComponent } from './body-location/body-location.component';
 import { RedflagComponent } from './redflag/redflag.component';
-import { LocationComponent } from './location/location.component';
 import { BodySymptomsComponent } from './body-symptoms/body-symptoms.component';
 import { HealthResultService } from './services/health-result.service';
-import { AuthorizationComponent } from './authorization/authorization.component';
 import { LoginComponent } from './login/login.component';
+import { ErrorLoginComponent } from './error-login/error-login.component';
+import { NavComponent } from './nav/nav.component';
+import { RouterModule } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { appRoutes } from './routes';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LocationsComponent,
     SymptomsComponent,
     IssuesComponent,
     SpecialisationsComponent,
@@ -33,15 +35,17 @@ import { LoginComponent } from './login/login.component';
     DiagnosisComponent,
     BodyLocationComponent,
     RedflagComponent,
-    LocationComponent,
     BodySymptomsComponent,
-    AuthorizationComponent,
-    LoginComponent
+    LoginComponent,
+    ErrorLoginComponent,
+    NavComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [HealthResultService],
   bootstrap: [AppComponent]

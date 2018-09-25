@@ -1,22 +1,35 @@
-<!-- <br><br><br>
+<app-nav></app-nav>
+<br><br><br>
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron" id="bodySymptom">
 
       <form>
-          id<input type="text" id="num1" [(ngModel)] = "value1" >
-          gender<input type="text" id="num2" [(ngModel)] = "value2" >
+        id: <input type="number" [(ngModel)]="id" name="id"><br><br>
       </form>
 
-      <button id="myButton" class="btn btn-success" (click)='getBodySymptoms()'>Get symptoms!</button> -->
-    <!-- </div>
-    <div>
-      <div *ngFor='let symptom of bodySymptoms' (click)="onSelect(symptom)">
-      <h4>{{symptom.ID}})</h4> 
-      <p>{{symptom.Name}}</p>
-      <p>{{symptom.HasRedFlag}}</p>
-      <p>{{symptom.HealthSymptomLocationIDs}}</p>
-      <p>{{symptom.ProfName}}</p>
-      <p>{{symptom.Synonyms}}</p>
+        <label>Gender/Age:</label>
+        <br>
+        <select [(ngModel)] ="gender">
+          <option *ngFor = "let gender of genders" [value] = "gender">
+            {{gender}}
+          </option>
+        </select>
+        <br><br>
+
+      <button id="myButton" class="btn btn-success" (click)="getBodySymptoms()">Get body symptoms!</button>
+
+      
+
+      <div *ngIf="isClicked">
+        <div *ngFor='let bodySymptom of bodySymptoms'>
+        <br>
+        <p>Id: {{bodySymptom.ID}}<p>
+        <p>Name: {{bodySymptom.Name}}</p>
+        <p>HasRedFlag: {{bodySymptom.HasRedFlag}}<p>
+        <p>HealthSymptomLocationIDs: {{bodySymptom.HealthSymptomLocationIDs}}</p>
+        <p>ProfName: {{bodySymptom.ProfName}}<p>
+        <p>Synonyms: {{bodySymptom.Synonyms}}</p>
+        </div>
       </div>
     </div>
-  </div> --> 
+</div>

@@ -14,12 +14,19 @@ export class BodyLocationComponent implements OnInit {
   ngOnInit() {
   }
 
-  bodyLocation: BodyLocation;
+  isClicked: boolean = false;
 
-  @Input() bodyId: number;
+  bodyLocations: BodyLocation[] = [];
+
+  bodyId: number;
 
   getBodyLocation(){
-    this.healthResultService.loadBodyLocation(`${bodyId}`).subscribe((allBodyLocations) => {this.bodyLocation = allBodyLocations});
+    this.changeClicked();
+    this.healthResultService.loadBodyLocation(this.bodyId).subscribe((allBodyLocations) => {this.bodyLocations = allBodyLocations});
   }
 
-}
+  changeClicked(){
+    this.isClicked = !this.isClicked;
+  }
+
+  }

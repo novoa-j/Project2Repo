@@ -14,17 +14,24 @@ export class IssueComponent implements OnInit {
   ngOnInit() {
   }
 
-  issue: Issue2;
+  isClicked: boolean = false;
 
-  selectedId: number;
+  issues: Issue2;
 
-  // onSelect(id: number): void {
-  //   this.selectedId = id;
-  // }
+  issueId: number;
 
-  // getIssue(){
-  //   this.healthResultService.loadIssue(1);
-  // }
-  
+  getIssue(){
+    this.changeClicked();
+    this.healthResultService.loadIssue(this.issueId).subscribe(
+      (data) => {
+        (this.issues = data)
+        console.log(this.issues);
+      }
+    );
+  }
 
+  changeClicked(){
+    this.isClicked = !this.isClicked;
+  }
 }
+

@@ -1,3 +1,30 @@
-<p>
-  diagnosis works!
-</p>
+<app-nav></app-nav>
+<br><br><br>
+<div class="container">
+    <div class="jumbotron" id="diagnosis">
+
+        id: <input type="number" [(ngModel)]="id" name="id">
+        gender: <input type="string" [(ngModel)]="gender" name="gender">
+        age: <input type="number" [(ngModel)]="age" name="age">
+
+      <button id="myButton" class="btn btn-success" (click)="getDiagnoses()">Get diagnoses!</button>
+      <div *ngIf="isClicked">
+        <div *ngFor='let diagnose of diagnoses'>
+          <br>
+          <p>Issue Id: {{diagnose.Issue.ID}}<p>
+          <p>Issue Name: {{diagnose.Issue.Name}}</p>
+          <p>Issue Accuracy: {{diagnose.Issue.Accuracy}}<p>
+          <p>Issue Icd: {{diagnose.Issue.Icd}}</p>
+          <p>Issue IcdName: {{diagnose.Issue.IcdName}}<p>
+          <p>Issue Professional Name: {{diagnose.Issue.ProfName}}</p>
+          <p>Issue Ranking: {{diagnose.Issue.Ranking}}</p>
+          <div *ngFor='let i of diagnose.Specialisation'>
+            <p>Spec Id: {{i.ID}}<p>
+            <p>Spec Name: {{i.Name}}</p>
+            <p>SpecialistID: {{i.SpecialistID}}<p>
+        </div>
+      </div>
+
+      </div>
+    </div>
+</div>

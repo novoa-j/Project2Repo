@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <br><br><br>
 <div class="container">
     <div class="jumbotron">
@@ -6,10 +7,11 @@
       <button id="myButton" class="btn btn-success" (click)='getIssues()'> Get issues! </button>
     </div>
     <div>
-        <div *ngIf='isClicked'>
+      <div *ngIf='isClicked'>
       <div *ngFor='let issue of issues'>
-      <h4>{{issue.ID}})</h4> 
-      <p>{{issue.Name}}</p>
+      <br>
+      <p>Id: {{issue.ID}}</p> 
+      <p>Name: {{issue.Name}}</p>
       </div>
       </div>
     </div>

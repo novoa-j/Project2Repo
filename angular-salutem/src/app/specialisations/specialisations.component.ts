@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HealthResultService } from '../services/health-result.service';
+import { Specialisation } from '../specialisation';
 
 @Component({
   selector: 'app-specialisations',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpecialisationsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private healthResultService: HealthResultService) { }
 
   ngOnInit() {
+  }
+
+  isClicked: boolean = false;
+
+  specialisations: Specialisation[] = [];
+
+  id: number;
+  gender: string;
+  age: number;
+
+  getSpecialisations(){
+    this.changeClicked();
+    this.healthResultService.loadSpecialisations(this.id, this.gender, this.age).subscribe((allSpecialisations) => {this.specialisations = allSpecialisations});
+  }
+
+  changeClicked(){
+    this.isClicked = !this.isClicked;
   }
 
 }
