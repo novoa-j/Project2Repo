@@ -16,6 +16,12 @@ import { RedflagComponent } from './redflag/redflag.component';
 import { BodySymptomsComponent } from './body-symptoms/body-symptoms.component';
 import { HealthResultService } from './services/health-result.service';
 import { LoginComponent } from './login/login.component';
+import { ErrorLoginComponent } from './error-login/error-login.component';
+import { NavComponent } from './nav/nav.component';
+import { RouterModule } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { appRoutes } from './routes';
+
 
 @NgModule({
   declarations: [
@@ -30,12 +36,16 @@ import { LoginComponent } from './login/login.component';
     BodyLocationComponent,
     RedflagComponent,
     BodySymptomsComponent,
-    LoginComponent
+    LoginComponent,
+    ErrorLoginComponent,
+    NavComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [HealthResultService],
   bootstrap: [AppComponent]
