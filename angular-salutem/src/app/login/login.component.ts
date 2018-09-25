@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   key: string;
 
   sendLogin(): Observable<boolean> {
-    let accepted = this.http.post<boolean>('http://localhost:8080/accounts/login',
+    let accepted = this.http.post<boolean>('http://salutem.us-east-2.elasticbeanstalk.com/accounts/login',
                      JSON.parse(`{"username":"${this.user}","key":"${this.key}"}`), {
       headers: new HttpHeaders({
         'Content-Type' : 'application/json' 
