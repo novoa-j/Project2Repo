@@ -48,7 +48,6 @@ public class AccountDaoImpl implements AccountDao {
 	
 	@Override
 	public Boolean verifyLogin(Account acc) {
-		System.out.println(accRepo.findAccountByUsernameAndKey(acc.getUsername(), acc.getKey()));
-		return true;
+		return accRepo.findAccountByUsernameAndKey(acc.getUsername(), acc.getKey()) != null;
 	}
 }
