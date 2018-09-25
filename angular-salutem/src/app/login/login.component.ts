@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http'; // do not use selenium import!
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  user: string;
+  key: string;
+
+  sendLogin(): Observable<boolean> {
+    let accepted = this.http.post<boolean>('http://localhost:8080/accounts/login',
+                     JSON.parse(`{"username":"${this.user}","key":"${this.key}"}`), {
+      headers: new HttpHeaders({
+        'Content-Type' : 'application/json' 
+      })
+
+    }); // no error handling rn
+    return accepted;
   }
 
+  checkLogin(){
+    this.sendLogin()
+    .subscribe(
+      data => {
+        if (data)
+          alert("YOU SIGNED IN YAY!")
+        else
+          document.getElementById("incorrectUserKeyCombo").removeAttribute("hidden");
+      }
+    );
+  }
 }
