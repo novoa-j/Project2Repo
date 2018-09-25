@@ -7,11 +7,11 @@ import com.revature.salutem.services.AccountDaoImpl;
 
 public class Driver {
 
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
 //		Session s = HibernateUtil.getSession();
 //		s.close();
 		
-		AccountDao ad= new AccountDaoImpl();
+//		AccountDao ad= new AccountDaoImpl();
 //		ad.createAccount("testname", "pass123");
 //		ad.createAccount("tester", "pass124");
 //		ad.createAccount("tom", "cruise");
@@ -19,5 +19,5 @@ public class Driver {
 //		System.out.println(ad.getAllAccounts());
 //		ad.getAccountById(2);
 //		ad.updateAccountById(2, "", "newpass");
-	}
+//	}
 }
