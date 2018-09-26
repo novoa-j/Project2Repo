@@ -51,6 +51,11 @@ public class AccountController {
 		return accServ.verifyLogin(acc);
 	}
 	
+	@PostMapping(value="/grab",consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public Account grabAccount(@RequestBody Account acc) {
+		return accServ.grabAccount(acc);
+	}
+	
 	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public Account updateAccount(@RequestBody Account acc) {
 		return accServ.updateAccount(acc);

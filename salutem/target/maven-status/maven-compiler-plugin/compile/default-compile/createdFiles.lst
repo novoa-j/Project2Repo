@@ -6,6 +6,7 @@ com\revature\salutem\controllers\SubmissionController.class
 com\revature\salutem\models\BodyLocations.class
 com\revature\salutem\services\SubmissionDaoImpl.class
 com\revature\salutem\services\AccountDaoImpl.class
+com\revature\exceptions\SubmissionIdNotFoundException.class
 com\revature\salutem\models\IssueInfo.class
 com\revature\salutem\controllers\AccountController.class
 com\revature\salutem\Project2Driver.class
