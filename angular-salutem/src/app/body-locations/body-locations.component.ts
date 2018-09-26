@@ -40,7 +40,7 @@ populateSubLocations() {
   if ((<HTMLInputElement>document.getElementById("bodyLocationSelector")).value != "choose"){
     let optionsList = document.getElementById("bodySubLocationSelector");
     console.log("optionslist:  " + optionsList);
-    optionsList.innerHTML = "";
+    optionsList.innerHTML = `<option value="choose">Choose a body sub-region</option>`;
     this.bodySubLocations.forEach(element => {
       let tmpOption = document.createElement("option");
       tmpOption.setAttribute("value", element.ID + "");
