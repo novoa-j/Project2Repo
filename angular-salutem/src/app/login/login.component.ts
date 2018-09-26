@@ -71,6 +71,7 @@ export class LoginComponent implements OnInit {
       return "false";
     }
   }
+  
   convertAccountToString(account:Account): string{
     let stringAccount;
     stringAccount=account;

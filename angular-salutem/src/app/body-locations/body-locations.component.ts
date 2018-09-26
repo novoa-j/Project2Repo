@@ -21,12 +21,13 @@ export class BodyLocationsComponent implements OnInit {
 
   bodyId: number;
 
+  // must castHTMLElement as <HTMLInputElement> to use .value method
   getBodyLocations(){
-    if (document.getElementById("bodyLocationSelector").value === "choose")
+    if ((<HTMLInputElement>document.getElementById("bodyLocationSelector")).value === "choose")
       document.getElementById("bodySubLocationSelector").setAttribute("disabled", "boolean");
     else{
       document.getElementById("bodySubLocationSelector").removeAttribute("disabled");
-      this.bodyId = document.getElementById("bodyLocationSelector").value;
+      this.bodyId = parseInt((<HTMLInputElement>document.getElementById("bodyLocationSelector")).value);
       this.healthResultService.loadBodyLocation(this.bodyId)
           .subscribe((allBodyLocations) => {
               this.bodySubLocations = allBodyLocations;
@@ -34,9 +35,11 @@ export class BodyLocationsComponent implements OnInit {
             });
         }
   }
+
   populateSubLocations() {
-    if (document.getElementById("bodyLocationSelector").value != "choose"){
+    if ((<HTMLInputElement>document.getElementById("bodyLocationSelector")).value != "choose"){
       let optionsList = document.getElementById("bodySubLocationSelector");
+      console.log("optionslist:  " + optionsList);
       optionsList.innerHTML = "";
       this.bodySubLocations.forEach(element => {
         let tmpOption = document.createElement("option");

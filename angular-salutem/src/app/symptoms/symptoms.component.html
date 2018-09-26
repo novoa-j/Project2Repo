@@ -1,16 +1,22 @@
 <app-nav></app-nav>
 <br><br><br>
 <div class="container">
-    <div class="jumbotron">
+  <div class="jumbotron">
+
+    <form>
+
+      <input type="text" id="search_term" placeholder="Search...">
+
+    </form>
       <button id="myButton" class="btn btn-success" (click)='getSymptoms()'>Get symptoms!</button>
-    </div>
-    <div>
-        <div *ngIf='isClicked'>
-      <div *ngFor='let symptom of symptoms'>
-      <br>
-      <p>Id: {{symptom.ID}}</p> 
-      <p>Name: {{symptom.Name}}</p>
-      </div>
+  </div>
+  <div>
+      <div *ngIf='isClicked'>
+        <div *ngFor='let symptom of symptoms'>
+          <br>
+          <p>Id: {{symptom.ID}}</p> 
+          <p>Name: {{symptom.Name}}</p>
+        </div>
     </div>
   </div>
-  </div>
+</div>

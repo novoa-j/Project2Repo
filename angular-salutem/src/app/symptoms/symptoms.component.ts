@@ -27,4 +27,9 @@ export class SymptomsComponent implements OnInit {
     this.isClicked = !this.isClicked;
   }
 
+  activateSymptomsSearch() {
+    let input = document.getElementById('search_term')
+    let autocomplete;
+  }
+  
 }
