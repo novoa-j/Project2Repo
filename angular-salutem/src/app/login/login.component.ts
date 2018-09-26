@@ -32,6 +32,10 @@ export class LoginComponent implements OnInit {
   convertToStringForStorage(data: boolean): string {
     if (data) {
       this.allowAccess = true;
+
+      // set the auth token in localStorage for session (DO THIS AFTER YOU VALIDATE THAT THEY CAN SIGN IN PROPERLY)
+
+
       return "true";
     } else {
       this.allowAccess = false;

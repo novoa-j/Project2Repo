@@ -1,17 +1,11 @@
-ul li {
-    display: inline-block;
-}
-
-li a {
-	color: white;
-	background: #2A2F30;
-	height: 40%;
-	width: 40%;
-	border-radius: 40px;
+html, body, section, div {
+	height: 200px;
+	line-height: 200px;
 	text-align: center;
-	font-size: 100px;
-	font-weight: bold;
-	text-decoration: none;	
-	padding-top: 400px; 
+  }
+
+a {
 	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
 }
