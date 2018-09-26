@@ -32,8 +32,8 @@ export class LoginComponent implements OnInit {
     }); // no error handling rn
     return accepted;
   }
-  sendCreateAccount(): Observable<boolean>{
-    let accepted = this.http.post<boolean>('http://salutem.us-east-2.elasticbeanstalk.com/accounts',
+  sendCreateAccount(): Observable<Account>{
+    let accepted = this.http.post<Account>('http://salutem.us-east-2.elasticbeanstalk.com/accounts',
       JSON.parse(`{"username":"${this.createUser}","key":"${this.createPass}"}`), {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -71,6 +71,11 @@ export class LoginComponent implements OnInit {
       return "false";
     }
   }
+  convertAccountToString(account:Account): string{
+    let stringAccount;
+    stringAccount=account;
+    return stringAccount;
+  }
 
   checkLogin(){
     this.sendLogin()
@@ -94,14 +99,12 @@ newAccount(){
   this.sendCreateAccount()
     .subscribe(
       data => {
+
+        let account: Account;
+        account=data
         if (data) {
-          alert("YOU SIGNED UP YAY!")
-          localStorage.setItem("isValidLogin", this.convertToStringForStorage(data));
-          console.log("this is the item: " + localStorage.getItem("isValidLogin"));
-        }
-        else {
-          localStorage.setItem("isValidLogin", this.convertToStringForStorage(data));
-          document.getElementById("incorrectUserKeyCombo").removeAttribute("hidden");
+        let strAccount=this.convertAccountToString(account);
+          localStorage.setItem("Accont", strAccount);
           console.log("this is the item: " + localStorage.getItem("isValidLogin"));
         }
       }
