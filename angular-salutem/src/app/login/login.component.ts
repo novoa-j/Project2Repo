@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http'; // do not use selenium import!
+import { HealthResultService } from '../services/health-result.service';
+import { TokenForm } from '../token';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private healthResultService: HealthResultService) { }
 
   ngOnInit() {}
 
@@ -41,12 +43,27 @@ export class LoginComponent implements OnInit {
     return accepted;
   }
 
+  // localStorage cannot hold boolean values, so convert to string
   convertToStringForStorage(data: boolean): string {
     if (data) {
       this.allowAccess = true;
 
       // set the auth token in localStorage for session (DO THIS AFTER YOU VALIDATE THAT THEY CAN SIGN IN PROPERLY)
+      localStorage.setItem("CurrentUser", this.user);
 
+      let token: TokenForm;
+      let tokenString: string;
+
+      this.healthResultService.getTokenJSON()
+      .subscribe(
+        (data) => {
+          (token = data)
+          tokenString = data.Token;
+          localStorage.setItem("CurrentUserToken", data.Token);
+        }
+      );
+  
+      tokenString = localStorage.getItem("CurrentUserToken").toString();
 
       return "true";
     } else {
@@ -78,7 +95,7 @@ newAccount(){
     .subscribe(
       data => {
         if (data) {
-          alert("YOU SIGNED IN YAY!")
+          alert("YOU SIGNED UP YAY!")
           localStorage.setItem("isValidLogin", this.convertToStringForStorage(data));
           console.log("this is the item: " + localStorage.getItem("isValidLogin"));
         }
