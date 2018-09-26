@@ -36,17 +36,20 @@ export class BodyLocationsComponent implements OnInit {
         }
   }
 
-  populateSubLocations() {
-    if ((<HTMLInputElement>document.getElementById("bodyLocationSelector")).value != "choose"){
-      let optionsList = document.getElementById("bodySubLocationSelector");
-      console.log("optionslist:  " + optionsList);
-      optionsList.innerHTML = "";
-      this.bodySubLocations.forEach(element => {
-        let tmpOption = document.createElement("option");
-        tmpOption.setAttribute("value", element.ID + "");
-        tmpOption.innerText = element.Name;
-        optionsList.appendChild(tmpOption);
-      });
-    }
+populateSubLocations() {
+  if ((<HTMLInputElement>document.getElementById("bodyLocationSelector")).value != "choose"){
+    let optionsList = document.getElementById("bodySubLocationSelector");
+    console.log("optionslist:  " + optionsList);
+    optionsList.innerHTML = "";
+    this.bodySubLocations.forEach(element => {
+      let tmpOption = document.createElement("option");
+      tmpOption.setAttribute("value", element.ID + "");
+      tmpOption.innerText = element.Name;
+      optionsList.appendChild(tmpOption);
+    });
   }
+}
+
+
+
 }

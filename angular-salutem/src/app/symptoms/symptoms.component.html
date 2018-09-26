@@ -3,13 +3,13 @@
 <div class="container">
   <div class="jumbotron">
 
-    <form>
+    <label for="symp">Choose your symptom</label><br>
 
-      <input type="text" id="search_term" placeholder="Search...">
+    <input type="text" id="symp" class="form-control" list="json-symptomsList" placeholder="e.g. abdominal pain" (click)='getSymptoms()'>
+    <datalist id="json-symptomsList"></datalist>
 
-    </form>
-      <button id="myButton" class="btn btn-success" (click)='getSymptoms()'>Get symptoms!</button>
-  </div>
+      <!-- <button id="myButton" class="btn btn-success">Get symptoms!</button> -->
+  <!-- </div>
   <div>
       <div *ngIf='isClicked'>
         <div *ngFor='let symptom of symptoms'>
@@ -19,4 +19,4 @@
         </div>
     </div>
   </div>
-</div>
+</div> -->

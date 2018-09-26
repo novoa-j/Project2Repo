@@ -17,19 +17,33 @@ export class SymptomsComponent implements OnInit {
   isClicked: boolean = false;
 
   symptoms: Symptom[] = [];
+  
+  input = document.getElementById('symp');
 
   getSymptoms(){
     this.changeClicked();
-    this.healthResultService.loadSymptoms().subscribe((allSymptoms) => {this.symptoms = allSymptoms});
+    this.healthResultService.loadSymptoms().subscribe(
+      (allSymptoms) => {
+        this.symptoms = allSymptoms;
+        //let jsonOptionsString = JSON.stringify(this.symptoms);
+        this.populateSymptoms(this.symptoms);
+      }
+    );
+  }
+
+  populateSymptoms(symps: Symptom[]): any {
+    //console.log("in this method");
+    symps.forEach(function(item) {
+      let option: any = (<HTMLOptionElement>document.createElement('option'));
+      option.value = item.Name;
+      let dataList = document.getElementById('json-symptomsList');
+      dataList.appendChild(option);
+      //console.log("dataList: " + dataList);
+    });
   }
 
   changeClicked(){
     this.isClicked = !this.isClicked;
-  }
-
-  activateSymptomsSearch() {
-    let input = document.getElementById('search_term')
-    let autocomplete;
   }
   
 }
