@@ -7,12 +7,14 @@ import { BodyLocationComponent } from "./body-location/body-location.component";
 import { SpecialisationsComponent } from "./specialisations/specialisations.component";
 import { IssuesComponent } from "./issues/issues.component";
 import { IssueComponent } from "./issue/issue.component";
+import { HomePageComponent } from './home-page/home-page.component';
 import { ProposedSymptomsComponent } from "./proposed-symptoms/proposed-symptoms.component";
 import { DiagnosisComponent } from "./diagnosis/diagnosis.component";
 
 export const appRoutes: Routes = [
 
     { path: 'login', component: LoginComponent },
+    { path: 'home', component: HomePageComponent },
     { path: 'symptoms', component: SymptomsComponent },
     { path: 'body-symptoms', component: BodySymptomsComponent },
     { path: 'body-locations', component: BodyLocationsComponent },
