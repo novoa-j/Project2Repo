@@ -12,19 +12,38 @@ export class BodyLocationsComponent implements OnInit {
   constructor(private healthResultService: HealthResultService) { }
 
   ngOnInit() {
-  }
-
-  isClicked: boolean = false;
+    this.healthResultService.loadBodyLocations().subscribe((allBodyLocations) => {this.bodyLocations = allBodyLocations});
+}
 
   bodyLocations: BodyLocation[] = [];
+  bodySubLocations: BodyLocation[] = [];
+
+
+  bodyId: number;
 
   getBodyLocations(){
-    this.changeClicked();
-    this.healthResultService.loadBodyLocations().subscribe((allBodyLocations) => {this.bodyLocations = allBodyLocations});
+    if (document.getElementById("bodyLocationSelector").value === "choose")
+      document.getElementById("bodySubLocationSelector").setAttribute("disabled", "boolean");
+    else{
+      document.getElementById("bodySubLocationSelector").removeAttribute("disabled");
+      this.bodyId = document.getElementById("bodyLocationSelector").value;
+      this.healthResultService.loadBodyLocation(this.bodyId)
+          .subscribe((allBodyLocations) => {
+              this.bodySubLocations = allBodyLocations;
+              this.populateSubLocations();
+            });
+        }
   }
-
-  changeClicked(){
-    this.isClicked = !this.isClicked;
+  populateSubLocations() {
+    if (document.getElementById("bodyLocationSelector").value != "choose"){
+      let optionsList = document.getElementById("bodySubLocationSelector");
+      optionsList.innerHTML = "";
+      this.bodySubLocations.forEach(element => {
+        let tmpOption = document.createElement("option");
+        tmpOption.setAttribute("value", element.ID + "");
+        tmpOption.innerText = element.Name;
+        optionsList.appendChild(tmpOption);
+      });
+    }
   }
-  
 }

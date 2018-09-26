@@ -2,15 +2,17 @@
 <br><br><br>
 <div class="container">
   <div class="jumbotron">
-      <button id="myButton" class="btn btn-success" (click)='getBodyLocations()'>Get body locations!</button>
+    <select id="bodyLocationSelector" class="form-control" (change)="getBodyLocations()">
+      <option value="choose">Choose a body region</option>
+      <option *ngFor='let bodyLocation of bodyLocations' value={{bodyLocation.ID}}>{{bodyLocation.Name}}</option>
+    </select>
   </div>
-  <div>
-        <div *ngIf='isClicked'>
-      <div *ngFor='let bodyLocation of bodyLocations'>
-      <br>
-      <p>Id: {{bodyLocation.ID}}</p> 
-      <p>Name: {{bodyLocation.Name}}</p>
-      </div>
-    </div>
+
+  
+  <div class="jumbotron">
+    <select id="bodySubLocationSelector" class="form-control" disabled>
+      <option value="choose">Choose a body sub-region</option>
+
+    </select>
   </div>
-  </div>
+</div>

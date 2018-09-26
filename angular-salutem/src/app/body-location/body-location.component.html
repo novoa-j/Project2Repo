@@ -7,9 +7,9 @@
         
       <button id="myButton" class="btn btn-success" (click)="getBodyLocation()">Get body location!</button>
       <div *ngIf="isClicked">
-        <div *ngFor='let bodyLocation of bodyLocations'>
-        <p>Id: {{bodyLocation.ID}}</p>
+          <div *ngFor='let bodyLocation of bodyLocations'>
+      <p>Id: {{bodyLocation.ID}}</p>
         <p>Name: {{bodyLocation.Name}}</p>
-        </div>
-        </div>
+      </div>
+      </div>
 </div>
