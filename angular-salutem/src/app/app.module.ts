@@ -16,7 +16,7 @@ import { RedflagComponent } from './redflag/redflag.component';
 import { BodySymptomsComponent } from './body-symptoms/body-symptoms.component';
 import { HealthResultService } from './services/health-result.service';
 import { LoginComponent } from './login/login.component';
-import { ErrorLoginComponent } from './error-login/error-login.component';
+import { HomePageComponent } from './home-page/home-page.component';
 import { NavComponent } from './nav/nav.component';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -37,7 +37,7 @@ import { appRoutes } from './routes';
     RedflagComponent,
     BodySymptomsComponent,
     LoginComponent,
-    ErrorLoginComponent,
+    HomePageComponent,
     NavComponent,
     DashboardComponent
   ],
