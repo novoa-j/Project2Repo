@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http'; // do not use selenium import!
+import { HealthResultService } from '../services/health-result.service';
+import { TokenForm } from '../token';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private healthResultService: HealthResultService) { }
 
   ngOnInit() {}
 
@@ -30,8 +32,8 @@ export class LoginComponent implements OnInit {
     }); // no error handling rn
     return accepted;
   }
-  sendCreateAccount(): Observable<boolean>{
-    let accepted = this.http.post<boolean>('http://salutem.us-east-2.elasticbeanstalk.com/accounts',
+  sendCreateAccount(): Observable<Account>{
+    let accepted = this.http.post<Account>('http://salutem.us-east-2.elasticbeanstalk.com/accounts',
       JSON.parse(`{"username":"${this.createUser}","key":"${this.createPass}"}`), {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -41,18 +43,38 @@ export class LoginComponent implements OnInit {
     return accepted;
   }
 
+  // localStorage cannot hold boolean values, so convert to string
   convertToStringForStorage(data: boolean): string {
     if (data) {
       this.allowAccess = true;
 
       // set the auth token in localStorage for session (DO THIS AFTER YOU VALIDATE THAT THEY CAN SIGN IN PROPERLY)
+      localStorage.setItem("CurrentUser", this.user);
 
+      let token: TokenForm;
+      let tokenString: string;
+
+      this.healthResultService.getTokenJSON()
+      .subscribe(
+        (data) => {
+          (token = data)
+          tokenString = data.Token;
+          localStorage.setItem("CurrentUserToken", data.Token);
+        }
+      );
+  
+      tokenString = localStorage.getItem("CurrentUserToken").toString();
 
       return "true";
     } else {
       this.allowAccess = false;
       return "false";
     }
+  }
+  convertAccountToString(account:Account): string{
+    let stringAccount;
+    stringAccount=account;
+    return stringAccount;
   }
 
   checkLogin(){
@@ -77,14 +99,12 @@ newAccount(){
   this.sendCreateAccount()
     .subscribe(
       data => {
+
+        let account: Account;
+        account=data
         if (data) {
-          alert("YOU SIGNED IN YAY!")
-          localStorage.setItem("isValidLogin", this.convertToStringForStorage(data));
-          console.log("this is the item: " + localStorage.getItem("isValidLogin"));
-        }
-        else {
-          localStorage.setItem("isValidLogin", this.convertToStringForStorage(data));
-          document.getElementById("incorrectUserKeyCombo").removeAttribute("hidden");
+        let strAccount=this.convertAccountToString(account);
+          localStorage.setItem("Accont", strAccount);
           console.log("this is the item: " + localStorage.getItem("isValidLogin"));
         }
       }
