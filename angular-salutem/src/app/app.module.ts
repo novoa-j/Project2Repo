@@ -11,7 +11,6 @@ import { IssueComponent } from './issue/issue.component';
 import { ProposedSymptomsComponent } from './proposed-symptoms/proposed-symptoms.component';
 import { BodyLocationsComponent } from './body-locations/body-locations.component';
 import { DiagnosisComponent } from './diagnosis/diagnosis.component';
-import { BodyLocationComponent } from './body-location/body-location.component';
 import { RedflagComponent } from './redflag/redflag.component';
 import { BodySymptomsComponent } from './body-symptoms/body-symptoms.component';
 import { HealthResultService } from './services/health-result.service';
@@ -33,7 +32,6 @@ import { appRoutes } from './routes';
     ProposedSymptomsComponent,
     BodyLocationsComponent,
     DiagnosisComponent,
-    BodyLocationComponent,
     RedflagComponent,
     BodySymptomsComponent,
     LoginComponent,
