@@ -3,6 +3,8 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http'; // do not use selenium import!
 import { HealthResultService } from '../services/health-result.service';
 import { TokenForm } from '../token';
+import { Account } from '../account';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ import { TokenForm } from '../token';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpClient, private healthResultService: HealthResultService) { }
+  constructor(private http: HttpClient, private healthResultService: HealthResultService, private router: Router) { }
 
   ngOnInit() {}
 
@@ -83,35 +85,43 @@ export class LoginComponent implements OnInit {
     }
   }
   convertAccountToString(account:Account): string{
-    let stringAccount;
-    var thisAccount: any=account;
+    
+    var thisAccount: any=JSON.stringify(account);
     // thisAccount.pastSymptoms.forEach(number => {
     // });
-    stringAccount=`${thisAccount.accountId}`+ thisAccount.username+thisAccount.key;
-    return stringAccount;
-  }
+    // stringAccount=`${thisAccount.accountId}`+ thisAccount.username+thisAccount.key;
+    return thisAccount;
+  } 
 
   checkLogin(){
     this.sendLogin() //change this to grab account 
     .subscribe(
       data => {
         if (data) {
-          alert("YOU SIGNED IN YAY!")
+          // alert("YOU SIGNED IN YAY!")
 
-          var signedInAcct: any=this.grabAccount(); //try subscribing and getting info then
-          console.log()
-          localStorage.setItem("AccountId",signedInAcct.accountId);
-          localStorage.setItem("AccountId", signedInAcct.username);
-          localStorage.setItem("AccountId", signedInAcct.key);
-
-          localStorage.setItem("isValidLogin", this.convertToStringForStorage(data));
+          var signedInAcct: any=this.grabAccount().subscribe(account => {
+            var thisAccount=this.convertAccountToString(account);
+            localStorage.setItem("signedInAccount",thisAccount);
+          });
+           //try subscribing and getting info then
+          
+          //the following commands are not functioning
+          // localStorage.setItem("AccountId",signedInAcct.accountId);
+          // localStorage.setItem("AccountId", signedInAcct.username);
+          // localStorage.setItem("AccountId", signedInAcct.key);
+          
+          // localStorage.setItem("isValidLogin", this.convertToStringForStorage(data));
           // console.log("this is the item: " + localStorage.getItem("isValidLogin"));
           // localStorage.setItem("AccountName", `${this.user}`);
           // localStorage.setItem("AcountPassword",`${this.key}`);
+          this.router.navigateByUrl("/home");
         }
         else {
+          alert("There is no account registered with those credentials")
           localStorage.setItem("isValidLogin", this.convertToStringForStorage(data));
           document.getElementById("incorrectUserKeyCombo").removeAttribute("hidden");
+          this.router.navigateByUrl("/login");
           // console.log("this is the item: " + localStorage.getItem("isValidLogin"));
         }
       }
