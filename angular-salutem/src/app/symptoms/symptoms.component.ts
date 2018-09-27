@@ -9,48 +9,36 @@ import { Symptom, BodySymptom } from '../symptom';
 })
 export class SymptomsComponent implements OnInit {
 
-  constructor(private healthResultService: HealthResultService) { }
+  constructor(private healthResultService: HealthResultService) { 
+  }
 
   ngOnInit() {
+
+    this.healthResultService.loadSymptoms().subscribe((allSymptoms) => {
+      this.symptoms = allSymptoms;
+      this.populateSymptoms(this.symptoms);
+    });
+    
+    document.getElementById("navIssues").setAttribute("disabled","");
+    document.getElementById("navIssue").setAttribute("disabled","");
+    document.getElementById("navPropos").setAttribute("disabled","");
+    document.getElementById("navSpec").setAttribute("disabled","");
+    document.getElementById("navDiagnosis").setAttribute("disabled","");
   }
 
   isClicked: boolean = false;
-
   symptoms: Symptom[] = [];
-
   symptomId: string;
-
   healthLocationIds: number[];
+  saveSymptomIdArray: string[] = [];
+
 
   // note: there are 1013 symptoms available
   userEnteredSymptoms: any[];
-  
-  //input = document.getElementById('symp');
-
-  // storeVal(sympId) {
-  //   this.userEnteredSymptoms.push(sympId);
-  // }
-
-  getSymptoms(){
-    //this.changeClicked();
-    let symptomId = ((<HTMLInputElement>document.getElementById("json-symptomsList")).value);
-    //console.log(document.getElementById("json-symptomsList").innerHTML);
-    console.log("the id selected: " + symptomId);
-    this.healthResultService.loadSymptoms().subscribe(
-      (allSymptoms) => {
-        this.symptoms = allSymptoms;
-        //let jsonOptionsString = JSON.stringify(this.symptoms);
-        console.log(this.populateSymptoms(this.symptoms));
-        //document.getElementById("json-symptomsList").addEventListener("blur", this.storeVal(symptomId));
-        //localStorage.setItem("CurrentUserSymptomId", JSON.stringify(item.ID));
-      }
-    );
-
-  }
 
   sympId: number;
 
-  populateSymptoms(symps: Symptom[]): string {
+  populateSymptoms(symps: Symptom[]) {
       let dataList = document.getElementById("json-symptomsList");
       dataList.innerHTML = "";
       symps.forEach(item => {
@@ -59,24 +47,19 @@ export class SymptomsComponent implements OnInit {
         tmpOption.innerText = item.Name;
         dataList.appendChild(tmpOption);
       });
-      //console.log( (<HTMLInputElement>dataList).value);
-      return (<HTMLInputElement>dataList).value;
   }
-  
+
+  saveSymptoms() {
+    this.sympId = parseInt((<HTMLInputElement>document.getElementById("json-symptomsList")).value);
+    localStorage.setItem("sympId", this.sympId + "");
+    console.log("the id from console " + this.sympId);
+    console.log("The symptom id: " + localStorage.getItem("sympId"));
+
+    // int array
+    console.log("length " + this.saveSymptomIdArray.push(this.sympId + ""));
+    console.log("current array of symptom ids: " + this.saveSymptomIdArray);
+
+  }
+
 }
 
-//    //console.log("in this method");
-//    let dataList = document.getElementById('json-symptomsList');
-//    symps.forEach(function(item) {
-//      let option: any = (<HTMLOptionElement>document.createElement('option'));
-//      option.setAttribute("value", item.ID + "");
-//      option.setAttribute("name", item.ID + "");
-//      option.value = item.Name;
-
-//      // populate all the pre-made options to the dropdown    
-//      dataList.appendChild(option);
-
-//      //if one was selected, pass to another function
-//    });
-//    console.log("THE ATTRIBUTE: " + localStorage.getItem("optionSelected"));
-//  }

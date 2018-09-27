@@ -1,0 +1,14 @@
+<app-nav></app-nav>
+<br><br><br>
+<div class="container">
+  <div class="jumbotron">
+      <div *ngIf="issues.length > 0">
+        <div *ngFor="let issue of issues">
+          <p>Account ID: {{ issue.accountId }}<p>
+          <p>Issue ID (currently symptomId): {{ issue.symptomId }}</p>
+          <p>Submission Date: {{ issue.submissionDate }}</p>
+          <hr>
+      </div>
+    </div>
+  </div>
+</div>

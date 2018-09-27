@@ -14,6 +14,10 @@ export class BodyLocationsComponent implements OnInit {
 
   ngOnInit() {
     this.healthResultService.loadBodyLocations().subscribe((allBodyLocations) => {this.bodyLocations = allBodyLocations});
+    document.getElementById("navIssue").setAttribute("disabled","");
+    document.getElementById("navPropos").setAttribute("disabled","");
+    document.getElementById("navSpec").setAttribute("disabled","");
+    document.getElementById("navDiagnosis").setAttribute("disabled","");
 }
 
   bodyLocations: BodyLocation[] = [];
@@ -48,9 +52,9 @@ export class BodyLocationsComponent implements OnInit {
     if ((<HTMLInputElement>document.getElementById("bodyLocationSelector")).value != "choose"){
       let optionsList = document.getElementById("bodySubLocationSelector");
       console.log("optionslist:  " + JSON.stringify(optionsList));
-      this.subBodyId = parseInt((<HTMLInputElement>document.getElementById("bodySubLocationSelector")).value);
-      localStorage.setItem("subBodyId", this.subBodyId + "");
-      console.log(this.subBodyId);
+      //this.subBodyId = parseInt((<HTMLInputElement>document.getElementById("bodySubLocationSelector")).value);
+      //localStorage.setItem("subBodyId", this.subBodyId + "");
+      //console.log(this.subBodyId);
       optionsList.innerHTML = "";
       this.bodySubLocations.forEach(element => {
         let tmpOption = document.createElement("option");
@@ -77,7 +81,7 @@ export class BodyLocationsComponent implements OnInit {
   bodySymptoms: BodySymptom[] = [];
 
   //selectedId: number = this.bodyLocationId.getBodyLocations();
-  id: number;
+  //id: number;
   gender: string;
 
   genders = ["male", "female", "boy", "girl"];
@@ -114,5 +118,23 @@ export class BodyLocationsComponent implements OnInit {
       return 0;
     }
   } // end convert gender
+
+
+  isProposedClicked: boolean = false;
+
+  proposedSymptoms: Symptom[] = [];
+
+  symptomId: number;
+  //gender: string;
+  age: number;
+
+  getProposedSymptoms(){
+    this.changeClicked();
+    this.healthResultService.loadProposedSymptoms(this.symptomId, this.gender, this.age).subscribe((allProposedSymptoms) => {this.proposedSymptoms = allProposedSymptoms});
+  }
+
+  changeClicked(){
+    this.isProposedClicked = !this.isProposedClicked;
+  }
 
 }

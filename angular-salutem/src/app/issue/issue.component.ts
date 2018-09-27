@@ -12,11 +12,13 @@ export class IssueComponent implements OnInit {
   constructor(private healthResultService: HealthResultService) { }
 
   ngOnInit() {
+    document.getElementById("navSpec").setAttribute("disabled","");
+    document.getElementById("navDiagnosis").setAttribute("disabled","");
   }
 
   isClicked: boolean = false;
 
-  issues: Issue2;
+  issue: Issue2;
 
   issueId: number;
 
@@ -24,8 +26,8 @@ export class IssueComponent implements OnInit {
     this.changeClicked();
     this.healthResultService.loadIssue(this.issueId).subscribe(
       (data) => {
-        (this.issues = data)
-        console.log(this.issues);
+        (this.issue = data)
+        console.log(this.issue);
       }
     );
   }

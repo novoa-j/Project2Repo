@@ -8,7 +8,7 @@
         age: <input type="number" [(ngModel)]="age" name="age">
         
       <button id="myButton" class="btn btn-success" (click)="getProposedSymptoms()">Get proposed symptoms!</button>
-      <div *ngIf="isClicked">
+      <div *ngIf="isProposedClicked">
         <div *ngFor='let proposedSymptom of proposedSymptoms'>
         <br>
         <p>Id: {{proposedSymptom.ID}}<p>
