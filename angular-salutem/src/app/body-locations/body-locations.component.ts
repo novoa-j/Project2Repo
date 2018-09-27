@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BodyLocation } from '../body-location';
 import { HealthResultService } from '../services/health-result.service';
-import { BodySymptom } from '../symptom';
+import { BodySymptom, Symptom } from '../symptom';
 
 @Component({
   selector: 'app-body-locations',
@@ -18,17 +18,21 @@ export class BodyLocationsComponent implements OnInit {
 
   bodyLocations: BodyLocation[] = [];
   bodySubLocations: BodyLocation[] = [];
+  healthLocationIds: number[];
+
+  // note: there are 1013 symptoms available
+  userEnteredSymptoms: any[];
 
   bodyId: number;
+  subBodyId: number;
 
-  // must castHTMLElement as <HTMLInputElement> to use .value method
+  // must castHTMLElement as <HTMLInputElement> to use .value
   getBodyLocations(): number{
     if ((<HTMLInputElement>document.getElementById("bodyLocationSelector")).value === "choose")
       document.getElementById("bodySubLocationSelector").setAttribute("disabled", "boolean");
     else{
       document.getElementById("bodySubLocationSelector").removeAttribute("disabled");
       this.bodyId = parseInt((<HTMLInputElement>document.getElementById("bodyLocationSelector")).value);
-      //this.retBodyId();
       localStorage.setItem("bodyId", this.bodyId + "");
       console.log("bodyId" + this.bodyId);
       this.healthResultService.loadBodyLocation(this.bodyId)
@@ -43,7 +47,10 @@ export class BodyLocationsComponent implements OnInit {
   populateSubLocations() {
     if ((<HTMLInputElement>document.getElementById("bodyLocationSelector")).value != "choose"){
       let optionsList = document.getElementById("bodySubLocationSelector");
-      //console.log("optionslist:  " + JSON.stringify(optionsList));
+      console.log("optionslist:  " + JSON.stringify(optionsList));
+      this.subBodyId = parseInt((<HTMLInputElement>document.getElementById("bodySubLocationSelector")).value);
+      localStorage.setItem("subBodyId", this.subBodyId + "");
+      console.log(this.subBodyId);
       optionsList.innerHTML = "";
       this.bodySubLocations.forEach(element => {
         let tmpOption = document.createElement("option");
@@ -51,9 +58,16 @@ export class BodyLocationsComponent implements OnInit {
         tmpOption.innerText = element.Name;
         optionsList.appendChild(tmpOption);
       });
-
-      this.getBodySymptoms();
     }
+    this.getBodySymptoms();
+  }
+
+  saveSubBodyLocation() {
+    
+    this.subBodyId = parseInt((<HTMLInputElement>document.getElementById("bodySubLocationSelector")).value);
+    localStorage.setItem("subBodyId", this.subBodyId + "");
+    console.log(this.subBodyId);
+    
   }
 
   // ----------------------------------------------------------------------------------
@@ -69,16 +83,19 @@ export class BodyLocationsComponent implements OnInit {
   genders = ["male", "female", "boy", "girl"];
 
   getBodySymptoms(){
-    this.changeClicked();
-    this.healthResultService.loadBodySymptoms(parseInt(localStorage.getItem("bodyId")), this.convertGender(this.gender)).subscribe((allBodySymptoms) => {this.bodySymptoms = allBodySymptoms});
+    document.getElementById("myButton").removeAttribute("disabled");
+//    this.changeClicked();
+    // document.getElementById("myButton").removeAttribute("disabled");
+    this.healthResultService.loadBodySymptoms(parseInt(localStorage.getItem("subBodyId")), this.convertGender(this.gender)).subscribe((allBodySymptoms) => {this.bodySymptoms = allBodySymptoms});
     console.log("gender entered: " + this.gender);
     console.log("converting gender to: " + this.convertGender(this.gender));
     console.log("the bodyId:  " + localStorage.getItem("bodyId"));
+    console.log("the subBodyId:  " + localStorage.getItem("subBodyId"));
   }
 
-  changeClicked(){
-    this.isClicked = !this.isClicked;
-  }
+  // changeClicked(){
+  //   this.isClicked = !this.isClicked;
+  // }
 
   convertGender(gen: string): number {
     if (gen == "male") {
