@@ -13,27 +13,24 @@ export class SymptomsComponent implements OnInit {
   }
 
   ngOnInit() {
-<<<<<<< HEAD
 
     this.healthResultService.loadSymptoms().subscribe((allSymptoms) => {
       this.symptoms = allSymptoms;
       this.populateSymptoms(this.symptoms);
     });
     
-=======
     document.getElementById("navIssues").setAttribute("disabled","");
     document.getElementById("navIssue").setAttribute("disabled","");
     document.getElementById("navPropos").setAttribute("disabled","");
     document.getElementById("navSpec").setAttribute("disabled","");
     document.getElementById("navDiagnosis").setAttribute("disabled","");
->>>>>>> 58382c1105cc6ee311b35cdb7cfebdbbac489d92
   }
 
   isClicked: boolean = false;
   symptoms: Symptom[] = [];
   symptomId: string;
   healthLocationIds: number[];
-  saveSymptomIdArray: string[];
+  saveSymptomIdArray: string[] = [];
 
 
   // note: there are 1013 symptoms available
@@ -59,7 +56,8 @@ export class SymptomsComponent implements OnInit {
     console.log("The symptom id: " + localStorage.getItem("sympId"));
 
     // int array
-    //console.log("length " + this.saveSymptomIdArray.length);
+    console.log("length " + this.saveSymptomIdArray.push(this.sympId + ""));
+    console.log("current array of symptom ids: " + this.saveSymptomIdArray);
 
   }
 
