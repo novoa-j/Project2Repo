@@ -13,12 +13,20 @@ export class SymptomsComponent implements OnInit {
   }
 
   ngOnInit() {
+<<<<<<< HEAD
 
     this.healthResultService.loadSymptoms().subscribe((allSymptoms) => {
       this.symptoms = allSymptoms;
       this.populateSymptoms(this.symptoms);
     });
     
+=======
+    document.getElementById("navIssues").setAttribute("disabled","");
+    document.getElementById("navIssue").setAttribute("disabled","");
+    document.getElementById("navPropos").setAttribute("disabled","");
+    document.getElementById("navSpec").setAttribute("disabled","");
+    document.getElementById("navDiagnosis").setAttribute("disabled","");
+>>>>>>> 58382c1105cc6ee311b35cdb7cfebdbbac489d92
   }
 
   isClicked: boolean = false;
