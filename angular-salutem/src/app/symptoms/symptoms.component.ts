@@ -12,6 +12,11 @@ export class SymptomsComponent implements OnInit {
   constructor(private healthResultService: HealthResultService) { }
 
   ngOnInit() {
+    document.getElementById("navIssues").setAttribute("disabled","");
+    document.getElementById("navIssue").setAttribute("disabled","");
+    document.getElementById("navPropos").setAttribute("disabled","");
+    document.getElementById("navSpec").setAttribute("disabled","");
+    document.getElementById("navDiagnosis").setAttribute("disabled","");
   }
 
   isClicked: boolean = false;
