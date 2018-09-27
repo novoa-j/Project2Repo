@@ -15,7 +15,9 @@ export class LoginComponent implements OnInit {
 
   constructor(private http: HttpClient, private healthResultService: HealthResultService, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    localStorage.setItem("isValidLogin","false");
+  }
 
   user: string;
   key: string;
@@ -99,10 +101,11 @@ export class LoginComponent implements OnInit {
       data => {
         if (data) {
           // alert("YOU SIGNED IN YAY!")
-
+          localStorage.setItem("isValidLogin", "true");
           var signedInAcct: any=this.grabAccount().subscribe(account => {
             var thisAccount=this.convertAccountToString(account);
             localStorage.setItem("signedInAccount",thisAccount);
+            
           });
            //try subscribing and getting info then
           
@@ -118,9 +121,9 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl("/home");
         }
         else {
-          alert("There is no account registered with those credentials")
-          localStorage.setItem("isValidLogin", this.convertToStringForStorage(data));
-          document.getElementById("incorrectUserKeyCombo").removeAttribute("hidden");
+          alert("There is no account registered with those credentials");
+          // localStorage.setItem("isValidLogin", this.convertToStringForStorage(data));
+          // document.getElementById("incorrectUserKeyCombo").removeAttribute("hidden");
           this.router.navigateByUrl("/login");
           // console.log("this is the item: " + localStorage.getItem("isValidLogin"));
         }
@@ -138,9 +141,11 @@ newAccount(){
         
         if (data) {
         // let strAccount=this.convertAccountToString(account);
-          localStorage.setItem("AccountId",`${account.accountId}`)
-          localStorage.setItem("AccountName", account.username);
-          localStorage .setItem("AcountPassword",account.key);
+          // localStorage.setItem("AccountId",`${account.accountId}`)
+          // localStorage.setItem("AccountName", account.username);
+          // localStorage .setItem("AcountPassword",account.key);
+          alert("Thank you for making an account, please sign to use our service");
+          this.router.navigateByUrl("/login");
           // localStorage.setItem("Account", strAccount);
           
         }
