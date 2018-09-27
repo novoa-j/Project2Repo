@@ -63,14 +63,13 @@ export class BodyLocationsComponent implements OnInit {
         optionsList.appendChild(tmpOption);
       });
     }
-    this.getBodySymptoms();
   }
 
   saveSubBodyLocation() {
-    
     this.subBodyId = parseInt((<HTMLInputElement>document.getElementById("bodySubLocationSelector")).value);
     localStorage.setItem("subBodyId", this.subBodyId + "");
     console.log(this.subBodyId);
+    this.getBodySymptoms();
     
   }
 
@@ -87,10 +86,13 @@ export class BodyLocationsComponent implements OnInit {
   genders = ["male", "female", "boy", "girl"];
 
   getBodySymptoms(){
-    document.getElementById("myButton").removeAttribute("disabled");
-//    this.changeClicked();
+    document.getElementById("myButton").removeAttribute("hidden");
+
+    // this.changeClicked();
     // document.getElementById("myButton").removeAttribute("disabled");
-    this.healthResultService.loadBodySymptoms(parseInt(localStorage.getItem("subBodyId")), this.convertGender(this.gender)).subscribe((allBodySymptoms) => {this.bodySymptoms = allBodySymptoms});
+    this.healthResultService.loadBodySymptoms(parseInt(localStorage.getItem("subBodyId")), this.convertGender(this.gender))
+      .subscribe((allBodySymptoms) => {
+        this.bodySymptoms = allBodySymptoms});
     console.log("gender entered: " + this.gender);
     console.log("converting gender to: " + this.convertGender(this.gender));
     console.log("the bodyId:  " + localStorage.getItem("bodyId"));
@@ -118,23 +120,5 @@ export class BodyLocationsComponent implements OnInit {
       return 0;
     }
   } // end convert gender
-
-
-  isProposedClicked: boolean = false;
-
-  proposedSymptoms: Symptom[] = [];
-
-  symptomId: number;
-  //gender: string;
-  age: number;
-
-  getProposedSymptoms(){
-    this.changeClicked();
-    this.healthResultService.loadProposedSymptoms(this.symptomId, this.gender, this.age).subscribe((allProposedSymptoms) => {this.proposedSymptoms = allProposedSymptoms});
-  }
-
-  changeClicked(){
-    this.isProposedClicked = !this.isProposedClicked;
-  }
 
 }

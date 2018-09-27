@@ -32,9 +32,7 @@ export class SymptomsComponent implements OnInit {
   healthLocationIds: number[];
   saveSymptomIdArray: string[] = [];
 
-
   // note: there are 1013 symptoms available
-  userEnteredSymptoms: any[];
 
   sympId: number;
 
@@ -58,8 +56,41 @@ export class SymptomsComponent implements OnInit {
     // int array
     console.log("length " + this.saveSymptomIdArray.push(this.sympId + ""));
     console.log("current array of symptom ids: " + this.saveSymptomIdArray);
+    document.getElementById("permission").removeAttribute("hidden");
 
   }
+
+  loadQuestions(){
+    document.getElementById("questions").removeAttribute("hidden");
+    document.getElementById("permission").setAttribute("hidden", "boolean");
+    //this.getProposedSymptoms();
+  }
+
+  gender: string;
+  genders = ["male", "female", "boy", "girl"];
+
+  // ----------------------------------------------------------------------------------
+  // Proposed Symptoms:
+
+  isProposedClicked: boolean = false;
+
+  proposedSymptoms: Symptom[] = [];
+  age: number;
+
+  getProposedSymptoms(){
+    document.getElementById("questions").setAttribute("hidden", "boolean");
+    document.getElementById("propSymps").removeAttribute("hidden");
+    document.getElementById("startSymp").setAttribute("hidden", "boolean");
+    // this.changeClicked();
+    localStorage.setItem("CurrentGender", this.gender);
+    localStorage.setItem("CurrentDateBirth", this.age+"");
+    this.healthResultService.loadProposedSymptoms(parseInt(localStorage.getItem("sympId")), this.gender, this.age).subscribe((allProposedSymptoms) => {this.proposedSymptoms = allProposedSymptoms});
+  }
+
+  // changeClicked(){
+  //   this.isProposedClicked = !this.isProposedClicked;
+  // }
+
 
 }
 

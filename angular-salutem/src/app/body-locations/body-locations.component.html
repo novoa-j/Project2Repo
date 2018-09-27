@@ -18,48 +18,23 @@
         {{bodyLocation.Name}}
       </option>
     </select>
-  <!-- </div> -->
 
     <select id="bodySubLocationSelector" class="form-control" (change)="saveSubBodyLocation()" disabled>
       <option value="choose">Choose a body sub-region</option>
     </select>
-  <!-- </div> -->
 
     <div class="jumbotron" id="bodySymptom">
-
-      <button id="myButton" class="btn btn-success" (click)="getBodySymptoms()" disabled>Get body symptoms!</button>
-
-      <div *ngIf="isClicked">
+      <button id="myButton" class="btn btn-success" hidden>Our proposed localized body symptoms...</button>
+      <!-- <div *ngIf="isClicked"> -->
         <div *ngFor='let bodySymptom of bodySymptoms'>
-        <br>
-        <!-- <p>Id: {{bodySymptom.ID}}<p> -->
-        <p>Name: {{bodySymptom.Name}}</p>
-        <!-- <p>HasRedFlag: {{bodySymptom.HasRedFlag}}<p> -->
-        <!-- <p>HealthSymptomLocationIDs: {{bodySymptom.HealthSymptomLocationIDs}}</p> -->
-        <p>ProfName: {{bodySymptom.ProfName}}<p>
-        <p>Synonyms: {{bodySymptom.Synonyms}}</p>
+          <br>
+          <!-- <p>Id: {{bodySymptom.ID}}<p> -->
+          <p>Name: {{bodySymptom.Name}}</p>
+          <!-- <p>HasRedFlag: {{bodySymptom.HasRedFlag}}<p> -->
+          <!-- <p>HealthSymptomLocationIDs: {{bodySymptom.HealthSymptomLocationIDs}}</p> -->
+          <p>ProfName: {{bodySymptom.ProfName}}<p>
+          <p>Synonyms: {{bodySymptom.Synonyms}}</p>
         </div>
-      </div>
-    </div>
-
-
-    <!-- proposed symptoms -->
-
-    <div class="container">
-        <div class="jumbotron" id="specialisation">
-    
-            id: <input type="number" [(ngModel)]="id" name="id">
-            gender: <input type="text" [(ngModel)]="gender" name="gender">
-            age: <input type="number" [(ngModel)]="age" name="age">
-            
-          <button id="myButton" class="btn btn-success" (click)="getProposedSymptoms()">Get proposed symptoms!</button>
-          <div *ngIf="isProposedClicked">
-            <div *ngFor='let proposedSymptom of proposedSymptoms'>
-            <br>
-            <p>Id: {{proposedSymptom.ID}}<p>
-            <p>Name: {{proposedSymptom.Name}}</p>
-          </div>
-          </div>
     </div>
   </div>
 </div>
