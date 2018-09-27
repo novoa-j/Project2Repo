@@ -58,7 +58,6 @@ export class BodyLocationsComponent implements OnInit {
   // Body Symptoms:
 
   isClicked: boolean = false;
-
   bodySymptoms: BodySymptom[] = [];
 
   //selectedId: number = this.bodyLocationId.getBodyLocations();
