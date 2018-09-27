@@ -15,7 +15,7 @@ export const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'home', component: HomePageComponent },
     { path: 'symptoms', component: SymptomsComponent },
-    { path: 'body-symptoms', component: BodySymptomsComponent },
+    // { path: 'body-symptoms', component: BodySymptomsComponent },
     { path: 'body-locations', component: BodyLocationsComponent },
     { path: 'issues', component: IssuesComponent },
     { path: 'issue', component: IssueComponent },

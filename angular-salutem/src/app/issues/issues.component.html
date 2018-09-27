@@ -1,18 +1,14 @@
 <app-nav></app-nav>
 <br><br><br>
 <div class="container">
-    <div class="jumbotron">
+  <!-- <div class="jumbotron"> -->
 
+    <select id="issueSelector" class="form-control" (click)="getIssues()">
+      <option value="choose">Select from the list an issue</option>
+      <!-- <option *ngFor='let issElement of issues' value={{issElement.ID}}>
+        {{issElement.Name}}
+      </option> -->
+    </select>
 
-      <button id="myButton" class="btn btn-success" (click)='getIssues()'> Get issues! </button>
-    </div>
-    <div>
-      <div *ngIf='isClicked'>
-      <div *ngFor='let issue of issues'>
-      <br>
-      <p>Id: {{issue.ID}}</p> 
-      <p>Name: {{issue.Name}}</p>
-      </div>
-      </div>
-    </div>
-  </div>
+  <!-- </div> -->
+</div>

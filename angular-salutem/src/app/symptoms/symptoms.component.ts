@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HealthResultService } from '../services/health-result.service';
-import { Symptom } from '../symptom';
+import { Symptom, BodySymptom } from '../symptom';
 
 @Component({
   selector: 'app-symptoms',
@@ -17,33 +17,66 @@ export class SymptomsComponent implements OnInit {
   isClicked: boolean = false;
 
   symptoms: Symptom[] = [];
+
+  symptomId: string;
+
+  healthLocationIds: number[];
+
+  // note: there are 1013 symptoms available
+  userEnteredSymptoms: any[];
   
-  input = document.getElementById('symp');
+  //input = document.getElementById('symp');
+
+  // storeVal(sympId) {
+  //   this.userEnteredSymptoms.push(sympId);
+  // }
 
   getSymptoms(){
-    this.changeClicked();
+    //this.changeClicked();
+    let symptomId = ((<HTMLInputElement>document.getElementById("json-symptomsList")).value);
+    //console.log(document.getElementById("json-symptomsList").innerHTML);
+    console.log("the id selected: " + symptomId);
     this.healthResultService.loadSymptoms().subscribe(
       (allSymptoms) => {
         this.symptoms = allSymptoms;
         //let jsonOptionsString = JSON.stringify(this.symptoms);
-        this.populateSymptoms(this.symptoms);
+        console.log(this.populateSymptoms(this.symptoms));
+        //document.getElementById("json-symptomsList").addEventListener("blur", this.storeVal(symptomId));
+        //localStorage.setItem("CurrentUserSymptomId", JSON.stringify(item.ID));
       }
     );
+
   }
 
-  populateSymptoms(symps: Symptom[]): any {
-    //console.log("in this method");
-    symps.forEach(function(item) {
-      let option: any = (<HTMLOptionElement>document.createElement('option'));
-      option.value = item.Name;
-      let dataList = document.getElementById('json-symptomsList');
-      dataList.appendChild(option);
-      //console.log("dataList: " + dataList);
-    });
-  }
+  sympId: number;
 
-  changeClicked(){
-    this.isClicked = !this.isClicked;
+  populateSymptoms(symps: Symptom[]): string {
+      let dataList = document.getElementById("json-symptomsList");
+      dataList.innerHTML = "";
+      symps.forEach(item => {
+        let tmpOption = document.createElement("option");
+        tmpOption.setAttribute("value", item.ID + "");
+        tmpOption.innerText = item.Name;
+        dataList.appendChild(tmpOption);
+      });
+      //console.log( (<HTMLInputElement>dataList).value);
+      return (<HTMLInputElement>dataList).value;
   }
   
 }
+
+//    //console.log("in this method");
+//    let dataList = document.getElementById('json-symptomsList');
+//    symps.forEach(function(item) {
+//      let option: any = (<HTMLOptionElement>document.createElement('option'));
+//      option.setAttribute("value", item.ID + "");
+//      option.setAttribute("name", item.ID + "");
+//      option.value = item.Name;
+
+//      // populate all the pre-made options to the dropdown    
+//      dataList.appendChild(option);
+
+//      //if one was selected, pass to another function
+//    });
+//    console.log("THE ATTRIBUTE: " + localStorage.getItem("optionSelected"));
+//  }
