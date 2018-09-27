@@ -14,10 +14,10 @@ export class BodyLocationsComponent implements OnInit {
 
   ngOnInit() {
     this.healthResultService.loadBodyLocations().subscribe((allBodyLocations) => {this.bodyLocations = allBodyLocations});
-    document.getElementById("navIssue").setAttribute("disabled","");
-    document.getElementById("navPropos").setAttribute("disabled","");
-    document.getElementById("navSpec").setAttribute("disabled","");
-    document.getElementById("navDiagnosis").setAttribute("disabled","");
+    // document.getElementById("navIssue").setAttribute("disabled","");
+    // document.getElementById("navPropos").setAttribute("disabled","");
+    // document.getElementById("navSpec").setAttribute("disabled","");
+    // document.getElementById("navDiagnosis").setAttribute("disabled","");
 }
 
   bodyLocations: BodyLocation[] = [];
