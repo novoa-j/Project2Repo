@@ -3,7 +3,7 @@
 <div class="container">
   <div class="jumbotron">
 
-      id: <input type="number" [(ngModel)]="issueId" name="issueId">
+    id: <input type="number" [(ngModel)]="issueId" name="issueId">
         
     <button id="myButton" class="btn btn-success" (click)="getIssue()">Get issue!</button>
     <div *ngIf="isClicked">
@@ -15,7 +15,7 @@
       <p>Professional Name: {{ issues.ProfName }}</p>
       <p>Symptoms: {{ issues.Synonyms }}</p>
       <p>Treatment Description: {{ issues.TreatmentDescription }}</p>
-  </div>
+    </div>
 </div>
 
 <div class="jumbotron">

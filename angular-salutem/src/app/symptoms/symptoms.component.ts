@@ -53,7 +53,7 @@ export class SymptomsComponent implements OnInit {
     console.log("the id from console " + this.sympId);
     console.log("The symptom id: " + localStorage.getItem("sympId"));
 
-    // int array
+    // string array
     console.log("length " + this.saveSymptomIdArray.push(this.sympId + ""));
     console.log("current array of symptom ids: " + this.saveSymptomIdArray);
     document.getElementById("permission").removeAttribute("hidden");
@@ -90,7 +90,6 @@ export class SymptomsComponent implements OnInit {
   // changeClicked(){
   //   this.isProposedClicked = !this.isProposedClicked;
   // }
-
 
 }
 

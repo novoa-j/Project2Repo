@@ -17,6 +17,8 @@
     </select><br><br>
   </div>
 
+  <!-- Permission -->
+
   <div class="jumbotron" id="permission" hidden>
     <p>I see...</p>
     <p>We do need to ask you a few questions.</p>
@@ -26,7 +28,7 @@
     <button id="questionButton" class="btn btn-success" (click)="loadQuestions()">Yes</button><br><br>
   </div>
 
-  <!-- proposed symptoms -->
+  <!-- Questions -->
 
   <div class="jumbotron" id="questions" hidden>
     <!-- id: <input type="number" [(ngModel)]="id" name="id"> -->
@@ -43,6 +45,8 @@
     <input type="number" [(ngModel)]="age" name="age">
     <button id="questionButton2" class="btn btn-success" (click)="getProposedSymptoms()">Continue</button><br><br>
   </div>
+
+  <!-- proposed symptoms -->
 
   <div class="jumbotron" id="propSymps" hidden>
     <h4>Maybe take a look at our proposed symptoms...</h4>

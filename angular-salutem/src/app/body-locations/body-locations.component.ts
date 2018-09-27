@@ -69,8 +69,16 @@ export class BodyLocationsComponent implements OnInit {
     this.subBodyId = parseInt((<HTMLInputElement>document.getElementById("bodySubLocationSelector")).value);
     localStorage.setItem("subBodyId", this.subBodyId + "");
     console.log(this.subBodyId);
-    this.getBodySymptoms();
-    
+    document.getElementById("permission").removeAttribute("hidden");  
+  }
+
+  // ----------------------------------------------------------------------------------
+  // Questions:
+
+  loadQuestions(){
+    document.getElementById("questions").removeAttribute("hidden");
+    document.getElementById("permission").setAttribute("hidden", "boolean");
+    //this.getBodySymptoms();
   }
 
   // ----------------------------------------------------------------------------------
@@ -78,27 +86,55 @@ export class BodyLocationsComponent implements OnInit {
 
   isClicked: boolean = false;
   bodySymptoms: BodySymptom[] = [];
+  bodySympId: number;
+  saveBodySymptomIdArray: string[] = [];
 
   //selectedId: number = this.bodyLocationId.getBodyLocations();
   // id: number;
   gender: string;
-
-  // genders = ["male", "female", "boy", "girl"];
+  genders = ["male", "female", "boy", "girl"];
+  age: number;
 
   getBodySymptoms(){
-    document.getElementById("myButton").removeAttribute("hidden");
+    document.getElementById("bodySymptom").removeAttribute("hidden");
+    document.getElementById("questions").setAttribute("hidden", "boolean");
 
     this.gender = localStorage.getItem("CurrentGender")
 
     // this.changeClicked();
     // document.getElementById("myButton").removeAttribute("disabled");
     this.healthResultService.loadBodySymptoms(parseInt(localStorage.getItem("subBodyId")), this.convertGender(this.gender))
-      .subscribe((allBodySymptoms) => {
-        this.bodySymptoms = allBodySymptoms});
+    .subscribe((allBodySymptoms) => {
+        this.bodySymptoms = allBodySymptoms;
+        this.populateBodySymptoms(this.bodySymptoms)});
+
     console.log("gender entered: " + this.gender);
     console.log("converting gender to: " + this.convertGender(this.gender));
     console.log("the bodyId:  " + localStorage.getItem("bodyId"));
     console.log("the subBodyId:  " + localStorage.getItem("subBodyId"));
+  }
+
+  populateBodySymptoms(bodySymps: BodySymptom[]) {
+    let dataList = document.getElementById("bodySymptomSelector");
+    dataList.innerHTML = "";
+    bodySymps.forEach(item => {
+      let tmpOption = document.createElement("option");
+      tmpOption.setAttribute("value", item.ID + "");
+      tmpOption.innerText = item.Name;
+      dataList.appendChild(tmpOption);
+    });
+  }
+
+  saveBodySymptoms() {
+    document.getElementById("bodySymptom").removeAttribute("hidden");
+    this.bodySympId = parseInt((<HTMLInputElement>document.getElementById("bodySymptomSelector")).value);
+    localStorage.setItem("bodySympId", this.bodySympId + "");
+    console.log("the id from console " + this.bodySympId);
+    console.log("The symptom id: " + localStorage.getItem("bodySympId"));
+
+    // string array
+    console.log("length " + this.saveBodySymptomIdArray.push(this.bodySympId + ""));
+    console.log("current array of symptom ids: " + this.saveBodySymptomIdArray);
   }
 
   // changeClicked(){

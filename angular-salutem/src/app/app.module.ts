@@ -18,7 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavComponent } from './nav/nav.component';
 import { RouterModule } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
+// import { DashboardComponent } from './dashboard/dashboard.component';
 import { appRoutes } from './routes';
 import { ReviewComponent } from './review/review.component';
 
@@ -39,7 +39,7 @@ import { ReviewComponent } from './review/review.component';
     LoginComponent,
     HomePageComponent,
     NavComponent,
-    DashboardComponent,
+    // DashboardComponent,
     ReviewComponent
   ],
   imports: [

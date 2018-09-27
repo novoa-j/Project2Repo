@@ -33,7 +33,7 @@ export class ReviewComponent implements OnInit {
   fetchIssue(issueId: number){
     this.healthResultService.loadIssue(issueId).subscribe(
       (data) => {
-        console.log(data);
+        console.log("issue data:  " + data);
       }
     );
   }
