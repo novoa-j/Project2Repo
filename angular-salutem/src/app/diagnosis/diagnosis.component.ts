@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HealthResultService } from '../services/health-result.service';
 import { Diagnosis } from '../diagnosis';
-
-
+import { Issue} from '../diagnosis';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Submission } from '../submission';
+import { Account } from '../account';
 @Component({
   selector: 'app-diagnosis',
   templateUrl: './diagnosis.component.html',
@@ -10,9 +12,10 @@ import { Diagnosis } from '../diagnosis';
 })
 export class DiagnosisComponent implements OnInit {
 
-  constructor(private healthResultService: HealthResultService) { }
+  constructor(private http: HttpClient, private healthResultService: HealthResultService) { }
 
   ngOnInit() {
+    this.useAccount();
   }
 
 
@@ -21,6 +24,7 @@ export class DiagnosisComponent implements OnInit {
   isClicked: boolean = false;
 
   diagnoses: Diagnosis[] = [];
+  
   //specialisations: Spec[] = [];
   objectkeys = Object.keys;
 
@@ -28,15 +32,63 @@ export class DiagnosisComponent implements OnInit {
   gender: string;
   age: number;
 
+  //account variable
+  currentAccountId: number;
+
+
+
   getDiagnoses(){
     this.changeClicked();
     console.log(Diagnosis);
-    this.healthResultService.loadDiagnosis(this.id, this.gender, this.age).subscribe((allDiagnoses) => {this.diagnoses = allDiagnoses});
+    this.healthResultService.loadDiagnosis(this.id, this.gender, this.age).subscribe((allDiagnoses) => {
+      this.diagnoses = allDiagnoses;
+
+      this.saveDiagnosis(allDiagnoses);
+    
+    
+    
+    });
     //this.healthResultService.loadDiagnosis(this.id, this.gender, this.age).subscribe((allSpecialisations) => {this.specialisations = allSpecialisations});
+  
   }
 
   changeClicked(){
     this.isClicked = !this.isClicked;
   }
+
+  saveDiagnosis(array: Diagnosis[]){
+    //grab the issue id for each of the diagnoses
+    // this.diagnoses.
+
+    for (let entry of array) {
+      console.log(entry.Issue.ID); // 1, "string", false
+      console.log(this.saveArray(entry.Issue.ID));
+    }
+    
+    // this.diagnoses.forEach(diagnose => {
+    //   console.log(diagnose.Issue.ID);
+    //   // diagnose.Issue.ID;
+    // });
+  }
+
+
+  saveArray(issueId: number ){
+    let accepted = this.http.post<Submission>('http://salutem.us-east-2.elasticbeanstalk.com/submissions',
+    //parse the issue ids to save as submmissions 
+    JSON.parse(`{"id":" ","accountId":"${this.currentAccountId}","symptomId":"${issueId}","submissionDate":"2018-01-02"}`), {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        })
+      }); // no error handling rn
+    return accepted;
+  }
+useAccount(){
+  var currentAccount: any= Account;
+  currentAccount = JSON.parse(localStorage.getItem("signedInAccount"));
+  console.log(currentAccount);
+  this.currentAccountId=currentAccount.accountId;
+console.log(this.currentAccountId)
+  // localStorage.getItem("signedInAccount")
+}
 
 }
