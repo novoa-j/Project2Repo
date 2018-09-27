@@ -12,7 +12,7 @@ import { ProposedSymptomsComponent } from './proposed-symptoms/proposed-symptoms
 import { BodyLocationsComponent } from './body-locations/body-locations.component';
 import { DiagnosisComponent } from './diagnosis/diagnosis.component';
 import { RedflagComponent } from './redflag/redflag.component';
-import { BodySymptomsComponent } from './body-symptoms/body-symptoms.component';
+// import { BodySymptomsComponent } from './body-symptoms/body-symptoms.component';
 import { HealthResultService } from './services/health-result.service';
 import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -34,7 +34,7 @@ import { appRoutes } from './routes';
     BodyLocationsComponent,
     DiagnosisComponent,
     RedflagComponent,
-    BodySymptomsComponent,
+    // BodySymptomsComponent,
     LoginComponent,
     HomePageComponent,
     NavComponent,

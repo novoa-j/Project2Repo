@@ -5,19 +5,15 @@
 
     <label for="symp">Choose your symptom</label><br>
 
-    <form>
+    <!-- <form> -->
 
-    <input type="text" id="symp" class="form-control" list="json-symptomsList" placeholder="e.g. abdominal pain" (change)='getSymptoms()'>
-    <select id="json-symptomsList">
-        <option *ngFor='let symptom of symptoms' value={{symptom.ID}}>
-            {{symptom.Name}}
-        </option>
-      </select><br><br><br>
-    <!-- <input type="submit" value="submit" (click)=''> -->
-    <!-- <p>
-    <output onforminput="this.value=json-symptomsList.value" ></output>
-    </p> -->
-  </form>
+    <!-- <input type="text" id="symp" class="form-control" list="json-symptomsList" placeholder="e.g. abdominal pain" (change)='getSymptoms()'> -->
+    <select id="json-symptomsList" class="form-control" (change)='saveSymptoms()'>
+      <option *ngFor='let symptom of symptoms' value={{symptom.ID}}>
+        {{symptom.Name}}
+      </option>
+    </select><br><br><br>
+
     </div>
     </div>
 

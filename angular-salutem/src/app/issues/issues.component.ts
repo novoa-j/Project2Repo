@@ -12,6 +12,7 @@ export class IssuesComponent implements OnInit {
   constructor(private healthResultService: HealthResultService) { }
 
   ngOnInit() {
+    this.healthResultService.loadIssues().subscribe((allIssues) => {this.issues = allIssues});
   }
 
   isClicked: boolean = false;
@@ -21,12 +22,8 @@ export class IssuesComponent implements OnInit {
   getIssues() {
     this.issueId = parseInt((<HTMLInputElement>document.getElementById("issueSelector")).value);
     //localStorage.setItem("bodyId", this.bodyId + "");
-    console.log(this.issueId);
-    this.healthResultService.loadIssues().subscribe((allIssues) => {
-      this.issues = allIssues;
-      this.populateIssues();
-    });
-
+    console.log("the issueId" + this.issueId);
+    this.populateIssues();
   } // end getIssues()
 
   populateIssues() {

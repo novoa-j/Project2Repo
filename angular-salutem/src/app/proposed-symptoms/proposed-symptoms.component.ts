@@ -14,7 +14,7 @@ export class ProposedSymptomsComponent implements OnInit {
   ngOnInit() {
   }
 
-  isClicked: boolean = false;
+  isProposedClicked: boolean = false;
 
   proposedSymptoms: Symptom[] = [];
 
@@ -28,7 +28,7 @@ export class ProposedSymptomsComponent implements OnInit {
   }
 
   changeClicked(){
-    this.isClicked = !this.isClicked;
+    this.isProposedClicked = !this.isProposedClicked;
   }
 
 }

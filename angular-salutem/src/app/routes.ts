@@ -1,7 +1,7 @@
 import { LoginComponent } from "./login/login.component";
 import { Routes } from "@angular/router";
 import { SymptomsComponent } from "./symptoms/symptoms.component";
-import { BodySymptomsComponent } from "./body-symptoms/body-symptoms.component";
+// import { BodySymptomsComponent } from "./body-symptoms/body-symptoms.component";
 import { BodyLocationsComponent } from "./body-locations/body-locations.component";
 import { SpecialisationsComponent } from "./specialisations/specialisations.component";
 import { IssuesComponent } from "./issues/issues.component";
