@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HealthResultService } from '../services/health-result.service';
-import { Symptom } from '../symptom';
+import { Symptom, BodySymptom } from '../symptom';
 
 @Component({
   selector: 'app-symptoms',
@@ -19,6 +19,8 @@ export class SymptomsComponent implements OnInit {
   symptoms: Symptom[] = [];
 
   symptomId: string;
+
+  healthLocationIds: number[];
 
   // note: there are 1013 symptoms available
   userEnteredSymptoms: any[];
@@ -48,7 +50,6 @@ export class SymptomsComponent implements OnInit {
 
   sympId: number;
 
-
   populateSymptoms(symps: Symptom[]): string {
       let dataList = document.getElementById("json-symptomsList");
       dataList.innerHTML = "";
@@ -61,7 +62,6 @@ export class SymptomsComponent implements OnInit {
       //console.log( (<HTMLInputElement>dataList).value);
       return (<HTMLInputElement>dataList).value;
   }
- 
   
 }
 

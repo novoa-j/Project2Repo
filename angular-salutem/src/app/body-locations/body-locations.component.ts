@@ -51,6 +51,8 @@ export class BodyLocationsComponent implements OnInit {
         tmpOption.innerText = element.Name;
         optionsList.appendChild(tmpOption);
       });
+
+      this.getBodySymptoms();
     }
   }
 
