@@ -22,18 +22,26 @@ export class ReviewComponent implements OnInit {
     document.getElementById("navSpec").setAttribute("disabled","");
     document.getElementById("navDiagnosis").setAttribute("disabled","");
   }
+  ngAfterViewInit(){
+    let issueIds = document.getElementsByClassName("divIssues");
+    if (issueIds.length)
+      
+    for (let i = 0; i < issueIds.length; i++)
+      this.fetchIssue(+issueIds[i].children[2].id);
+  }
 
   populateReviews(){
-    let jayjay = JSON.parse(localStorage.getItem("signedInAccount"));
-    this.issues = jayjay.pastSymptoms;
-    // for (let iss of this.issues)
-    //   this.fetchIssue(iss.);
+    let jsonString = JSON.parse(localStorage.getItem("signedInAccount"));
+    this.issues = jsonString.pastSymptoms;
   }
 
   fetchIssue(issueId: number){
     this.healthResultService.loadIssue(issueId).subscribe(
       (data) => {
-        console.log(data);
+        let info = document.getElementById("" + issueId);
+        let name = document.getElementById("name-" + issueId)
+        info.innerHTML = JSON.stringify(data.DescriptionShort);
+        name.innerHTML = JSON.stringify(data.Name).replace(/"/g,"");
       }
     );
   }
