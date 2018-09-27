@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HealthResultService } from '../services/health-result.service';
 import { Diagnosis } from '../diagnosis';
 
+
 @Component({
   selector: 'app-diagnosis',
   templateUrl: './diagnosis.component.html',
@@ -13,6 +14,9 @@ export class DiagnosisComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
+
 
   isClicked: boolean = false;
 

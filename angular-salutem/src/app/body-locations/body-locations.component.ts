@@ -44,7 +44,7 @@ export class BodyLocationsComponent implements OnInit {
         return this.bodyId;
   }
 
-  populateSubLocations() {
+ populateSubLocations() {
     if ((<HTMLInputElement>document.getElementById("bodyLocationSelector")).value != "choose"){
       let optionsList = document.getElementById("bodySubLocationSelector");
       console.log("optionslist:  " + JSON.stringify(optionsList));

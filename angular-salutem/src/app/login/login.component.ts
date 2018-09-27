@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
       let token: TokenForm;
       let tokenString: string;
 
-      this.healthResultService.getTokenJSON()
+      this.getTokenJSON()
       .subscribe(
         (data) => {
           (token = data)
@@ -107,6 +107,18 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("signedInAccount",thisAccount);
             
           });
+
+          let token: TokenForm;
+          let tokenString: string;
+
+          this.getTokenJSON()
+            .subscribe(
+              (data) => {
+                (token = data)
+                tokenString = data.Token;
+                localStorage.setItem("Token", data.Token);
+              }
+            );
            //try subscribing and getting info then
           
           //the following commands are not functioning
@@ -148,9 +160,23 @@ newAccount(){
           this.router.navigateByUrl("/login");
           // localStorage.setItem("Account", strAccount);
           
+          
         }
       }
     );
 }
+
+  getTokenJSON(): Observable<TokenForm> {
+    let tokenTimeJSON = this.http.post<TokenForm>('https://authservice.priaid.ch/login', null, {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer Fo3a8_GMAIL_COM_AUT:/O0go1aHzJX3ZBqqHEsu3g==',
+        'Content-Type': 'application/json' // multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+      })
+    }); // no error handling rn
+    return tokenTimeJSON;
+  }
+
+
+
 
 }
