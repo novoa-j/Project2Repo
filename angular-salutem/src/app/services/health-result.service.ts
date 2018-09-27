@@ -235,7 +235,7 @@ export class HealthResultService {
   }
 
   // https://healthservice.priaid.ch/diagnosis?symptoms=[10]&gender=male&year_of_birth=1982&token=
-  loadDiagnosis(id: number, gender: string, age: number): Observable<Diagnosis[]> { // NOT DONE!!!!!
+  loadDiagnosis(id: string, gender: string, age: number): Observable<Diagnosis[]> { // NOT DONE!!!!!
     let baseUrl = 'https://healthservice.priaid.ch/diagnosis?symptoms=';
 
     // let token: TokenForm;

@@ -5,6 +5,7 @@ import { Issue} from '../diagnosis';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Submission } from '../submission';
 import { Account } from '../account';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-diagnosis',
   templateUrl: './diagnosis.component.html',
@@ -25,7 +26,7 @@ export class DiagnosisComponent implements OnInit {
   
   //specialisations: Spec[] = [];
   objectkeys = Object.keys;
-
+  id: string;
   symptomId: number;
   gender: string;
   age: number;
@@ -35,15 +36,16 @@ export class DiagnosisComponent implements OnInit {
 
 
   getDiagnoses(){
-    this.symptomId = parseInt(localStorage.getItem("sympId"));
-    this.gender = localStorage.getItem("CurrentGender");
-    this.age = parseInt(localStorage.getItem("CurrentDateBirth")); // birth year
+    // this.symptomId = parseInt(localStorage.getItem("sympId"));
+    // this.gender = localStorage.getItem("CurrentGender");
+    // this.age = parseInt(localStorage.getItem("CurrentDateBirth")); // birth year
     this.changeClicked();
     //console.log(Diagnosis);
-    this.healthResultService.loadDiagnosis(this.symptomId, this.gender, this.age).subscribe((allDiagnoses) => {
+    this.healthResultService.loadDiagnosis(this.id, this.gender, this.age).subscribe((allDiagnoses) => {
       this.diagnoses = allDiagnoses;
 
-      this.saveDiagnosis(allDiagnoses);
+      
+      // this.saveArray(allDiagnoses);
     });
     //this.healthResultService.loadDiagnosis(this.id, this.gender, this.age).subscribe((allSpecialisations) => {this.specialisations = allSpecialisations});
   
@@ -53,13 +55,13 @@ export class DiagnosisComponent implements OnInit {
     this.isClicked = !this.isClicked;
   }
 
-  saveDiagnosis(array: Diagnosis[]){
+  saveDiagnosis(){
     //grab the issue id for each of the diagnoses
     // this.diagnoses.
 
-    for (let entry of array) {
+    for (let entry of this.diagnoses) {
       console.log(entry.Issue.ID); // 1, "string", false
-      console.log(this.saveArray(entry.Issue.ID));
+      this.saveArray(entry.Issue.ID);
     }
     
     // this.diagnoses.forEach(diagnose => {
@@ -69,16 +71,19 @@ export class DiagnosisComponent implements OnInit {
   }
 
 
-  saveArray(issueId: number ){
-    let accepted = this.http.post<Submission>('http://salutem.us-east-2.elasticbeanstalk.com/submissions',
-    //parse the issue ids to save as submmissions 
-    JSON.parse(`{"id":" ","accountId":"${this.currentAccountId}","symptomId":"${issueId}","submissionDate":"2018-01-02"}`), {
+  saveArray(issueId: number):Observable<Submission>{
+    let accepted = this.http.put<Submission>('http://salutem.us-east-2.elasticbeanstalk.com/submissions',
+      // { "accountId": 1, "symptomId": 10, "submissionDate": "2017-04-02" }
+    JSON.parse(`{ "accountId" : ${this.currentAccountId}, "symptomId" : ${issueId}, "submissionDate":"2018-01-02"}`), {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'
         })
       }); // no error handling rn
+    // console.log(issueId);
+    console.log(`{ "accountId" : ${this.currentAccountId}, "symptomId" : ${issueId}, "submissionDate":"2018-01-02"}`);
     return accepted;
   }
+
 useAccount(){
   var currentAccount: any= Account;
   currentAccount = JSON.parse(localStorage.getItem("signedInAccount"));
