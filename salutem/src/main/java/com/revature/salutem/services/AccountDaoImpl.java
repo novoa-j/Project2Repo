@@ -52,7 +52,7 @@ public class AccountDaoImpl implements AccountDao {
 	}
 	
 	@Override
-	public Account grabAccount(Account ac) {
-		return accRepo.findAccountByUsernameAndKey(ac.getUsername(), ac.getKey());
+	public Account grabAccount(Account acc) {
+		return accRepo.findAccountByUsernameAndKey(acc.getUsername(), acc.getKey());
 	}
 }
