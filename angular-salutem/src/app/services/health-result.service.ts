@@ -37,15 +37,15 @@ export class HealthResultService {
   };
 
   // Http POST request to get the token using bearer authorization + hash obtained earlier
-  getTokenJSON(): Observable<TokenForm> {
-    let tokenTimeJSON = this.http.post<TokenForm>('https://authservice.priaid.ch/login', null, {
-      headers: new HttpHeaders({
-        'Authorization' : 'Bearer Fo3a8_GMAIL_COM_AUT:/O0go1aHzJX3ZBqqHEsu3g==',
-        'Content-Type' : 'application/json' // multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-      })
-    }); // no error handling rn
-    return tokenTimeJSON;
-  }
+  // getTokenJSON(): Observable<TokenForm> {
+  //   let tokenTimeJSON = this.http.post<TokenForm>('https://authservice.priaid.ch/login', null, {
+  //     headers: new HttpHeaders({
+  //       'Authorization' : 'Bearer Fo3a8_GMAIL_COM_AUT:/O0go1aHzJX3ZBqqHEsu3g==',
+  //       'Content-Type' : 'application/json' // multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+  //     })
+  //   }); // no error handling rn
+  //   return tokenTimeJSON;
+  // }
 
   // only use (re-send from Postman) if auto auth post request fail for some reason...
   // token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vdm9hLmpvbkBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6IjExMTQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIxMDgiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiMTAwIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiQmFzaWMiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZW4tZ2IiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDE4LTA5LTE0IiwiaXNzIjoiaHR0cHM6Ly9hdXRoc2VydmljZS5wcmlhaWQuY2giLCJhdWQiOiJodHRwczovL2hlYWx0aHNlcnZpY2UucHJpYWlkLmNoIiwiZXhwIjoxNTM3NjY3NzY5LCJuYmYiOjE1Mzc2NjA1Njl9.DNpG7Ej0znHt5zRI5RQtcKVlHtM4mBRPeXkEWiLAUi0';
@@ -56,17 +56,17 @@ export class HealthResultService {
     let baseUrl = 'https://healthservice.priaid.ch/symptoms?token=';
     let extraArgs = '&format=json&language=en-gb';
 
-    let token: TokenForm;
+    // let token: TokenForm;
     let tokenString: string;
 
-    this.getTokenJSON()
-    .subscribe(
-      (data) => {
-        (token = data)
-        tokenString = data.Token;
-        localStorage.setItem("Token", data.Token);
-      }
-    );
+    // this.getTokenJSON()
+    // .subscribe(
+    //   (data) => {
+    //     (token = data)
+    //     tokenString = data.Token;
+    //     localStorage.setItem("Token", data.Token);
+    //   }
+    // );
 
     tokenString = localStorage.getItem("Token").toString();
     let finalUrl = baseUrl + tokenString + extraArgs;
@@ -82,17 +82,17 @@ export class HealthResultService {
     let baseUrl = 'https://healthservice.priaid.ch/symptoms/';
     let extraArgs = '&format=json&language=en-gb';
 
-    let token: TokenForm;
+    // let token: TokenForm;
     let tokenString: string;
 
-    this.getTokenJSON()
-    .subscribe(
-      (data) => {
-        (token = data)
-        tokenString = data.Token;
-        localStorage.setItem("Token", data.Token);
-      }
-    );
+    // this.getTokenJSON()
+    // .subscribe(
+    //   (data) => {
+    //     (token = data)
+    //     tokenString = data.Token;
+    //     localStorage.setItem("Token", data.Token);
+    //   }
+    // );
 
     tokenString = localStorage.getItem("Token").toString();
     let finalUrl = baseUrl + id + '/' + gender + '?token=' + tokenString + extraArgs;
@@ -106,17 +106,17 @@ export class HealthResultService {
     let baseUrl = 'https://healthservice.priaid.ch/body/locations?token=';
     let extraArgs = '&format=json&language=en-gb';
 
-    let token: TokenForm;
+    // let token: TokenForm;
     let tokenString: string;
 
-    this.getTokenJSON()
-    .subscribe(
-      (data) => {
-        (token = data)
-        tokenString = data.Token;
-        localStorage.setItem("Token", data.Token);
-      }
-    );
+    // this.getTokenJSON()
+    // .subscribe(
+    //   (data) => {
+    //     (token = data)
+    //     tokenString = data.Token;
+    //     localStorage.setItem("Token", data.Token);
+    //   }
+    // );
 
     tokenString = localStorage.getItem("Token").toString();
     let finalUrl = baseUrl + tokenString + extraArgs;
@@ -128,17 +128,17 @@ export class HealthResultService {
     let baseUrl = 'https://healthservice.priaid.ch/body/locations/';
     let extraArgs = '&format=json&language=en-gb';
 
-    let token: TokenForm;
+    // let token: TokenForm;
     let tokenString: string;
 
-    this.getTokenJSON()
-    .subscribe(
-      (data) => {
-        (token = data)
-        tokenString = data.Token;
-        localStorage.setItem("Token", data.Token);
-      }
-    );
+    // this.getTokenJSON()
+    // .subscribe(
+    //   (data) => {
+    //     (token = data)
+    //     tokenString = data.Token;
+    //     localStorage.setItem("Token", data.Token);
+    //   }
+    // );
 
     tokenString = localStorage.getItem("Token").toString();
     let finalUrl = baseUrl + id + '?token=' + tokenString + extraArgs;
@@ -150,17 +150,17 @@ export class HealthResultService {
     let baseUrl = 'https://healthservice.priaid.ch/issues?token=';
     let extraArgs = '&format=json&language=en-gb';
 
-    let token: TokenForm;
+    // let token: TokenForm;
     let tokenString: string;
 
-    this.getTokenJSON()
-    .subscribe(
-      (data) => {
-        (token = data)
-        tokenString = data.Token;
-        localStorage.setItem("Token", data.Token);
-      }
-    );
+    // this.getTokenJSON()
+    // .subscribe(
+    //   (data) => {
+    //     (token = data)
+    //     tokenString = data.Token;
+    //     localStorage.setItem("Token", data.Token);
+    //   }
+    // );
 
     tokenString = localStorage.getItem("Token").toString();
     let finalUrl = baseUrl + tokenString + extraArgs;
@@ -172,17 +172,17 @@ export class HealthResultService {
     let baseUrl = 'https://healthservice.priaid.ch/issues/';
     let extraArgs = '&format=json&language=en-gb';
 
-    let token: TokenForm;
+    // let token: TokenForm;
     let tokenString: string;
 
-    this.getTokenJSON()
-    .subscribe(
-      (data) => {
-        (token = data)
-        tokenString = data.Token;
-        localStorage.setItem("Token", data.Token);
-      }
-    );
+    // this.getTokenJSON()
+    // .subscribe(
+    //   (data) => {
+    //     (token = data)
+    //     tokenString = data.Token;
+    //     localStorage.setItem("Token", data.Token);
+    //   }
+    // );
 
     tokenString = localStorage.getItem("Token").toString();
     let finalUrl = baseUrl + id + '/info?token=' + tokenString + extraArgs;
@@ -194,17 +194,17 @@ export class HealthResultService {
     let baseUrl = 'https://healthservice.priaid.ch/symptoms/proposed?symptoms=';
     let extraArgs = '&format=json&language=en-gb';
 
-    let token: TokenForm;
+    // let token: TokenForm;
     let tokenString: string;
 
-    this.getTokenJSON()
-    .subscribe(
-      (data) => {
-        (token = data)
-        tokenString = data.Token;
-        localStorage.setItem("Token", data.Token);
-      }
-    );
+    // this.getTokenJSON()
+    // .subscribe(
+    //   (data) => {
+    //     (token = data)
+    //     tokenString = data.Token;
+    //     localStorage.setItem("Token", data.Token);
+    //   }
+    // );
 
     tokenString = localStorage.getItem("Token").toString();
     let finalUrl = baseUrl + '[' + id + ']&gender=' + gender + '&year_of_birth=' + age + '&token=' + tokenString + extraArgs;
@@ -216,17 +216,17 @@ export class HealthResultService {
     let baseUrl = 'https://healthservice.priaid.ch/diagnosis/specialisations?symptoms=';
     let extraArgs = '&format=json&language=en-gb';
 
-    let token: TokenForm;
+    // let token: TokenForm;
     let tokenString: string;
 
-    this.getTokenJSON()
-    .subscribe(
-      (data) => {
-        (token = data)
-        tokenString = data.Token;
-        localStorage.setItem("Token", data.Token);
-      }
-    );
+    // this.getTokenJSON()
+    // .subscribe(
+    //   (data) => {
+    //     (token = data)
+    //     tokenString = data.Token;
+    //     localStorage.setItem("Token", data.Token);
+    //   }
+    // );
 
     tokenString = localStorage.getItem("Token").toString();
 
@@ -238,17 +238,17 @@ export class HealthResultService {
   loadDiagnosis(id: number, gender: string, age: number): Observable<Diagnosis[]> { // NOT DONE!!!!!
     let baseUrl = 'https://healthservice.priaid.ch/diagnosis?symptoms=';
 
-    let token: TokenForm;
+    // let token: TokenForm;
     let tokenString: string;
 
-    this.getTokenJSON()
-    .subscribe(
-      (data) => {
-        (token = data)
-        tokenString = data.Token;
-        localStorage.setItem("Token", data.Token);
-      }
-    );
+    // this.getTokenJSON()
+    // .subscribe(
+    //   (data) => {
+    //     (token = data)
+    //     tokenString = data.Token;
+    //     localStorage.setItem("Token", data.Token);
+    //   }
+    // );
 
     tokenString = localStorage.getItem("Token").toString();
 
@@ -262,17 +262,17 @@ export class HealthResultService {
     let baseUrl = 'https://healthservice.priaid.ch/redflag?symptomId=';
     let extraArgs = '&format=json&language=en-gb';
 
-    let token: TokenForm;
+    // let token: TokenForm;
     let tokenString: string;
 
-    this.getTokenJSON()
-    .subscribe(
-      (data) => {
-        (token = data)
-        tokenString = data.Token;
-        localStorage.setItem("Token", data.Token);
-      }
-    );
+    // this.getTokenJSON()
+    // .subscribe(
+    //   (data) => {
+    //     (token = data)
+    //     tokenString = data.Token;
+    //     localStorage.setItem("Token", data.Token);
+    //   }
+    // );
 
     tokenString = localStorage.getItem("Token").toString();
 
