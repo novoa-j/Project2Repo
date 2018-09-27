@@ -25,9 +25,10 @@ export class ReviewComponent implements OnInit {
   ngAfterViewInit(){
     let issueIds = document.getElementsByClassName("divIssues");
     if (issueIds.length)
-      
-    for (let i = 0; i < issueIds.length; i++)
-      this.fetchIssue(+issueIds[i].children[2].id);
+      for (let i = 0; i < issueIds.length; i++)
+        this.fetchIssue(+issueIds[i].children[2].id);
+    else 
+      document.getElementsByClassName("jumbotron")[0].innerHTML = "<h3>No previous symptoms to show.</h3>"
   }
 
   populateReviews(){
