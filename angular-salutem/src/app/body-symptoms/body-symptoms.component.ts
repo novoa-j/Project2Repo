@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BodySymptom } from '../symptom';
 import { HealthResultService } from '../services/health-result.service';
+import { BodyLocationsComponent } from '../body-locations/body-locations.component';
 
 @Component({
   selector: 'app-body-symptoms',
@@ -8,7 +9,8 @@ import { HealthResultService } from '../services/health-result.service';
   styleUrls: ['./body-symptoms.component.css']
 })
 export class BodySymptomsComponent implements OnInit {
-
+  
+  // injecting the BodyLocationsComponent because I want the id
   constructor(private healthResultService: HealthResultService) { }
 
   ngOnInit() {
@@ -18,6 +20,7 @@ export class BodySymptomsComponent implements OnInit {
 
   bodySymptoms: BodySymptom[] = [];
 
+  //selectedId: number = this.bodyLocationId.getBodyLocations();
   id: number;
   gender: string;
 
@@ -25,7 +28,7 @@ export class BodySymptomsComponent implements OnInit {
 
   getBodySymptoms(){
     this.changeClicked();
-    this.healthResultService.loadBodySymptoms(this.id, this.convertGender(this.gender)).subscribe((allBodySymptoms) => {this.bodySymptoms = allBodySymptoms});
+    this.healthResultService.loadBodySymptoms(parseInt(localStorage.getItem("bodyId")), this.convertGender(this.gender)).subscribe((allBodySymptoms) => {this.bodySymptoms = allBodySymptoms});
     // console.log("id entered: " + this.id);
     // console.log("gender entered: " + this.gender);
     // console.log("converting gender to: " + this.convertGender(this.gender));

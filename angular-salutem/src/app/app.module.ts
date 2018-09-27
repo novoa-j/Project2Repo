@@ -20,7 +20,7 @@ import { NavComponent } from './nav/nav.component';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { appRoutes } from './routes';
-import { LogoutComponent } from './logout/logout.component';
+
 
 
 @NgModule({
@@ -38,8 +38,7 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     HomePageComponent,
     NavComponent,
-    DashboardComponent,
-    LogoutComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -18,3 +18,31 @@
     </select>
   </div>
 </div>
+
+<div class="container">
+    <div class="jumbotron" id="bodySymptom">
+
+        <label>Gender/Age:</label>
+        <br>
+        <select [(ngModel)] ="gender">
+          <option *ngFor = "let gender of genders" [value] = "gender">
+            {{gender}}
+          </option>
+        </select>
+        <br><br>
+
+      <button id="myButton" class="btn btn-success" (click)="getBodySymptoms()">Get body symptoms!</button>
+
+      <div *ngIf="isClicked">
+        <div *ngFor='let bodySymptom of bodySymptoms'>
+        <br>
+        <p>Id: {{bodySymptom.ID}}<p>
+        <p>Name: {{bodySymptom.Name}}</p>
+        <p>HasRedFlag: {{bodySymptom.HasRedFlag}}<p>
+        <p>HealthSymptomLocationIDs: {{bodySymptom.HealthSymptomLocationIDs}}</p>
+        <p>ProfName: {{bodySymptom.ProfName}}<p>
+        <p>Synonyms: {{bodySymptom.Synonyms}}</p>
+        </div>
+      </div>
+    </div>
+</div>
