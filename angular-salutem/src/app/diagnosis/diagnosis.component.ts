@@ -19,8 +19,6 @@ export class DiagnosisComponent implements OnInit {
   }
 
 
-
-
   isClicked: boolean = false;
 
   diagnoses: Diagnosis[] = [];
@@ -28,7 +26,7 @@ export class DiagnosisComponent implements OnInit {
   //specialisations: Spec[] = [];
   objectkeys = Object.keys;
 
-  id: number;
+  symptomId: number;
   gender: string;
   age: number;
 
@@ -36,17 +34,16 @@ export class DiagnosisComponent implements OnInit {
   currentAccountId: number;
 
 
-
   getDiagnoses(){
+    this.symptomId = parseInt(localStorage.getItem("sympId"));
+    this.gender = localStorage.getItem("CurrentGender");
+    this.age = parseInt(localStorage.getItem("CurrentDateBirth")); // birth year
     this.changeClicked();
-    console.log(Diagnosis);
-    this.healthResultService.loadDiagnosis(this.id, this.gender, this.age).subscribe((allDiagnoses) => {
+    //console.log(Diagnosis);
+    this.healthResultService.loadDiagnosis(this.symptomId, this.gender, this.age).subscribe((allDiagnoses) => {
       this.diagnoses = allDiagnoses;
 
       this.saveDiagnosis(allDiagnoses);
-    
-    
-    
     });
     //this.healthResultService.loadDiagnosis(this.id, this.gender, this.age).subscribe((allSpecialisations) => {this.specialisations = allSpecialisations});
   

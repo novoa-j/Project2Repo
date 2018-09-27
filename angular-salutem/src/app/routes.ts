@@ -7,7 +7,7 @@ import { SpecialisationsComponent } from "./specialisations/specialisations.comp
 import { IssuesComponent } from "./issues/issues.component";
 import { IssueComponent } from "./issue/issue.component";
 import { HomePageComponent } from './home-page/home-page.component';
-import { ProposedSymptomsComponent } from "./proposed-symptoms/proposed-symptoms.component";
+// import { ProposedSymptomsComponent } from "./proposed-symptoms/proposed-symptoms.component";
 import { DiagnosisComponent } from "./diagnosis/diagnosis.component";
 import { ReviewComponent } from "./review/review.component";
 
@@ -21,7 +21,7 @@ export const appRoutes: Routes = [
     { path: 'body-locations', component: BodyLocationsComponent },
     { path: 'issues', component: IssuesComponent },
     { path: 'issue', component: IssueComponent },
-    { path: 'proposed-symptoms', component: ProposedSymptomsComponent },
+    // { path: 'proposed-symptoms', component: ProposedSymptomsComponent },
     { path: 'specialisations', component: SpecialisationsComponent },
     { path: 'diagnosis', component: DiagnosisComponent },
     { path: '**', pathMatch: 'full', redirectTo: '' }

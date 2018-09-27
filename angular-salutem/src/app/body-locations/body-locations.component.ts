@@ -80,13 +80,15 @@ export class BodyLocationsComponent implements OnInit {
   bodySymptoms: BodySymptom[] = [];
 
   //selectedId: number = this.bodyLocationId.getBodyLocations();
-  //id: number;
+  // id: number;
   gender: string;
 
-  genders = ["male", "female", "boy", "girl"];
+  // genders = ["male", "female", "boy", "girl"];
 
   getBodySymptoms(){
     document.getElementById("myButton").removeAttribute("hidden");
+
+    this.gender = localStorage.getItem("CurrentGender")
 
     // this.changeClicked();
     // document.getElementById("myButton").removeAttribute("disabled");

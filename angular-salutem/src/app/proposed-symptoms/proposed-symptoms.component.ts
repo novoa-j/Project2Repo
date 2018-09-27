@@ -1,35 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { HealthResultService } from '../services/health-result.service';
-import { Symptom } from '../symptom';
+// import { Component, OnInit } from '@angular/core';
+// import { HealthResultService } from '../services/health-result.service';
+// import { Symptom } from '../symptom';
 
-@Component({
-  selector: 'app-proposed-symptoms',
-  templateUrl: './proposed-symptoms.component.html',
-  styleUrls: ['./proposed-symptoms.component.css']
-})
-export class ProposedSymptomsComponent implements OnInit {
+// @Component({
+//   selector: 'app-proposed-symptoms',
+//   templateUrl: './proposed-symptoms.component.html',
+//   styleUrls: ['./proposed-symptoms.component.css']
+// })
+// export class ProposedSymptomsComponent implements OnInit {
 
-  constructor(private healthResultService: HealthResultService) { }
+//   constructor(private healthResultService: HealthResultService) { }
 
-  ngOnInit() {
-    document.getElementById("navDiagnosis").setAttribute("disabled","");
-  }
+//   ngOnInit() {
+//     document.getElementById("navDiagnosis").setAttribute("disabled","");
+//   }
 
-  isProposedClicked: boolean = false;
+//   isProposedClicked: boolean = false;
 
-  proposedSymptoms: Symptom[] = [];
+//   proposedSymptoms: Symptom[] = [];
 
-  id: number;
-  gender: string;
-  age: number;
+//   id: number;
+//   gender: string;
+//   age: number;
 
-  getProposedSymptoms(){
-    this.changeClicked();
-    this.healthResultService.loadProposedSymptoms(this.id, this.gender, this.age).subscribe((allProposedSymptoms) => {this.proposedSymptoms = allProposedSymptoms});
-  }
+//   getProposedSymptoms(){
+//     this.changeClicked();
+//     this.healthResultService.loadProposedSymptoms(this.id, this.gender, this.age).subscribe((allProposedSymptoms) => {this.proposedSymptoms = allProposedSymptoms});
+//   }
 
-  changeClicked(){
-    this.isProposedClicked = !this.isProposedClicked;
-  }
+//   changeClicked(){
+//     this.isProposedClicked = !this.isProposedClicked;
+//   }
 
-}
+// }

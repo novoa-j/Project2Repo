@@ -17,9 +17,7 @@ export class IssueComponent implements OnInit {
   }
 
   isClicked: boolean = false;
-
   issue: Issue2;
-
   issueId: number;
 
   getIssue(){

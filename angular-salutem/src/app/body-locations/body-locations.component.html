@@ -3,14 +3,14 @@
 <div class="container">
   <div class="jumbotron">
 
-      <label>Gender/Age:</label>
-      <br>
-      <select [(ngModel)] ="gender">
-        <option *ngFor = "let gender of genders" [value] = "gender">
-          {{gender}}
-        </option>
-      </select>
-      <br><br>
+    <!-- <label>Gender/Age group:</label>
+    <br>
+    <select [(ngModel)] ="gender">
+      <option *ngFor = "let gender of genders" [value] = "gender">
+        {{gender}}
+      </option>
+    </select>
+    <br><br> -->
 
     <select id="bodyLocationSelector" class="form-control" (change)="getBodyLocations()">
       <option value="choose">Choose a body region</option>
@@ -29,7 +29,7 @@
         <div *ngFor='let bodySymptom of bodySymptoms'>
           <br>
           <!-- <p>Id: {{bodySymptom.ID}}<p> -->
-          <p>Name: {{bodySymptom.Name}}</p>
+          <p>Symptom: {{bodySymptom.Name}}</p>
           <!-- <p>HasRedFlag: {{bodySymptom.HasRedFlag}}<p> -->
           <!-- <p>HealthSymptomLocationIDs: {{bodySymptom.HealthSymptomLocationIDs}}</p> -->
           <p>ProfName: {{bodySymptom.ProfName}}<p>

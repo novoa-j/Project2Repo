@@ -1,15 +1,17 @@
 <app-nav></app-nav>
 <br><br><br>
 <div class="container">
+
+  <h4>Here is a rundown of some of the issues you may be having...</h4>
     <div class="jumbotron" id="diagnosis">
 
       <!-- <input class="form-control" placeholder="i.e. 9,10,11" type="text" id="GetDiagnosisSymptomIDs" name="GetDiagnosisSymptomIDs"
         value="147,15623"> -->
 
-        id: <input type="text" [(ngModel)]="id" name="id">
+        <!-- id: <input type="text" [(ngModel)]="id" name="id">
    
         gender: <input type="string" [(ngModel)]="gender" name="gender">
-        age: <input type="number" [(ngModel)]="age" name="age">
+        age: <input type="number" [(ngModel)]="age" name="age"> -->
 
       <button id="myButton" class="btn btn-success" (click)="getDiagnoses()">Get diagnoses!</button>
       <div *ngIf="isClicked">
