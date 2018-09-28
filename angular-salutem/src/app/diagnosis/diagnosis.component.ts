@@ -19,7 +19,6 @@ export class DiagnosisComponent implements OnInit {
     this.useAccount();
   }
 
-
   isClicked: boolean = false;
 
   diagnoses: Diagnosis[] = [];

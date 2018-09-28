@@ -169,10 +169,10 @@ newAccount(){
   getTokenJSON(): Observable<TokenForm> {
     let tokenTimeJSON = this.http.post<TokenForm>('https://authservice.priaid.ch/login', null, {
       headers: new HttpHeaders({
-        'Authorization': 'Bearer Fo3a8_GMAIL_COM_AUT:/O0go1aHzJX3ZBqqHEsu3g==',
+        'Authorization': 'Bearer Pe8d2_GMAIL_COM_AUT:BmZ1xO4haXv5nJd/agjjgw==',// expired: Bearer Fo3a8_GMAIL_COM_AUT:/O0go1aHzJX3ZBqqHEsu3g==
         'Content-Type': 'application/json' // multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
       })
-    }); // no error handling rn
+    }); // no error handling rn 
     return tokenTimeJSON;
   }
 

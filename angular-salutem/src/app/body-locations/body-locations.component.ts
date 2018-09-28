@@ -97,25 +97,22 @@ export class BodyLocationsComponent implements OnInit {
   bodySymptoms: BodySymptom[] = [];
   bodySympId: number;
   saveBodySymptomIdArray: string[] = [];
-  selectedGender: string;
-  numGender: number;
-  //selectedId: number = this.bodyLocationId.getBodyLocations();
-  // id: number;
   gender: string;
   genders = ["male", "female", "boy", "girl"];
   age: number;
 
   getBodySymptoms(){
-    this.numGender=this.convertGender(this.selectedGender);
 
     document.getElementById("bodySymptom").removeAttribute("hidden");
     document.getElementById("questions").setAttribute("hidden", "boolean");
 
-    this.gender = localStorage.getItem("CurrentGender")
+    localStorage.setItem("CurrentGender", this.gender);
+
+    //this.gender = localStorage.getItem("CurrentGender");
 
     // this.changeClicked();
     // document.getElementById("myButton").removeAttribute("disabled");
-    this.healthResultService.loadBodySymptoms(parseInt(localStorage.getItem("subBodyId")), this.numGender)
+    this.healthResultService.loadBodySymptoms(parseInt(localStorage.getItem("subBodyId")), this.convertGender(this.gender))
     .subscribe((allBodySymptoms) => {
         this.bodySymptoms = allBodySymptoms;
         this.populateBodySymptoms(this.bodySymptoms)});
@@ -147,6 +144,7 @@ export class BodyLocationsComponent implements OnInit {
     // string array
     console.log("length " + this.saveBodySymptomIdArray.push(this.bodySympId + ""));
     console.log("current array of symptom ids: " + this.saveBodySymptomIdArray);
+    this.getDiagnoses();
   }
 
   // changeClicked(){
@@ -171,11 +169,14 @@ export class BodyLocationsComponent implements OnInit {
     }
   } // end convert gender
 
-  //------------------------------------Diagnosis----------------------
+  // ----------------------------------------------------------------------------------
+  // Diagnosis:
+
   getDiagnoses() {
+    document.getElementById("diagnosis").removeAttribute("hidden");
     let test:string;
     this.changeClicked();
-    this.healthResultService.loadDiagnosis(this.saveBodySymptomIdArray.toString(), this.selectedGender, this.age).subscribe((allDiagnoses) => {
+    this.healthResultService.loadDiagnosis(this.saveBodySymptomIdArray.toString(), this.gender, this.age).subscribe((allDiagnoses) => {
       this.diagnoses = allDiagnoses;
     });
   }
@@ -194,11 +195,11 @@ export class BodyLocationsComponent implements OnInit {
   }
 
   saveDiagnosis() {
+    //document.getElementById("diagnosisList").removeAttribute("hidden");
     for (let entry of this.diagnoses) {
       console.log(entry.Issue.ID); // 1, "string", false
       this.saveArray(entry.Issue.ID);
     } 
-
   }
 
   saveArray(issueId: number): Observable<Submission> {
@@ -213,6 +214,7 @@ export class BodyLocationsComponent implements OnInit {
     console.log(`{ "accountId" : ${this.currentAccountId}, "symptomId" : ${issueId}, "submissionDate":"2018-01-02"}`);
     return accepted;
   }
+
   useAccount() {
     var currentAccount: any = Account;
     currentAccount = JSON.parse(localStorage.getItem("signedInAccount"));
