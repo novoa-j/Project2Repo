@@ -14,13 +14,13 @@ export class ReviewComponent implements OnInit {
   issues: any[];
 
   ngOnInit() {
-    this.populateReviews();
-    document.getElementById("navBody").setAttribute("disabled","");
-    document.getElementById("navIssues").setAttribute("disabled","");
-    document.getElementById("navIssue").setAttribute("disabled","");
-    document.getElementById("navPropos").setAttribute("disabled","");
-    document.getElementById("navSpec").setAttribute("disabled","");
-    document.getElementById("navDiagnosis").setAttribute("disabled","");
+    // this.populateReviews();
+    // document.getElementById("navBody").setAttribute("disabled","");
+    // document.getElementById("navIssues").setAttribute("disabled","");
+    // document.getElementById("navIssue").setAttribute("disabled","");
+    // document.getElementById("navPropos").setAttribute("disabled","");
+    // document.getElementById("navSpec").setAttribute("disabled","");
+    // document.getElementById("navDiagnosis").setAttribute("disabled","");
   }
   ngAfterViewInit(){
     let issueIds = document.getElementsByClassName("divIssues");

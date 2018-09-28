@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { SymptomsComponent } from './symptoms/symptoms.component';
 import { IssuesComponent } from './issues/issues.component';
 import { SpecialisationsComponent } from './specialisations/specialisations.component';
-import { IssueComponent } from './issue/issue.component';
+// import { IssueComponent } from './issue/issue.component';
 // import { ProposedSymptomsComponent } from './proposed-symptoms/proposed-symptoms.component';
 import { BodyLocationsComponent } from './body-locations/body-locations.component';
 import { DiagnosisComponent } from './diagnosis/diagnosis.component';
@@ -30,7 +30,7 @@ import { ReviewComponent } from './review/review.component';
     SymptomsComponent,
     IssuesComponent,
     SpecialisationsComponent,
-    IssueComponent,
+    // IssueComponent,
     // ProposedSymptomsComponent,
     BodyLocationsComponent,
     DiagnosisComponent,
