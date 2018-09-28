@@ -56,18 +56,11 @@ export class DiagnosisComponent implements OnInit {
   }
 
   saveDiagnosis(){
-    //grab the issue id for each of the diagnoses
-    // this.diagnoses.
-
     for (let entry of this.diagnoses) {
       console.log(entry.Issue.ID); // 1, "string", false
       this.saveArray(entry.Issue.ID);
     }
     
-    // this.diagnoses.forEach(diagnose => {
-    //   console.log(diagnose.Issue.ID);
-    //   // diagnose.Issue.ID;
-    // });
   }
 
 
