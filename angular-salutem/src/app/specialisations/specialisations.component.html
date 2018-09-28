@@ -1,7 +1,7 @@
 <app-nav></app-nav>
 <br><br><br>
 <div class="container">
-  <h4>We suggest that you consult your primary care physician about referrals to one of the following types of specialists...</h4>
+  <h5>We suggest that you consult your primary care physician about referrals to one of the following types of specialists...</h5>
     <div class="jumbotron" id="specialisation">
 
         <!-- id: <input type="number" [(ngModel)]="id" name="id">
@@ -9,13 +9,15 @@
         age: <input type="number" [(ngModel)]="age" name="age"> -->
         
       <button id="myButton" class="btn btn-success" (click)="getSpecialisations()">Get specialisations!</button>
-      <div *ngIf="isClicked">
+      <!-- <div *ngIf="isClicked"> -->
         <div *ngFor='let specialisation of specialisations'>
-        <br>
-        <!-- <p>Id: {{specialisation.ID}}<p> -->
-        <p>Specialisation: {{specialisation.Name}}</p>
-        <p>Accuracy: {{specialisation.Accuracy}}%</p>
-        <p>Ranking: {{specialisation.Ranking}}</p>
+          <br>
+          <!-- <p>Id: {{specialisation.ID}}<p> -->
+          <p>Specialisation: {{specialisation.Name}}</p>
+          <p>Accuracy: {{specialisation.Accuracy}}%</p>
+          <hr>
+          <!-- <p>Ranking: {{specialisation.Ranking}}</p> -->
         </div>
-        </div>
+      <!-- </div> -->
+    </div>
 </div>

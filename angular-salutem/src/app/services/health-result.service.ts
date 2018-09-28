@@ -37,6 +37,7 @@ export class HealthResultService {
   };
 
   // Http POST request to get the token using bearer authorization + hash obtained earlier
+  // no longer being handled here, but kept as reference for testing purposes
   // getTokenJSON(): Observable<TokenForm> {
   //   let tokenTimeJSON = this.http.post<TokenForm>('https://authservice.priaid.ch/login', null, {
   //     headers: new HttpHeaders({

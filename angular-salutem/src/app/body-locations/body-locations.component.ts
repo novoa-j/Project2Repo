@@ -57,7 +57,8 @@ export class BodyLocationsComponent implements OnInit {
         return this.bodyId;
   }
 
- populateSubLocations() {
+  // manipulating html, adding values dynamically from api call
+  populateSubLocations() {
     if ((<HTMLInputElement>document.getElementById("bodyLocationSelector")).value != "choose"){
       let optionsList = document.getElementById("bodySubLocationSelector");
       console.log("optionslist:  " + JSON.stringify(optionsList));
@@ -74,6 +75,7 @@ export class BodyLocationsComponent implements OnInit {
     }
   }
 
+  // getting and saving subBody values
   saveSubBodyLocation() {
     this.subBodyId = parseInt((<HTMLInputElement>document.getElementById("bodySubLocationSelector")).value);
     localStorage.setItem("subBodyId", this.subBodyId + "");
@@ -84,6 +86,7 @@ export class BodyLocationsComponent implements OnInit {
   // ----------------------------------------------------------------------------------
   // Questions:
 
+  // making sure user is okay with revealing age or gender
   loadQuestions(){
     document.getElementById("questions").removeAttribute("hidden");
     document.getElementById("permission").setAttribute("hidden", "boolean");
@@ -107,10 +110,8 @@ export class BodyLocationsComponent implements OnInit {
     document.getElementById("questions").setAttribute("hidden", "boolean");
 
     localStorage.setItem("CurrentGender", this.gender);
+    localStorage.setItem("CurrentDateBirth", this.age + "");
 
-    //this.gender = localStorage.getItem("CurrentGender");
-
-    // this.changeClicked();
     // document.getElementById("myButton").removeAttribute("disabled");
     this.healthResultService.loadBodySymptoms(parseInt(localStorage.getItem("subBodyId")), this.convertGender(this.gender))
     .subscribe((allBodySymptoms) => {
@@ -123,6 +124,7 @@ export class BodyLocationsComponent implements OnInit {
     console.log("the subBodyId:  " + localStorage.getItem("subBodyId"));
   }
 
+  // where we actually add body symptoms dynamically
   populateBodySymptoms(bodySymps: BodySymptom[]) {
     let dataList = document.getElementById("bodySymptomSelector");
     dataList.innerHTML = "";
@@ -134,6 +136,7 @@ export class BodyLocationsComponent implements OnInit {
     });
   }
 
+  // saving body symptom info to localStorage
   saveBodySymptoms() {
     document.getElementById("bodySymptom").removeAttribute("hidden");
     this.bodySympId = parseInt((<HTMLInputElement>document.getElementById("bodySymptomSelector")).value);
@@ -151,6 +154,7 @@ export class BodyLocationsComponent implements OnInit {
   //   this.isClicked = !this.isClicked;
   // }
 
+  // some of the api calls require that gender be numerical, others string
   convertGender(gen: string): number {
     if (gen == "male") {
       return 0;
@@ -172,6 +176,7 @@ export class BodyLocationsComponent implements OnInit {
   // ----------------------------------------------------------------------------------
   // Diagnosis:
 
+  // making sure some elements are visible again
   getDiagnoses() {
     document.getElementById("diagnosis").removeAttribute("hidden");
     let test:string;
@@ -179,6 +184,7 @@ export class BodyLocationsComponent implements OnInit {
     this.healthResultService.loadDiagnosis(this.saveBodySymptomIdArray.toString(), this.gender, this.age).subscribe((allDiagnoses) => {
       this.diagnoses = allDiagnoses;
     });
+    document.getElementById("specialist").removeAttribute("hidden");
   }
 
   // sympArraytoString(){

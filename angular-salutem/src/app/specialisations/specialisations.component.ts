@@ -15,23 +15,14 @@ export class SpecialisationsComponent implements OnInit {
   }
 
   isClicked: boolean = false;
-
   specialisations: Specialisation[] = [];
-
   symptomId: number;
   gender: string;
   age: number;
 
   getSpecialisations(){
-    this.symptomId = parseInt(localStorage.getItem("sympId"));
-    this.gender = localStorage.getItem("CurrentGender");
-    this.age = parseInt(localStorage.getItem("CurrentDateBirth")); // birth year
-    this.changeClicked();
-    this.healthResultService.loadSpecialisations(this.symptomId, this.gender, this.age).subscribe((allSpecialisations) => {this.specialisations = allSpecialisations});
-  }
-
-  changeClicked(){
-    this.isClicked = !this.isClicked;
-  }
-
+    this.healthResultService.loadSpecialisations(parseInt(localStorage.getItem("bodySympId")), localStorage.getItem("CurrentGender"), parseInt(localStorage.getItem("CurrentDateBirth")))
+    .subscribe((allSpecialisations) => {this.specialisations = allSpecialisations;
+      });
+    }
 }

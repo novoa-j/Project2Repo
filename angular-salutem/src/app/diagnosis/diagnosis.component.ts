@@ -81,7 +81,7 @@ useAccount(){
   currentAccount = JSON.parse(localStorage.getItem("signedInAccount"));
   console.log(currentAccount);
   this.currentAccountId=currentAccount.accountId;
-console.log(this.currentAccountId)
+  console.log(this.currentAccountId)
   // localStorage.getItem("signedInAccount")
 }
 
