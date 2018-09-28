@@ -14,7 +14,7 @@ export class ReviewComponent implements OnInit {
   issues: any[];
 
   ngOnInit() {
-    // this.populateReviews();
+    this.populateReviews();
     // document.getElementById("navBody").setAttribute("disabled","");
     // document.getElementById("navIssues").setAttribute("disabled","");
     // document.getElementById("navIssue").setAttribute("disabled","");
