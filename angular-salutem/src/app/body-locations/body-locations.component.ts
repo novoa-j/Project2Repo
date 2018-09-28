@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BodyLocation } from '../body-location';
 import { HealthResultService } from '../services/health-result.service';
 import { BodySymptom, Symptom } from '../symptom';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Diagnosis } from '../diagnosis';
+import { Observable } from 'rxjs';
+import { Submission } from '../submission';
+import { Account } from '../account';
 
 @Component({
   selector: 'app-body-locations',
@@ -10,15 +15,19 @@ import { BodySymptom, Symptom } from '../symptom';
 })
 export class BodyLocationsComponent implements OnInit {
 
-  constructor(private healthResultService: HealthResultService) { }
+  constructor(private http:HttpClient, private healthResultService: HealthResultService) { }
 
   ngOnInit() {
+    this.useAccount();
     this.healthResultService.loadBodyLocations().subscribe((allBodyLocations) => {this.bodyLocations = allBodyLocations});
-    document.getElementById("navIssue").setAttribute("disabled","");
-    document.getElementById("navPropos").setAttribute("disabled","");
-    document.getElementById("navSpec").setAttribute("disabled","");
-    document.getElementById("navDiagnosis").setAttribute("disabled","");
+    // document.getElementById("navIssue").setAttribute("disabled","");
+    // document.getElementById("navPropos").setAttribute("disabled","");
+    // document.getElementById("navSpec").setAttribute("disabled","");
+    // document.getElementById("navDiagnosis").setAttribute("disabled","");
 }
+  diaDiv: boolean = false;
+  diagnoses: Diagnosis[] = [];
+  currentAccountId: number;
 
   bodyLocations: BodyLocation[] = [];
   bodySubLocations: BodyLocation[] = [];
@@ -88,7 +97,8 @@ export class BodyLocationsComponent implements OnInit {
   bodySymptoms: BodySymptom[] = [];
   bodySympId: number;
   saveBodySymptomIdArray: string[] = [];
-
+  selectedGender: string;
+  numGender: number;
   //selectedId: number = this.bodyLocationId.getBodyLocations();
   // id: number;
   gender: string;
@@ -96,6 +106,8 @@ export class BodyLocationsComponent implements OnInit {
   age: number;
 
   getBodySymptoms(){
+    this.numGender=this.convertGender(this.selectedGender);
+
     document.getElementById("bodySymptom").removeAttribute("hidden");
     document.getElementById("questions").setAttribute("hidden", "boolean");
 
@@ -103,7 +115,7 @@ export class BodyLocationsComponent implements OnInit {
 
     // this.changeClicked();
     // document.getElementById("myButton").removeAttribute("disabled");
-    this.healthResultService.loadBodySymptoms(parseInt(localStorage.getItem("subBodyId")), this.convertGender(this.gender))
+    this.healthResultService.loadBodySymptoms(parseInt(localStorage.getItem("subBodyId")), this.numGender)
     .subscribe((allBodySymptoms) => {
         this.bodySymptoms = allBodySymptoms;
         this.populateBodySymptoms(this.bodySymptoms)});
@@ -158,5 +170,56 @@ export class BodyLocationsComponent implements OnInit {
       return 0;
     }
   } // end convert gender
+
+  //------------------------------------Diagnosis----------------------
+  getDiagnoses() {
+    let test:string;
+    this.changeClicked();
+    this.healthResultService.loadDiagnosis(this.saveBodySymptomIdArray.toString(), this.selectedGender, this.age).subscribe((allDiagnoses) => {
+      this.diagnoses = allDiagnoses;
+    });
+  }
+
+  // sympArraytoString(){
+  //   var result="";
+  //   for (let sym of this.saveBodySymptomIdArray.){
+  //     result=result+","+sym;
+  //   }
+  //   console.log(result);
+  //   return result;
+  // }
+
+  changeClicked() {
+    this.diaDiv = !this.diaDiv;
+  }
+
+  saveDiagnosis() {
+    for (let entry of this.diagnoses) {
+      console.log(entry.Issue.ID); // 1, "string", false
+      this.saveArray(entry.Issue.ID);
+    } 
+
+  }
+
+  saveArray(issueId: number): Observable<Submission> {
+    let accepted = this.http.put<Submission>('http://salutem.us-east-2.elasticbeanstalk.com/submissions',
+      // { "accountId": 1, "symptomId": 10, "submissionDate": "2017-04-02" }
+      JSON.parse(`{ "accountId" : ${this.currentAccountId}, "symptomId" : ${issueId}, "submissionDate":"2018-01-02"}`), {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        })
+      }); // no error handling rn
+    // console.log(issueId);
+    console.log(`{ "accountId" : ${this.currentAccountId}, "symptomId" : ${issueId}, "submissionDate":"2018-01-02"}`);
+    return accepted;
+  }
+  useAccount() {
+    var currentAccount: any = Account;
+    currentAccount = JSON.parse(localStorage.getItem("signedInAccount"));
+    console.log(currentAccount);
+    this.currentAccountId = currentAccount.accountId;
+    console.log(this.currentAccountId)
+    // localStorage.getItem("signedInAccount")
+  }
 
 }

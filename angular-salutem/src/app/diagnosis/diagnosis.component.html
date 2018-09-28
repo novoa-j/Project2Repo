@@ -11,6 +11,7 @@
         id: <input type="text" [(ngModel)]="id" name="id">
         gender: <input type="string" [(ngModel)]="gender" name="gender">
         age: <input type="number" [(ngModel)]="age" name="age"> 
+
         <div id="row"> 
           <div id="col">
             <button id="myButton" class="btn btn-success" (click)="getDiagnoses()">Get diagnoses!</button>
@@ -19,6 +20,7 @@
             <button id="saveButton" class="btn btn-danger" (click)="saveDiagnosis()">Save diagnoses</button>
           </div>
         </div>
+
       <div *ngIf="isClicked">
         <div *ngFor='let diagnose of diagnoses'>
           <br>
@@ -35,7 +37,7 @@
             <p>SpecialistID: {{i.SpecialistID}}<p>
         </div>
       </div>
+    </div>
 
-      </div>
     </div>
 </div>

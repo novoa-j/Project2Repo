@@ -19,11 +19,11 @@ export class SymptomsComponent implements OnInit {
       this.populateSymptoms(this.symptoms);
     });
     
-    document.getElementById("navIssues").setAttribute("disabled","");
-    document.getElementById("navIssue").setAttribute("disabled","");
-    document.getElementById("navPropos").setAttribute("disabled","");
-    document.getElementById("navSpec").setAttribute("disabled","");
-    document.getElementById("navDiagnosis").setAttribute("disabled","");
+    // document.getElementById("navIssues").setAttribute("disabled","");
+    // document.getElementById("navIssue").setAttribute("disabled","");
+    // document.getElementById("navPropos").setAttribute("disabled","");
+    // document.getElementById("navSpec").setAttribute("disabled","");
+    // document.getElementById("navDiagnosis").setAttribute("disabled","");
   }
 
   isClicked: boolean = false;
